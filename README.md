@@ -8,6 +8,7 @@ A comprehensive collection of machine learning projects, experiments, and founda
 [Core concepts and official framework tutorials](./foundations/README.md) that form the bedrock of my ML knowledge.
 
 - [**`foundations/pytorch-official-tutorials/`**](./foundations/pytorch-official-tutorials/README.md) - PyTorch fundamentals and workflow
+- [**`foundations/pytorch-coding-challenges/`**](./foundations/pytorch-coding-challenges/README.md) - Hands-on problem solving for PyTorch interview & production readiness
 - [**`foundations/tensorflow-official-tutorials/`**](./foundations/tensorflow-official-tutorials/README.md) - TensorFlow certification and production ML practices
 
 ### 🚧 In Progress
@@ -36,7 +37,3 @@ This portfolio represents my hands-on approach to mastering machine learning eng
 - **✅ Completed**: Core framework tutorials (PyTorch + TensorFlow)
 - **🔄 In Progress**: Reconfiguring private projects and research for public release
 - **📋 Planned**: DSPy projects, LLM fine-tuning, RAG applying, LLM-as-a-judge frameworks
-
----
-
-*Building robust ML systems through deliberate practice and continuous learning.*

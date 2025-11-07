@@ -10,8 +10,15 @@ This section contains my journey through the core concepts and official tutorial
 **Status**: ✅ Complete beginner series  
 **Key Skills**: Tensor operations, custom datasets, neural network architecture, optimization
 
+### PyTorch Coding Challenges  
+**Location**: [`pytorch-coding-challenges/`](./pytorch-coding-challenges/README.md)  
+**Focus**: Systematic practice of core PyTorch patterns via structured problems  
+**Status**: ✅ Completed basic & easy tracks  
+**Key Skills**: Debugging `nn.Module`, quantization (`torchao`), mixed precision, shape tracing, live-coding readiness 
+
 ### TensorFlow  
-**Location**: [`tensorflow-official-tutorials/`](./tensorflow-official-tutorials/README.md)  
+
+**Location**: [`tensorflow-official-tutorials/`](./tensorflow-official-tutorials/README.md)
 **Focus**: Production-ready ML, distributed training, hyperparameter tuning, multiple domains  
 **Status**: ✅ Comprehensive framework coverage  
 **Key Skills**: Distributed training, model persistence, TensorBoard, Keras Tuner, multi-domain applications
@@ -26,8 +33,3 @@ This section contains my journey through the core concepts and official tutorial
 ## 🔄 Progression
 
 These foundations directly support the projects in the main portfolio, providing the building blocks for more complex systems.
-
----
-
-
-*Strong foundations enable ambitious architectures.*

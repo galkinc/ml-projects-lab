@@ -37,5 +37,6 @@ Recommended for those who have a basic understanding of PyTorch and want to prac
 ### [Medium](./medium_tasks/)
 For practitioners looking to deepen their understanding of advanced concepts.
 - [Implement parameter initialization for a CNN (Compare zero, random, Xavier and Kaiming)](./medium_tasks/implement_parameter_initialization_for_cnn.ipynb).
+- [Implement Custom CNN layers: Conv2dCustom and MaxPool2dCustom from scratch)](./medium_tasks/custom_cnn_layers_from_scratch.ipynb).
 
 > 💡 All solutions have been tested for functionality and are accompanied by an explanation if required.

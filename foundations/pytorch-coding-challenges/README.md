@@ -7,15 +7,10 @@ The goal is not just to solve, but to **understand**, **explain** and **prepare 
 
 ## 📚 Question Set
 
-### Structure
-- [`./medium_tasks/`](./medium_tasks/) - individual files for each task
-- [`./easy_tasks/easy_tasks.ipynb`](./easy_tasks/easy_tasks.ipynb) - by one file
-- [`./basic_tasks/basic_tasks.ipynb`](./basic_tasks/basic_tasks.ipynb) - by one file
-
 ### [Medium](./medium_tasks/)
 For practitioners looking to deepen their understanding of advanced concepts.
-- [Implement parameter initialization for a CNN (Compare zero, random, Xavier and Kaiming)](./medium_tasks/implement_parameter_initialization_for_cnn.ipynb).
 - [Implement Custom CNN layers: Conv2dCustom and MaxPool2dCustom from scratch)](./medium_tasks/custom_cnn_layers_from_scratch.ipynb).
+- [Implement parameter initialization for a CNN (Compare zero, random, Xavier and Kaiming)](./medium_tasks/implement_parameter_initialization_for_cnn.ipynb).
 
 ### [Easy](./easy_tasks/easy_tasks.ipynb)
 Recommended for those who have a basic understanding of PyTorch and want to practice their skills.
@@ -38,5 +33,10 @@ Mostly for beginners to get started with PyTorch.
 - Implement a Deep Neural Network
 - Visualize Training Progress with TensorBoard in PyTorch
 - Save and Load Your PyTorch Model
+
+### Structure
+- [`./medium_tasks/`](./medium_tasks/) - individual files for each task
+- [`./easy_tasks/easy_tasks.ipynb`](./easy_tasks/easy_tasks.ipynb) - by one file
+- [`./basic_tasks/basic_tasks.ipynb`](./basic_tasks/basic_tasks.ipynb) - by one file
 
 > 💡 All solutions have been tested for functionality and are accompanied by an explanation if required.

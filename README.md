@@ -7,8 +7,8 @@ A comprehensive collection of machine learning projects, experiments, and founda
 ### 🎯 Foundations
 [Core concepts and official framework tutorials](./foundations/README.md) that form the bedrock of my ML knowledge.
 
-- [**`foundations/pytorch-official-tutorials/`**](./foundations/pytorch-official-tutorials/README.md) - PyTorch fundamentals and workflow
 - [**`foundations/pytorch-coding-challenges/`**](./foundations/pytorch-coding-challenges/README.md) - Hands-on problem solving for PyTorch interview & production readiness
+- [**`foundations/pytorch-official-tutorials/`**](./foundations/pytorch-official-tutorials/README.md) - PyTorch fundamentals and workflow
 - [**`foundations/tensorflow-official-tutorials/`**](./foundations/tensorflow-official-tutorials/README.md) - TensorFlow certification and production ML practices
 
 ### 🚧 In Progress

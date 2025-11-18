@@ -9,6 +9,7 @@ The goal is not just to solve, but to **understand**, **explain** and **prepare 
 
 ### [Medium](./medium_tasks/)
 For practitioners looking to deepen their understanding of advanced concepts.
+- [Implement Custom LSTM from scratch)](./medium_tasks/custom_lstm_layers_from_scratch.ipynb).
 - [Implement Custom CNN layers: Conv2dCustom and MaxPool2dCustom from scratch)](./medium_tasks/custom_cnn_layers_from_scratch.ipynb).
 - [Implement parameter initialization for a CNN (Compare zero, random, Xavier and Kaiming)](./medium_tasks/implement_parameter_initialization_for_cnn.ipynb).
 

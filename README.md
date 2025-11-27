@@ -10,6 +10,7 @@ A comprehensive collection of machine learning projects, experiments, and founda
 - [**`foundations/pytorch-coding-challenges/`**](./foundations/pytorch-coding-challenges/README.md) - Hands-on problem solving for PyTorch interview & production readiness
 - [**`foundations/pytorch-official-tutorials/`**](./foundations/pytorch-official-tutorials/README.md) - PyTorch fundamentals and workflow
 - [**`foundations/tensorflow-official-tutorials/`**](./foundations/tensorflow-official-tutorials/README.md) - TensorFlow certification and production ML practices
+- [**`foundations/yandex_handbook_rus/`**](./foundations/yandex_handbook_rus/README.md)  - Classical ML theory & practice (regression, metrics, CV, pipelines)
 
 ### 🚧 In Progress
 - **Projects** - End-to-end ML systems (coming soon)
@@ -34,6 +35,6 @@ This portfolio represents my hands-on approach to mastering machine learning eng
 
 ## 📈 Progress Tracking
 
-- **✅ Completed**: Core framework tutorials (PyTorch + TensorFlow)
+- **✅ Completed**: Core framework tutorials (PyTorch + TensorFlow) + Yandex ML Handbook Labs 1–2
 - **🔄 In Progress**: Reconfiguring private projects and research for public release
 - **📋 Planned**: DSPy projects, LLM fine-tuning, RAG applying, LLM-as-a-judge frameworks

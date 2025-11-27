@@ -7,7 +7,7 @@ This section contains my journey through the core concepts and official tutorial
 ### PyTorch Coding Challenges  
 **Location**: [`pytorch-coding-challenges/`](./pytorch-coding-challenges/README.md)  
 **Focus**: Systematic practice of core PyTorch patterns via structured problems  
-**Status**: ✅ Completed basic & easy tracks  
+**Status**: ✅ Completed basic & easy tracks & medium tasks: Custom CNN, LSTM and parameter initialization from scratch.
 **Key Skills**: Debugging `nn.Module`, quantization (`torchao`), mixed precision, shape tracing, live-coding readiness 
 
 ### PyTorch
@@ -17,11 +17,16 @@ This section contains my journey through the core concepts and official tutorial
 **Key Skills**: Tensor operations, custom datasets, neural network architecture, optimization
 
 ### TensorFlow  
-
 **Location**: [`tensorflow-official-tutorials/`](./tensorflow-official-tutorials/README.md)
 **Focus**: Production-ready ML, distributed training, hyperparameter tuning, multiple domains  
 **Status**: ✅ Comprehensive framework coverage  
 **Key Skills**: Distributed training, model persistence, TensorBoard, Keras Tuner, multi-domain applications
+
+### Classical ML (Yandex Handbook)
+**Location**: [`yandex_handbook_rus/`](./yandex_handbook_rus/README.md)  
+**Focus**: End-to-end ML workflow: EDA, metrics, preprocessing, linear models, CV, pipelines  
+**Status**: ✅ Labs 1–2 completed  
+**Key Skills**: RMSLE, log-target regression, bias-variance tradeoff, sklearn pipelines, custom estimators  
 
 ## 🎯 Learning Objectives
 

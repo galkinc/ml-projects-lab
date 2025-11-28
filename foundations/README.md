@@ -1,6 +1,7 @@
 # Foundations
 
-This section contains my journey through the core concepts and official tutorials of major machine learning frameworks. Each subdirectory represents a structured learning path with practical implementations.
+This section contains my journey through the core mathematical concepts and official tutorials of major machine learning frameworks. 
+Each subdirectory represents a structured learning path with practical implementations.
 
 ## 📚 Learning Tracks
 
@@ -28,13 +29,17 @@ This section contains my journey through the core concepts and official tutorial
 **Status**: ✅ Labs 1–2 completed  
 **Key Skills**: RMSLE, log-target regression, bias-variance tradeoff, sklearn pipelines, custom estimators  
 
+### Mathematical Foundations
+**Location**: [`theory/`](./theory/README.md)  
+**Focus**: Probability theory, combinatorics, linear algebra, and mathematical statistics  
+**Status**: 🔄 In Progress - Probability & Combinatorics completed  
+**Key Skills**: Probability distributions, conditional probability, expectation/variance, combinatorial patterns, statistical reasoning
+
 ## 🎯 Learning Objectives
 
 - Master framework-specific APIs and best practices
 - Understand the complete ML workflow from data to deployment
 - Build intuition for model architecture and optimization
 - Develop reproducible experimentation habits
+- Connect theoretical concepts with practical implementations
 
-## 🔄 Progression
-
-These foundations directly support the projects in the main portfolio, providing the building blocks for more complex systems.

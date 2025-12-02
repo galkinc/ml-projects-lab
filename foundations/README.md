@@ -1,6 +1,6 @@
 # Foundations
 
-This section contains my journey through the core mathematical concepts and official tutorials of major machine learning frameworks. 
+This section documents my journey through core mathematical concepts, machine learning frameworks, and cloud AI platforms. 
 Each subdirectory represents a structured learning path with practical implementations.
 
 ## 📚 Learning Tracks
@@ -10,6 +10,12 @@ Each subdirectory represents a structured learning path with practical implement
 **Focus**: Systematic practice of core PyTorch patterns via structured problems  
 **Status**: ✅ Completed basic & easy tracks & medium tasks: Custom CNN, LSTM and parameter initialization from scratch.
 **Key Skills**: Debugging `nn.Module`, quantization (`torchao`), mixed precision, shape tracing, live-coding readiness 
+
+### Amazon Bedrock Workshop  
+**Location**: [`amazon-bedrock-workshop/`](./amazon-bedrock-workshop/README.md)  
+**Focus**: Building production-ready AI applications with AWS Bedrock foundation models  
+**Status**: 🔄 In Progress  
+**Key Skills**: Multi-modal AI, prompt engineering, function calling, streaming responses, cost optimization
 
 ### PyTorch
 **Location**: [`pytorch-official-tutorials/`](./pytorch-official-tutorials/README.md)
@@ -32,7 +38,7 @@ Each subdirectory represents a structured learning path with practical implement
 ### Mathematical Foundations
 **Location**: [`theory/`](./theory/README.md)  
 **Focus**: Probability theory, combinatorics, linear algebra, and mathematical statistics  
-**Status**: 🔄 In Progress - Probability & Combinatorics completed  
+**Status**: 🔄 In Progress, low priority - Probability & Combinatorics completed  
 **Key Skills**: Probability distributions, conditional probability, expectation/variance, combinatorial patterns, statistical reasoning
 
 ## 🎯 Learning Objectives
@@ -42,4 +48,3 @@ Each subdirectory represents a structured learning path with practical implement
 - Build intuition for model architecture and optimization
 - Develop reproducible experimentation habits
 - Connect theoretical concepts with practical implementations
-

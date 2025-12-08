@@ -84,27 +84,27 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
   - In the search bar at the top, enter ECR and select [Elastic Container Registry](https://us-east-1.console.aws.amazon.com/ecr/private-registry/repositories?region=us-east-1)
 
 - Step 2: Create a repository
-  1. Click the blue "Create repository" button
-  2. Visibility settings:
-    - Private: Only your account (recommended for production)
-    - Public: Accessible to everyone (like Docker Hub)
-  3. Repository settings:
-    - Repository name: `ai-assistant`
-    - Tag immutability: [✔] Enable - Each deployment is a new tag
-      - Prevents accidental overwriting - the v1.0.0 tag will always point to the same image.
-      - Deployment idempotency - if you deploy version 1.0.0, it will always be the same.
-      - Rollback is easier - you know exactly which image you're rolling back to.
-      - Security - no one can "replace" an existing tag.
-  4. Access settings (IAM):
-    - Leave the default settings for now
-    - Can be configured later in the Permissions section
-  5. Click "Create repository"
+   1. Click the blue "Create repository" button
+   2. Visibility settings:
+      - Private: Only your account (recommended for production)
+      - Public: Accessible to everyone (like Docker Hub)
+   3. Repository settings:
+      - Repository name: `ai-assistant`
+      - Tag immutability: [✔] Enable - Each deployment is a new tag
+         - Prevents accidental overwriting - the v1.0.0 tag will always point to the same image.
+         - Deployment idempotency - if you deploy version 1.0.0, it will always be the same.
+         - Rollback is easier - you know exactly which image you're rolling back to.
+         - Security - no one can "replace" an existing tag.
+   4. Access settings (IAM):
+      - Leave the default settings for now
+      - Can be configured later in the Permissions section
+   5. Click "Create repository"
 
 - Step 3: View the created repository. Once created, you will see:
-   - Management buttons
-   - Repository name (for example: ai-assistant)
-   - Repository URI (for example: 123456789.dkr.ecr.us-east-1.amazonaws.com/ai-assistant)
-   - Tabs: Created at, Tag immutability, Encryption type
+    - Management buttons
+    - Repository name (for example: `ai-assistant`)
+    - Repository URI (for example: `123456789.dkr.ecr.us-east-1.amazonaws.com/ai-assistant`)
+    - Tabs: Created at, Tag immutability, Encryption type
 ---
 
 ## Links

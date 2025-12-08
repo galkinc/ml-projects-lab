@@ -81,7 +81,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
 
 - Step 1: Login to the AWS Console
   - Log in to the [AWS Console](https://aws.amazon.com/console/)
-  - In the search bar at the top, enter ECR and select [Elastic Container Registry](https://us-east-1.console.aws.amazon.com/ecr/private-registry/repositories)
+  - In the search bar at the top, enter ECR and select [Elastic Container Registry](https://us-east-1.console.aws.amazon.com/ecr/private-registry/repositories?region=us-east-1)
 
 - Step 2: Create a repository
   1. Click the blue "Create repository" button

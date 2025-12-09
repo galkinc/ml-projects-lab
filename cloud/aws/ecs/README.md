@@ -27,7 +27,9 @@ A guide to deploying FastAPI applications on Amazon Elastic Container Service (E
 5. Configuring Autodeployment (CI/CD)
 
 ### 1. Preparing a Docker Image
- 
+
+From [the AWS docs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html?spm=a2ty_o01.29997173.0.0.7ecc517160RlCZ#prerequisites): "The security group you select when creating a service [...] must have port 80 open for inbound traffic.". So I used 80 port instead 8080.
+
 Make sure your Dockerfile is correct. 
 
 Note that I use `uv` as a package manager, and my typical Dockerfile might look like this:
@@ -48,11 +50,11 @@ COPY ./app /app
 
 RUN uv sync --locked
 
-EXPOSE 8080
+EXPOSE 80
 ENV PATH="/.venv/bin:$PATH"
 
 ENTRYPOINT ["gunicorn"]
-CMD ["--bind", "0.0.0.0:8080", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "main:app"]
+CMD ["--bind", "0.0.0.0:80", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "main:app"]
 ```
 
 ### 2. Creating an ECR repository
@@ -105,6 +107,244 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     - Repository name (for example: `ai-assistant`)
     - Repository URI (for example: `123456789.dkr.ecr.us-east-1.amazonaws.com/ai-assistant`)
     - Tabs: Created at, Tag immutability, Encryption type
+
+- Step 4: Configure lifecycle policy (optional, but recommended)
+    - Go to the created repository
+    - "Lifecycle policies" tab → "Create policy"
+    - Configure a rule to automatically remove old images:
+    ```json
+    {
+     "rules": [
+       {
+         "rulePriority": 1,
+         "description": "Keep last 30 images (enough for rollbacks)",
+         "selection": {
+           "tagStatus": "any",
+           "countType": "imageCountMoreThan",
+           "countNumber": 30
+         },
+         "action": {
+           "type": "expire"
+         }
+       }
+     ]
+   } 
+    ```
+
+  - Step 5: Task Definition (create manually or via CLI):
+  ```yaml
+  {
+    "family": "ai-assistant-task",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": ["FARGATE"],
+    "cpu": "256",
+    "memory": "512",
+    "containerDefinitions": [
+      {
+        "name": "ai-assistant-container",
+        "image": "placeholder",  // ← Will be changed in CI
+        "portMappings": [{ "containerPort": 80 }],
+        "essential": true,
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/ecs/ai-assistant-app",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        },
+        "healthCheck": {
+          "command": ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"],
+          "interval": 30,
+          "timeout": 5,
+          "retries": 3,
+          "startPeriod": 60
+        }
+      }
+    ]
+  }
+  ```
+
+  - Step 6: Configure GitHub Actions workflow
+  ```yaml
+  name: Deploy to ECS
+
+  on:
+    push:
+      branches: [main]
+  
+  env:
+    AWS_REGION: us-east-1
+    ECR_REPOSITORY: ai-assistant-app
+    ECS_CLUSTER: ai-assistant-cluster
+    ECS_SERVICE: ai-assistant-service
+    TASK_DEFINITION_FAMILY: ai-assistant-task
+    CONTAINER_NAME: ai-assistant-container  # ← container name in the task definition
+  
+  jobs:
+    deploy:
+      timeout-minutes: 30
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+  
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ env.AWS_REGION }}
+  
+        - name: Login to Amazon ECR
+          id: login-ecr
+          uses: aws-actions/amazon-ecr-login@v2
+  
+        - name: Build and push Docker image
+          env:
+            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+            IMAGE_SHA: ${{ github.sha }}
+          run: |
+            docker build -t $ECR_REPOSITORY .
+  
+            # Immutable tag: commit SHA
+            IMAGE_SHA_TAG="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_SHA"
+            docker tag $ECR_REPOSITORY $IMAGE_SHA_TAG
+            docker push $IMAGE_SHA_TAG
+            echo "IMAGE_SHA_TAG=$IMAGE_SHA_TAG" >> $GITHUB_ENV
+            echo "IMAGE_URL=$IMAGE_SHA_TAG" >> $GITHUB_ENV  # for jq
+  
+        - name: Download current task definition
+          run: |
+            aws ecs describe-task-definition \
+              --task-definition $TASK_DEFINITION_FAMILY \
+              --query 'taskDefinition' \
+              --output json > task-definition.json
+  
+        - name: Update image in task definition
+          env:
+            IMAGE_URL: ${{ env.IMAGE_SHA_TAG }}
+          run: |
+            jq --arg IMAGE "$IMAGE_URL" \
+               --arg CONTAINER_NAME "${{ env.CONTAINER_NAME }}" \
+               '
+                 (.containerDefinitions[] | select(.name == $CONTAINER_NAME)).image = $IMAGE
+               ' \
+               task-definition.json > updated-task-definition.json
+  
+        - name: Register new task definition revision
+          id: register-task
+          run: |
+            RESPONSE=$(aws ecs register-task-definition \
+              --cli-input-json file://updated-task-definition.json \
+              --query 'taskDefinition.{family:family,revision:revision}' \
+              --output json)
+            
+            echo "TASK_FAMILY=$(echo $RESPONSE | jq -r '.family')" >> $GITHUB_ENV
+            echo "TASK_REVISION=$(echo $RESPONSE | jq -r '.revision')" >> $GITHUB_ENV
+  
+        - name: Update ECS service to use new task revision
+          run: |
+            aws ecs update-service \
+              --cluster $ECS_CLUSTER \
+              --service $ECS_SERVICE \
+              --task-definition ${{ env.TASK_FAMILY }}:${{ env.TASK_REVISION }} \
+              --force-new-deployment
+  
+        - name: Wait for service stability (optional but recommended)
+          run: |
+            aws ecs wait services-stable \
+              --cluster $ECS_CLUSTER \
+              --services $ECS_SERVICE
+  ```
+
+ IAM Permissions for GitHub Actions (in secrets.AWS_ACCESS_KEY_ID and SECRET):
+ ! resources `:YOUR-ACCOUNT:` - replace with a real AWS account ID:
+ ```
+  - "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:service/ai-assistant-cluster/ai-assistant-service"
+  + "arn:aws:ecs:us-east-1:123456789012:service/ai-assistant-cluster/ai-assistant-service"
+ ```
+ You can get the account ID via CLI: ```aws sts get-caller-identity --query Account --output text```
+ 
+ ```json
+ {
+   "Version": "2012-10-17",
+   "Statement": [
+     {
+       "Effect": "Allow",
+       "Action": [
+         "ecr:GetAuthorizationToken",
+         "ecr:BatchCheckLayerAvailability",
+         "ecr:GetDownloadUrlForLayer",
+         "ecr:GetRepositoryPolicy",
+         "ecr:DescribeRepositories",
+         "ecr:ListImages",
+         "ecr:DescribeImages",
+         "ecr:BatchGetImage",
+         "ecr:InitiateLayerUpload",
+         "ecr:UploadLayerPart",
+         "ecr:CompleteLayerUpload",
+         "ecr:PutImage"
+       ],
+       "Resource": "*"
+     },
+     {
+       "Effect": "Allow",
+       "Action": [
+         "ecs:DescribeTaskDefinition",
+         "ecs:RegisterTaskDefinition",
+         "ecs:UpdateService",
+         "ecs:DescribeServices"
+       ],
+       "Resource": [
+         "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:service/ai-assistant-cluster/ai-assistant-service",
+         "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:task-definition/ai-assistant-task:*"
+       ]
+     },
+     {
+       "Effect": "Allow",
+       "Action": "ecs:DescribeClusters",
+       "Resource": "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:cluster/ai-assistant-cluster"
+     },
+     {
+       "Effect": "Allow",
+       "Action": [
+         "logs:CreateLogStream",
+         "logs:PutLogEvents",
+         "logs:DescribeLogStreams"
+       ],
+       "Resource": "arn:aws:logs:us-east-1:YOUR-ACCOUNT:log-group:/ecs/ai-assistant-app:*"
+     }
+   ]
+ }
+ ```
+
+## Save configuration in your project git  
+Recomendation to save all data in yourgit repo, it could be something like this:
+```
+your-ai-assistant/
+├── .github/
+│   └── workflows/
+│       └── deploy-ecs.yml          ← ✅ your GitHub Actions workflow
+│
+├── infra/
+│   ├── task-definition.json        ← ✅ original Task Definition (for manual import or CI)
+│   └── ecr-lifecycle-policy.json   ← ✅ ECR policy (for reproducibility/IaC in the future)
+│   └── deploy-manual.sh            ← ✅ CLI alternative to CI (for testing)
+│
+├── ops/
+│   └── iam-policy-github-actions.json  ← ✅ IAM policy (for audit and recovery)
+│
+├── app/
+│   ├── main.py                     ← your FastAPI code
+│   ├── Dockerfile                  ← ✅ your docker file
+│   └── requirements.txt
+│
+├── Dockerfile                      ← ✅ (alternative: symlink to app/Dockerfile or here)
+├── README.md                       ← deployment documentation
+└── .gitignore
+```
+
 ---
 
 ## Links

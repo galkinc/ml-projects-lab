@@ -275,60 +275,9 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
   - "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:service/ai-assistant-cluster/ai-assistant-service"
   + "arn:aws:ecs:us-east-1:123456789012:service/ai-assistant-cluster/ai-assistant-service"
  ```
+
  You can get the account ID via CLI: ```aws sts get-caller-identity --query Account --output text```
  
- ```json
- {
-   "Version": "2012-10-17",
-   "Statement": [
-     {
-       "Effect": "Allow",
-       "Action": [
-         "ecr:GetAuthorizationToken",
-         "ecr:BatchCheckLayerAvailability",
-         "ecr:GetDownloadUrlForLayer",
-         "ecr:GetRepositoryPolicy",
-         "ecr:DescribeRepositories",
-         "ecr:ListImages",
-         "ecr:DescribeImages",
-         "ecr:BatchGetImage",
-         "ecr:InitiateLayerUpload",
-         "ecr:UploadLayerPart",
-         "ecr:CompleteLayerUpload",
-         "ecr:PutImage"
-       ],
-       "Resource": "*"
-     },
-     {
-       "Effect": "Allow",
-       "Action": [
-         "ecs:DescribeTaskDefinition",
-         "ecs:RegisterTaskDefinition",
-         "ecs:UpdateService",
-         "ecs:DescribeServices"
-       ],
-       "Resource": [
-         "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:service/ai-assistant-cluster/ai-assistant-service",
-         "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:task-definition/ai-assistant-task:*"
-       ]
-     },
-     {
-       "Effect": "Allow",
-       "Action": "ecs:DescribeClusters",
-       "Resource": "arn:aws:ecs:us-east-1:YOUR-ACCOUNT:cluster/ai-assistant-cluster"
-     },
-     {
-       "Effect": "Allow",
-       "Action": [
-         "logs:CreateLogStream",
-         "logs:PutLogEvents",
-         "logs:DescribeLogStreams"
-       ],
-       "Resource": "arn:aws:logs:us-east-1:YOUR-ACCOUNT:log-group:/ecs/ai-assistant-app:*"
-     }
-   ]
- }
- ```
 
 ## Save configuration in your project git  
 Recomendation to save all data in yourgit repo, it could be something like this:

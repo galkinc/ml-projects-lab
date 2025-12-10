@@ -130,8 +130,17 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
      ]
    } 
     ```
-
-  - Step 5: Task Definition (create manually or via CLI):
+  - Step 5: Create Task Execution Role
+  1. Go to [IAM Console](https://us-east-1.console.aws.amazon.com/iam/home) -> [Roles](https://console.aws.amazon.com/iam/home#/roles) -> Create role
+  2. Trusted entity: AWS service Custom trust policy
+  3. Use case: Elastic Container Service -> Elastic Container Service Task (Allows ECS tasks to call AWS services on your behalf.) -> Next
+  4. click 
+  5. In the next step, add the built-in policies:
+      - AmazonECSTaskExecutionRolePolicy - (required) grants ECR pull and CloudWatch logs permissions
+      - AmazonBedrockFullAccess (or you could create a custom policy, because AmazonBedrockFullAccess in production can be overkill), AmazonS3ReadOnlyAccess, AWSXRayDaemonWriteAccess/AWSXRayWriteOnlyAccess - (optional) if permissions to Bedrock/S3, etc. are required.
+  6. Add name, e.g. `ecsTaskExecutionRole` and description and check permissions. -> create role
+    
+  - Step 6: Task Definition (create manually or via CLI):
   ```yaml
   {
     "family": "ai-assistant-task",
@@ -139,10 +148,12 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     "requiresCompatibilities": ["FARGATE"],
     "cpu": "256",
     "memory": "512",
+    "executionRoleArn": "arn:aws:iam::594541045873:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::594541045873:role/ecsTaskExecutionRole",
     "containerDefinitions": [
       {
         "name": "ai-assistant-container",
-        "image": "placeholder",  // ← Will be changed in CI
+        "image": "placeholder",
         "portMappings": [{ "containerPort": 80 }],
         "essential": true,
         "logConfiguration": {
@@ -154,7 +165,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
           }
         },
         "healthCheck": {
-          "command": ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"],
+          "command": ["CMD-SHELL", "curl -f http://localhost:80 || exit 1"],
           "interval": 30,
           "timeout": 5,
           "retries": 3,
@@ -165,7 +176,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
   }
   ```
 
-  - Step 6: Configure GitHub Actions workflow
+  - Step 7: Configure GitHub Actions workflow
   ```yaml
   name: Deploy to ECS
 
@@ -179,7 +190,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     ECS_CLUSTER: ai-assistant-cluster
     ECS_SERVICE: ai-assistant-service
     TASK_DEFINITION_FAMILY: ai-assistant-task
-    CONTAINER_NAME: ai-assistant-container  # ← container name in the task definition
+    CONTAINER_NAME: ai-assistant-container  # <- container name in the task definition
   
   jobs:
     deploy:

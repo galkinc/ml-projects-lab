@@ -175,8 +175,12 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     ]
   }
   ```
-
-  - Step 7: Configure GitHub Actions workflow
+  - Step 7: Add secrets to GitHub
+    Settings → Secrets and variables → Actions → New repository secret
+     - AWS_ACCESS_KEY_ID
+     - AWS_SECRET_ACCESS_KEY
+    
+  - Step 8: Configure GitHub Actions workflow
   ```yaml
   name: Deploy to ECS
 

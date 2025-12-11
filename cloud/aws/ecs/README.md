@@ -190,12 +190,17 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     -  default (or yours)
     -  be shure that 80 port is open in your security group
 
-- Step 8: Add secrets to GitHub
+- Step 9: Create a log-group
+  - open [CloudWatch](https://us-east-1.console.aws.amazon.com/cloudwatch)
+  - create a log group `/ecs/ai-assistant-app`
+  - optional: choosed retention in dayes equal 30 or month
+
+- Step 10: Add secrets to GitHub
   Settings → Secrets and variables → Actions → New repository secret
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
     
-- Step 9: Configure GitHub Actions workflow
+- Step 11: Configure GitHub Actions workflow
   ```yaml
   name: Deploy to ECS
 

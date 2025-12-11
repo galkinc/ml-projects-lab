@@ -180,7 +180,16 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
   - [Go to ECS Console -> Clusters](https://us-east-1.console.aws.amazon.com/ecs/v2/clusters) -> Create cluster
   - Cluster name: `ai-assistant-cluster`
   - Infrastructure: AWS Fargate
-    
+
+- Step 8: Create a Service
+  - Go to created cluster -> Services -> Create
+  - Task Definition: `ai-assistant-task`
+  - Service name: `ai-assistant-service`
+  - Launch type: FARGATE
+  - Networking
+    -  default (or yours)
+    -  be shure that 80 port is open in your security group
+
 - Step 8: Add secrets to GitHub
   Settings → Secrets and variables → Actions → New repository secret
     - AWS_ACCESS_KEY_ID

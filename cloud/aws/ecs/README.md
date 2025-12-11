@@ -130,7 +130,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
      ]
    } 
     ```
-  - Step 5: Create Task Execution Role
+- Step 5: Create Task Execution Role
   1. Go to [IAM Console](https://us-east-1.console.aws.amazon.com/iam/home) -> [Roles](https://console.aws.amazon.com/iam/home#/roles) -> Create role
   2. Trusted entity: AWS service Custom trust policy
   3. Use case: Elastic Container Service -> Elastic Container Service Task (Allows ECS tasks to call AWS services on your behalf.) -> Next
@@ -140,7 +140,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
       - AmazonBedrockFullAccess (or you could create a custom policy, because AmazonBedrockFullAccess in production can be overkill), AmazonS3ReadOnlyAccess, AWSXRayDaemonWriteAccess/AWSXRayWriteOnlyAccess - (optional) if permissions to Bedrock/S3, etc. are required.
   6. Add name, e.g. `ecsTaskExecutionRole` and description and check permissions. -> create role
     
-  - Step 6: Task Definition (create manually or via CLI):
+- Step 6: Task Definition (create manually or via CLI):
   ```yaml
   {
     "family": "ai-assistant-task",
@@ -175,12 +175,18 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     ]
   }
   ```
-  - Step 7: Add secrets to GitHub
-    Settings → Secrets and variables → Actions → New repository secret
-     - AWS_ACCESS_KEY_ID
-     - AWS_SECRET_ACCESS_KEY
+
+- Step 7: Create a Cluster
+  - [Go to ECS Console -> Clusters](https://us-east-1.console.aws.amazon.com/ecs/v2/clusters) -> Create cluster
+  - Cluster name: `ai-assistant-cluster`
+  - Infrastructure: AWS Fargate
     
-  - Step 8: Configure GitHub Actions workflow
+- Step 8: Add secrets to GitHub
+  Settings → Secrets and variables → Actions → New repository secret
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    
+- Step 9: Configure GitHub Actions workflow
   ```yaml
   name: Deploy to ECS
 

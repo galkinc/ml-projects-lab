@@ -190,7 +190,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
   
   env:
     AWS_REGION: us-east-1
-    ECR_REPOSITORY: ai-assistant-app
+    ECR_REPOSITORY: ai-assistant
     ECS_CLUSTER: ai-assistant-cluster
     ECS_SERVICE: ai-assistant-service
     TASK_DEFINITION_FAMILY: ai-assistant-task

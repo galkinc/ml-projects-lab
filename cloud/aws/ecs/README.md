@@ -55,8 +55,9 @@ RUN uv sync --locked
 EXPOSE 80
 ENV PATH="/.venv/bin:$PATH"
 
-ENTRYPOINT ["gunicorn"]
-CMD ["--bind", "0.0.0.0:80", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "main:app"]
+
+ENTRYPOINT ["uvicorn"]
+CMD ["main:app", "--host", "0.0.0.0", "--port", "80", "--workers", "1"]
 ```
 
 ### 2. Creating an ECR repository

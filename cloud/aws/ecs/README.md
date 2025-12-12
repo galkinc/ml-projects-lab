@@ -140,7 +140,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
       - AmazonBedrockFullAccess (or you could create a custom policy, because AmazonBedrockFullAccess in production can be overkill), AmazonS3ReadOnlyAccess, AWSXRayDaemonWriteAccess/AWSXRayWriteOnlyAccess - (optional) if permissions to Bedrock/S3, etc. are required.
   6. Add name, e.g. `ecsTaskExecutionRole` and description and check permissions. -> create role
     
-- Step 6: Task Definition (create manually or via CLI):
+- Step 6: [Task Definition](https://us-east-1.console.aws.amazon.com/ecs/v2/task-definitions) (create manually or via CLI):
   ```yaml
   {
     "family": "ai-assistant-task",

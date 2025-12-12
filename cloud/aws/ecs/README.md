@@ -28,7 +28,7 @@ A guide to deploying FastAPI applications on Amazon Elastic Container Service (E
 
 ### 1. Preparing a Docker Image
 
-From [the AWS docs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html?spm=a2ty_o01.29997173.0.0.7ecc517160RlCZ#prerequisites): "The security group you select when creating a service [...] must have port 80 open for inbound traffic.". So I used 80 port instead 8080.
+From [the AWS docs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html?spm=a2ty_o01.29997173.0.0.7ecc517160RlCZ#prerequisites): "The security group you select when creating a service [...] must have port 80 open for inbound traffic.". So let us used 80 port instead 8080.
 
 Make sure your Dockerfile is correct. 
 

@@ -37,6 +37,8 @@ Note that I use `uv` as a package manager, and my typical Dockerfile might look 
 ```dockerfile
 FROM python:3.14-slim-bookworm
 
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 ENV PYTHONUNBUFFERED=True
@@ -165,7 +167,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
           }
         },
         "healthCheck": {
-          "command": ["CMD-SHELL", "curl -f http://localhost/health:80 || exit 1"],
+          "command": ["CMD-SHELL", ""curl -fs http://localhost:80/health >/dev/null || exit 1"],
           "interval": 30,
           "timeout": 5,
           "retries": 3,

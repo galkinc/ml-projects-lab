@@ -165,7 +165,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
           }
         },
         "healthCheck": {
-          "command": ["CMD-SHELL", "curl -f http://localhost:80 || exit 1"],
+          "command": ["CMD-SHELL", "curl -f http://localhost/health:80 || exit 1"],
           "interval": 30,
           "timeout": 5,
           "retries": 3,

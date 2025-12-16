@@ -296,6 +296,52 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
               --services $ECS_SERVICE
   ```
 
+ - Step 12:
+   - [Open Load Balancer](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#LoadBalancers:) and chose "Create Load Balancer"
+   - Chose "Application Load Balancer"
+   - Settings:
+     - Name: ai-assistant-alb
+     - Scheme: internet-facing
+     - IP address type: IPv4
+     - VPC: yours VPC (default)
+     - Availability Zones: chose 2+ zones
+   - Define Target Group
+     - Name: ai-assistant-tg
+     - Target type: IP
+     - Protocol: HTTP (HTTPS)
+     - Port: 80
+     - Health check path: /health or /docs
+   - Update ECS Service
+     - ECS → Clusters → your cluster → your service → Update service
+     - Enable Load balancing section:
+       - Add Load Ballancing
+       - Load balancer type: Application Load Balancer
+       - Select ALB: ai-assistant-alb
+       - Listener: 80
+       - Container name: port 80:80
+       - Target group: ai-assistant-tg
+     - Security Groups
+       - Security Group ALB
+         ```json
+         {
+           "Inbound": [
+             { "Protocol": "HTTP", "Port": 80, "Source": "0.0.0.0/0" },
+             { "Protocol": "HTTPS", "Port": 443, "Source": "0.0.0.0/0" }
+           ],
+           "Outbound": [
+             { "Protocol": "All", "Port": "All", "Source": "0.0.0.0/0" }
+           ]
+         }
+         ```
+       - Security Group Tasks
+       ```json
+       {
+         "Inbound": [
+           { "Protocol": "HTTP", "Port": 80, "Source": "Security Group ALB" }
+         ]
+       }
+       ```
+ 
  IAM Permissions for GitHub Actions (in secrets.AWS_ACCESS_KEY_ID and SECRET):
  ! resources `:YOUR-ACCOUNT:` - replace with a real AWS account ID:
  ```
@@ -304,7 +350,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
  ```
 
  You can get the account ID via CLI: ```aws sts get-caller-identity --query Account --output text```
- 
+
 
 ## Save configuration in your project git  
 Recomendation to save all data in yourgit repo, it could be something like this:

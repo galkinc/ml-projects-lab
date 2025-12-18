@@ -1,50 +1,100 @@
 # Foundations
 
-This section documents my journey through core mathematical concepts, machine learning frameworks, and cloud AI platforms. 
-Each subdirectory represents a structured learning path with practical implementations.
+This directory contains **core foundations for machine learning and modern AI systems**.
+It is structured by **levels of abstraction**, from mathematics to frameworks and foundation models.
+Each subdirectory represents a focused knowledge domain with executable code and concrete implementations.
 
-## 📚 Learning Tracks
+---
 
-### PyTorch Coding Challenges  
+## Foundation Models & LLM Internals
+
+### LLM / Transformer Fundamentals
+**Location**: [`llm_fundamentals/`](./llm_fundamentals/README.md)  
+**Scope**: Core building blocks of modern LLMs  
+**Coverage**:
+- Scaled Dot-Product Attention
+- Multi-Head Attention
+- Masking semantics and API contracts
+- PyTorch-aligned implementations  
+**Purpose**: Understand *how* LLMs work internally, not just how to call them
+
+---
+
+## Deep Learning Frameworks
+
+### PyTorch Coding Challenges
 **Location**: [`pytorch-coding-challenges/`](./pytorch-coding-challenges/README.md)  
-**Focus**: Systematic practice of core PyTorch patterns via structured problems  
-**Status**: ✅ Completed basic & easy tracks & medium tasks: Custom CNN, LSTM and parameter initialization from scratch.
-**Key Skills**: Debugging `nn.Module`, quantization (`torchao`), mixed precision, shape tracing, live-coding readiness 
+**Scope**: Low-level PyTorch implementation practice  
+**Coverage**:
+- Custom CNNs and RNNs from scratch
+- Parameter initialization
+- Shape tracing and failure modes  
+**Purpose**: Fluency with `nn.Module` and production-grade debugging
 
-### Amazon Bedrock Workshop  
+### TensorFlow / Keras — Production & Scale
+**Location**: [`tensorflow-official-tutorials/`](./tensorflow-official-tutorials/README.md)  
+**Scope**: Production-oriented deep learning and large-scale training  
+**Coverage**:
+- Distributed training strategies
+- Model serialization and deployment
+- TensorBoard and experiment tracking
+- Hyperparameter tuning with Keras Tuner
+- Multi-domain workflows (vision, NLP, time series)  
+**Purpose**: Understand TensorFlow as an end-to-end production ML framework
+
+### PyTorch - Core & Internals
+**Location**: [`pytorch-official-tutorials/`](./pytorch-official-tutorials/README.md)  
+**Scope**: Core PyTorch mechanics and training workflows  
+**Coverage**:
+- Autograd & backprop
+- Custom datasets and dataloaders
+- Training loops and optimization  
+**Purpose**: Framework-level mastery and debugging competence
+
+---
+
+## Cloud AI Platforms
+
+### Amazon Bedrock
 **Location**: [`amazon-bedrock-workshop/`](./amazon-bedrock-workshop/README.md)  
-**Focus**: Building production-ready AI applications with AWS Bedrock foundation models  
-**Status**: 🔄 In Progress  
-**Key Skills**: Multi-modal AI, prompt engineering, function calling, streaming responses, cost optimization
+**Scope**: Managed foundation models on AWS  
+**Coverage**:
+- Prompt engineering
+- Streaming & function calling
+- Multi-modal workflows
+- Cost-aware inference  
+**Purpose**: Bridge between model internals and production AI systems
 
-### PyTorch
-**Location**: [`pytorch-official-tutorials/`](./pytorch-official-tutorials/README.md)
-**Focus**: Deep learning fundamentals, autograd, training loops, model management  
-**Status**: ✅ Complete beginner series  
-**Key Skills**: Tensor operations, custom datasets, neural network architecture, optimization
+---
 
-### TensorFlow  
-**Location**: [`tensorflow-official-tutorials/`](./tensorflow-official-tutorials/README.md)
-**Focus**: Production-ready ML, distributed training, hyperparameter tuning, multiple domains  
-**Status**: ✅ Comprehensive framework coverage  
-**Key Skills**: Distributed training, model persistence, TensorBoard, Keras Tuner, multi-domain applications
+## 🧠 Core Domains
 
-### Classical ML (Yandex Handbook)
+### Classical Machine Learning (Yandex Handbook)
 **Location**: [`yandex_handbook_rus/`](./yandex_handbook_rus/README.md)  
-**Focus**: End-to-end ML workflow: EDA, metrics, preprocessing, linear models, CV, pipelines  
-**Status**: ✅ Labs 1–2 completed  
-**Key Skills**: RMSLE, log-target regression, bias-variance tradeoff, sklearn pipelines, custom estimators  
+**Scope**: End-to-end classical ML pipeline  
+**Coverage**:
+- EDA & preprocessing
+- Metrics and loss functions
+- Linear & non-linear models
+- Cross-validation & pipelines  
+**Purpose**: Strong baseline intuition before deep learning and LLMs
 
 ### Mathematical Foundations
 **Location**: [`theory/`](./theory/README.md)  
-**Focus**: Probability theory, combinatorics, linear algebra, and mathematical statistics  
-**Status**: 🔄 In Progress, low priority - Probability & Combinatorics completed  
-**Key Skills**: Probability distributions, conditional probability, expectation/variance, combinatorial patterns, statistical reasoning
+**Scope**: Probability theory, combinatorics, linear algebra, mathematical statistics
+**Coverage**:
+- Discrete & continuous distributions
+- Conditional probability & Bayes theorem
+- Expectation, variance, covariance
+- Combinatorial reasoning  
+**Purpose**: Formal grounding for ML models, metrics, and uncertainty reasoning
 
-## 🎯 Learning Objectives
+---
 
-- Master framework-specific APIs and best practices
-- Understand the complete ML workflow from data to deployment
-- Build intuition for model architecture and optimization
-- Develop reproducible experimentation habits
-- Connect theoretical concepts with practical implementations
+## 🎯 Objectives of This Section
+
+- Build **first-principles understanding** of ML and LLM systems
+- Master framework-level APIs and failure modes
+- Connect mathematical theory with executable implementations
+- Treat models as systems, not black boxes
+- Prepare a solid base for MLOps and production deployment

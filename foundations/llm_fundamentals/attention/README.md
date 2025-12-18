@@ -1,5 +1,7 @@
 This is the fundamental LLM/Transformer mechanism, broken down from the bottom up.
 
+-> [Implement_Attention_from_Scratch.ipynb](./Implement_Attention_from_Scratch.ipynb)
+
 1. What is implemented
 	- SDPA (single-head)
 	- causal / padding masks
@@ -15,4 +17,5 @@ This is the fundamental LLM/Transformer mechanism, broken down from the bottom u
 	- is_causal -> attn_mask must be None
 	- attn_mask: True = allowed
 	- dropout behavior
+
 	

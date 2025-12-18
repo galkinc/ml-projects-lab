@@ -55,9 +55,8 @@ RUN uv sync --locked
 EXPOSE 80
 ENV PATH="/.venv/bin:$PATH"
 
-
-ENTRYPOINT ["uvicorn"]
-CMD ["main:app", "--host", "0.0.0.0", "--port", "80", "--workers", "1"]
+ENTRYPOINT ["gunicorn"]
+CMD ["--bind", "0.0.0.0:80", "--workers", "1", "--worker-class", "uvicorn.workers.UvicornWorker", "--graceful-timeout", "30", "--timeout", "60", "main:app"
 ```
 
 ### 2. Creating an ECR repository
@@ -320,6 +319,7 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
        - Listener: 80
        - Container name: port 80:80
        - Target group: ai-assistant-tg
+     - Configure eregistration delay in ALB -> gunicorn graceful-timeout + 20 sec
      - Security Groups
        - Security Group ALB
          ```json

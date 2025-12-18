@@ -3,19 +3,42 @@
 ## 🎯 Introduction
 [Amazon Elastic Container Service (ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html) is a fully managed container orchestrator from AWS.
 
+
+This document describes a **production-ready deployment** of a FastAPI application on **AWS ECS (Fargate)** with:
+- Amazon ECR
+- Application Load Balancer
+- Health checks
+- GitHub Actions CI/CD
+- Gunicorn + Uvicorn workers
+
 ### 🎯 What is this?
 A guide to deploying FastAPI applications on Amazon Elastic Container Service (ECS).
 
 ### 🚀 Who is it for?
-- Developers who need to deploy a FastAPI service
-- Engineers deploying REST APIs in the cloud
-- Anyone who wants to containerize a web application on AWS
+- Backend engineers deploying FastAPI
+- Teams running REST APIs on AWS
+- AI / Bedrock service owners
+- Anyone who needs reproducible ECS deployments
 
 ### 💡 Use cases:
 1. REST API service
 2. Microservice with business logic
 3. Service layer for AWS Bedrock
 4. Web application on FastAPI
+
+---
+
+## 🧱 Architecture (high level)
+
+- Client → ALB
+- ALB → ECS Service (Fargate)
+- ECS Task → FastAPI (Gunicorn + Uvicorn)
+- Logs → CloudWatch
+- Images → ECR
+- CI/CD → GitHub Actions
+
+> ALB health checks are authoritative for traffic routing  
+> ECS container health checks control task lifecycle
 
 ---
 

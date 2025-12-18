@@ -9,7 +9,7 @@ Each subdirectory represents a focused knowledge domain with executable code and
 ## Foundation Models & LLM Internals
 
 ### LLM / Transformer Fundamentals
-**Location**: [`llm_fundamentals/`](./llm_fundamentals/README.md)  
+**Location**: [`llm_fundamentals/`](./llm_fundamentals/attention/Implement_Attention_from_Scratch.ipynb)  
 **Scope**: Core building blocks of modern LLMs  
 **Coverage**:
 - Scaled Dot-Product Attention
@@ -98,3 +98,4 @@ Each subdirectory represents a focused knowledge domain with executable code and
 - Connect mathematical theory with executable implementations
 - Treat models as systems, not black boxes
 - Prepare a solid base for MLOps and production deployment
+

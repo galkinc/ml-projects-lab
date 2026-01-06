@@ -239,7 +239,10 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
     ECS_CLUSTER: ai-assistant-cluster
     ECS_SERVICE: ai-assistant-service
     TASK_DEFINITION_FAMILY: ai-assistant-task
-    CONTAINER_NAME: ai-assistant-container  # <- container name in the task definition
+    CONTAINER_NAME: ai-assistant-container
+    CONTAINER_PORT1: 80
+    TIMEOUT: 1200
+    INTERVAL: 30
   
   jobs:
     deploy:
@@ -273,25 +276,52 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
             docker push $IMAGE_SHA_TAG
             echo "IMAGE_SHA_TAG=$IMAGE_SHA_TAG" >> $GITHUB_ENV
             echo "IMAGE_URL=$IMAGE_SHA_TAG" >> $GITHUB_ENV  # for jq
-  
-        - name: Download current task definition
+        
+        - name: Download current task definition (clean)
           run: |
             aws ecs describe-task-definition \
               --task-definition $TASK_DEFINITION_FAMILY \
               --query 'taskDefinition' \
-              --output json > task-definition.json
-  
+              --output json | \
+            jq '{
+                family,
+                taskRoleArn,
+                executionRoleArn,
+                networkMode,
+                containerDefinitions,
+                volumes: (.volumes // []),
+                placementConstraints: (.placementConstraints // []),
+                requiresCompatibilities: (.requiresCompatibilities // []),
+                cpu,
+                memory,
+                tags: (.tags // []),
+                pidMode,
+                ipcMode,
+                proxyConfiguration,
+                inferenceAccelerators: (.inferenceAccelerators // []),
+                ephemeralStorage
+              }' > task-definition.json
+              
         - name: Update image in task definition
           env:
             IMAGE_URL: ${{ env.IMAGE_SHA_TAG }}
           run: |
             jq --arg IMAGE "$IMAGE_URL" \
                --arg CONTAINER_NAME "${{ env.CONTAINER_NAME }}" \
+               --argjson PORT1 "${{ env.CONTAINER_PORT1 }}" \
                '
-                 (.containerDefinitions[] | select(.name == $CONTAINER_NAME)).image = $IMAGE
+                 (.containerDefinitions[] | select(.name == $CONTAINER_NAME)).image = $IMAGE |
+                 (.containerDefinitions[] | select(.name == $CONTAINER_NAME)).portMappings = [
+                   { "containerPort": $PORT1, "protocol": "tcp" }
+                 ] |
+                 (.containerDefinitions[] | select(.name == $CONTAINER_NAME)) |= del(.healthCheck) |
+                 with_entries(select(.value != null)) |
+                 .containerDefinitions |= map(with_entries(select(.value != null))) |
+                 .containerDefinitions |= map(.portMappings |= map(del(.hostPort?))) |
+                 if (.tags | length) == 0 then del(.tags) else . end
                ' \
                task-definition.json > updated-task-definition.json
-  
+        
         - name: Register new task definition revision
           id: register-task
           run: |
@@ -302,6 +332,12 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
             
             echo "TASK_FAMILY=$(echo $RESPONSE | jq -r '.family')" >> $GITHUB_ENV
             echo "TASK_REVISION=$(echo $RESPONSE | jq -r '.revision')" >> $GITHUB_ENV
+
+        - name: DEBUG - Show Updated Task Definition
+          run: |
+            echo "--- Contents of updated-task-definition.json ---"
+            cat updated-task-definition.json
+            echo "------------------------------------------------"
   
         - name: Update ECS service to use new task revision
           run: |
@@ -313,9 +349,35 @@ docker push your-account.dkr.ecr.your-region.amazonaws.com/ai-assistant:latest
   
         - name: Wait for service stability (optional but recommended)
           run: |
-            aws ecs wait services-stable \
-              --cluster $ECS_CLUSTER \
-              --services $ECS_SERVICE
+            echo "Waiting for deployment to stabilize..."
+            
+            TIMEOUT=${{ env.TIMEOUT }}
+            INTERVAL=${{ env.INTERVAL }}
+            end_time=$(( $(date +%s) + $TIMEOUT ))
+            
+            while [ $(date +%s) -lt $end_time ]; do
+              service_status=$(aws ecs describe-services --cluster $ECS_CLUSTER --services $ECS_SERVICE --query 'services[0]')
+
+              primary_deployment=$(echo $service_status | jq '.deployments[] | select(.status == "PRIMARY")')
+              
+              running_count=$(echo $primary_deployment | jq '.runningCount')
+              desired_count=$(echo $primary_deployment | jq '.desiredCount')
+              
+              echo "PRIMARY deployment status: $running_count running / $desired_count desired..."
+              
+              if [ "$running_count" -eq "$desired_count" ]; then
+                rollout_state=$(echo $primary_deployment | jq -r '.rolloutState')
+                if [ "$rollout_state" == "COMPLETED" ]; then
+                   echo "Deployment stable with $running_count tasks."
+                   exit 0
+                fi
+              fi
+              
+              sleep $INTERVAL
+            done
+            
+            echo "::error::Timeout reached while waiting for service to stabilize."
+            exit 1
   ```
 
  - Step 12:

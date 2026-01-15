@@ -1,6 +1,7 @@
 # IDE & Environment Files
 .idea/
 .vscode/
+*.code-workspace
 
 # Virtual Environments
 .env

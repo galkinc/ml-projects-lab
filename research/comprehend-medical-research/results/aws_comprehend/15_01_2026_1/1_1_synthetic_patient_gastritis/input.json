@@ -1,10 +1,10 @@
 {
   "text": "For the past three days, I have had a burning pain in the upper part of my stomach. The pain gets worse after eating and is sometimes accompanied by nausea. I feel bloated and uncomfortable, especially in the epigastric area. There is no vomiting or fever.",
   "metadata": {
-    "source": "synthetic_patient_doctor_chat",
+    "source_file": "examples/1_synthetic_patient_gastritis.txt",
+    "character_count": 256,
     "language": "en",
-    "character_count": 328,
-    "timestamp": "2026-01-15T14:30:00Z",
+    "timestamp": "2026-01-15T14:04:10.333677+00:00",
     "api_method": "DetectEntitiesV2"
   }
 }

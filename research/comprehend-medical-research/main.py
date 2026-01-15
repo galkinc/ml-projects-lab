@@ -1,97 +1,125 @@
-# main.py
-# This script contains the Python prototype for interacting with AWS Comprehend Medical.
-# It uses pydantic-settings for configuration management.
+import json
+from pathlib import Path
+import logging
+from typing import Any, Dict
+import time
+from datetime import datetime, timezone
 
 import boto3
-import json
-from typing import Any, Dict, Optional
 
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from config import settings
 
-
-class Settings(BaseSettings):
-    aws_access_key_id: Optional[str] = Field(None, alias="AWS_ACCESS_KEY_ID")
-    aws_secret_access_key: Optional[str] = Field(None, alias="AWS_SECRET_ACCESS_KEY")
-    aws_region: str = Field("us-east-1", alias="AWS_REGION")
+logging.Formatter.converter = time.gmtime
+if not settings.boto3_logging:
+    logging.getLogger("botocore").setLevel(logging.WARNING)
+    logging.getLogger("boto3").setLevel(logging.WARNING)
+logging.basicConfig(level=settings.logging_level, format=settings.logging_format)
 
 
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-        case_sensitive=False,
-        extra="ignore",
-    )
+def get_next_run_id(output_root: str, date_str: str) -> int:
+    """Find the next run number for today (e.g., 1, 2, 3...)."""
+    base_path = Path(output_root)
+    existing_runs = [
+        d.name for d in base_path.iterdir()
+        if d.is_dir() and d.name.startswith(date_str)
+    ]
+    if not existing_runs:
+        return 1
+    # Extract run numbers like "15_01_2026_3" -> 3
+    run_numbers = []
+    for name in existing_runs:
+        try:
+            run_num = int(name.split("_")[-1])
+            run_numbers.append(run_num)
+        except ValueError:
+            logging.error(f"Format Error in an existed running name. File name: {name}")
+            continue
+    return max(run_numbers) + 1 if run_numbers else 1
 
-    def get_boto_kwargs(self) -> Dict[str, Any]:
-        if self.aws_access_key_id and self.aws_secret_access_key:
-            return {
-                "aws_access_key_id": self.aws_access_key_id,
-                "aws_secret_access_key": self.aws_secret_access_key,
-                "region_name": self.aws_region,
-            }
-        return {"region_name": self.aws_region}
+def load_examples_dir(dir_path: str = "examples") -> list[tuple[str, str]]:
+    """Load .txt files sorted by name, return [(stem, content), ...]."""
+    examples = []
+    for file in sorted(Path(dir_path).glob("*.txt")):
+        with open(file, encoding="utf-8") as f:
+            examples.append((file.stem, f.read().strip()))
+    return examples
 
-def analyze_text_with_comprehend_medical(client: Any, text: str) -> Optional[Dict[str, Any]]:
-    """
-    Analyzes a text string with AWS Comprehend Medical to detect medical entities.
+def sanitize_name(name: str) -> str:
+    return "".join(c if c.isalnum() or c in ("_", "-") else "_" for c in name)
 
-    :param client: A configured boto3 client for comprehendmedical.
-    :param text: The text to analyze.
-    :return: The response dictionary from Comprehend Medical or None on error.
-    """
-    try:
-        print("Calling DetectEntitiesV2...")
-        response = client.detect_entities_v2(Text=text)
-        print("Successfully received response.")
-        return response
-    except Exception as e:
-        print(f"Error during API call: {e}")
-        return None
+def save_artifacts(
+    example_name: str,
+    index: int,
+    text: str,
+    response: Dict[Any, Any],
+    experiment_dir: Path
+):
+    """Save input.json and output.json into a subfolder named {index}_{example_name}."""
+    safe_name = sanitize_name(example_name)
+    out_dir = experiment_dir / f"{index}_{safe_name}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    input_data = {
+        "text": text,
+        "metadata": {
+            "source_file": f"examples/{example_name}.txt",
+            "character_count": len(text),
+            "language": "en",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "api_method": "DetectEntitiesV2"
+        }
+    }
+
+    with open(out_dir / "input.json", "w", encoding="utf-8") as f:
+        json.dump(input_data, f, indent=2, ensure_ascii=False)
+
+    with open(out_dir / "output.json", "w", encoding="utf-8") as f:
+        json.dump(response, f, indent=2, default=str)
+
+    logging.info(f"Saved: {out_dir}")
 
 
 def main():
-    """
-    Main function to initialize settings, create a client, and run the analysis.
-    """
-    print("Initializing settings...")
-    settings = Settings()
+    if not Path(settings.examples_path).exists():
+        logging.error(f"Examples directory not found: {settings.examples_path}")
+        return
+    
+    logging.info("Initializing settings...")
+    
+    # === Prepare experiment directory ===
+    today = datetime.now().strftime("%d_%m_%Y")  # e.g., "15_01_2026"
+    output_root = Path(settings.aws_comp_output_path)
+    run_id = get_next_run_id(output_root, today)
+    experiment_dir = output_root / f"{today}_{run_id}"
 
-    # Example text from a hypothetical patient-doctor chat
-    sample_text = (
-        "For the past three days, I have had a burning pain in the upper part of my stomach. "
-        "The pain gets worse after eating and is sometimes accompanied by nausea. "
-        "I feel bloated and uncomfortable, especially in the epigastric area. "
-        "There is no vomiting or fever."
-    )
-
-    print(f"Analyzing text: \n---\n{sample_text}\n---")
+    logging.info(f"Starting experiment: {experiment_dir.name}")
+    
+    examples = load_examples_dir()
+    if not examples:
+        logging.warning(f"No .txt files found in {settings.examples_path}/")
+        return
 
     try:
         boto_kwargs = settings.get_boto_kwargs()
-        # For this prototype, we ensure keys are present for local execution
-        if "aws_access_key_id" not in boto_kwargs:
-            print("Error: AWS credentials not found. Please create a .env file with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.")
-            return
-
         client = boto3.client("comprehendmedical", **boto_kwargs)
-        
-        comprehend_response = analyze_text_with_comprehend_medical(client, sample_text)
 
-        if comprehend_response and "Entities" in comprehend_response:
-            print("\n--- Analysis Results ---")
-            # Pretty-print the JSON response of entities
-            print(json.dumps(comprehend_response["Entities"], indent=4, default=str))
+        for idx, (name, text) in enumerate(examples, start=1):
+            logging.info(f"Processing [{idx}/{len(examples)}]: {name}")
 
-            print(f"\nCharacter count: {len(sample_text)}")
-            # Note: Pricing is based on characters, which is useful for cost estimation.
-        elif comprehend_response:
-            print("\n--- Full Response (No Entities Found) ---")
-            print(json.dumps(comprehend_response, indent=4, default=str))
+            if len(text) > settings.aws_comp_limit:  # AWS Comprehend Medical limit
+                logging.warning(f"Text too long ({len(text)} chars). Truncating to 10KB.")
+                text = text[:settings.aws_comp_limit]
+
+            try:
+                response = client.detect_entities_v2(Text=text)
+                save_artifacts(name, idx, text, response, experiment_dir)
+            except Exception as e:
+                logging.error(f"Failed on {name}: {e}")
+
+        logging.info(f"Experiment completed. Results in: {experiment_dir}")
 
     except Exception as e:
-        print(f"An unexpected error occurred in main: {e}")
-
+        logging.error(f"An unexpected error occurred in main: {e}")
 
 if __name__ == "__main__":
     main()

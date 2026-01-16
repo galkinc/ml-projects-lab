@@ -1,0 +1,282 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "BeginOffset": 8,
+      "EndOffset": 22,
+      "Score": 0.6603351831436157,
+      "Text": "last two weeks",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Traits": [],
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.6270833611488342,
+          "RelationshipType": "OVERLAP",
+          "Id": 3,
+          "BeginOffset": 53,
+          "EndOffset": 60,
+          "Text": "worried",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.8203471899032593
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": 1,
+      "BeginOffset": 8,
+      "EndOffset": 22,
+      "Score": 0.6603351831436157,
+      "Text": "last two weeks",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Traits": [],
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "OVERLAP",
+          "Id": 4,
+          "BeginOffset": 65,
+          "EndOffset": 72,
+          "Text": "on edge",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.6248409748077393
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "BeginOffset": 53,
+      "EndOffset": 60,
+      "Score": 0.7613970637321472,
+      "Text": "worried",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "RelationshipType": "QUALITY",
+          "Id": 2,
+          "BeginOffset": 42,
+          "EndOffset": 52,
+          "Text": "constantly",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "BeginOffset": 65,
+      "EndOffset": 72,
+      "Score": 0.5971075296401978,
+      "Text": "on edge",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6248409748077393
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "BeginOffset": 81,
+      "EndOffset": 97,
+      "Score": 0.877546489238739,
+      "Text": "trouble sleeping",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9214484095573425
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "BeginOffset": 105,
+      "EndOffset": 133,
+      "Score": 0.5971075296401978,
+      "Text": "wake up with racing thoughts",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.5296252369880676
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "BeginOffset": 160,
+      "EndOffset": 165,
+      "Score": 0.8435389995574951,
+      "Text": "heart",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Traits": []
+    },
+    {
+      "Id": 9,
+      "BeginOffset": 160,
+      "EndOffset": 178,
+      "Score": 0.8617406487464905,
+      "Text": "heart palpitations",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9013108015060425
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.6270833611488342,
+          "RelationshipType": "QUALITY",
+          "Id": 7,
+          "BeginOffset": 139,
+          "EndOffset": 148,
+          "Text": "sometimes",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": []
+        },
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.8435389995574951,
+          "RelationshipScore": 0.8534350991249084,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 8,
+          "BeginOffset": 160,
+          "EndOffset": 165,
+          "Text": "heart",
+          "Category": "ANATOMY",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "BeginOffset": 188,
+      "EndOffset": 196,
+      "Score": 0.6603351831436157,
+      "Text": "feel sad",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.6248409748077393
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6768204569816589
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "BeginOffset": 206,
+      "EndOffset": 222,
+      "Score": 0.7172441482543945,
+      "Text": "easily irritable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.7299559712409973
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "BeginOffset": 213,
+      "EndOffset": 222,
+      "Score": 0.9350614547729492,
+      "Text": "irritable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "QUALITY",
+          "Id": 13,
+          "BeginOffset": 206,
+          "EndOffset": 212,
+          "Text": "easily",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "BeginOffset": 255,
+      "EndOffset": 268,
+      "Score": 0.7950295805931091,
+      "Text": "panic attacks",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.5296252369880676
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.8203471899032593
+        }
+      ]
+    }
+  ],
+  "UnmappedAttributes": [],
+  "ModelVersion": "3.0.0",
+  "ResponseMetadata": {
+    "RequestId": "ed85881e-2b32-4af3-954f-ef5962521cd7",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "ed85881e-2b32-4af3-954f-ef5962521cd7",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "3860",
+      "date": "Fri, 16 Jan 2026 11:29:58 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

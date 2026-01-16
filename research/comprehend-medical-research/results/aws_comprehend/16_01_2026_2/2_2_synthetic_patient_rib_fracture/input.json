@@ -1,0 +1,10 @@
+{
+  "text": "I fell off my bike yesterday and landed on my right side. Now I have sharp, stabbing pain in my right chest that gets worse when I take a deep breath or cough. There is no shortness of breath, but I feel tender to touch over the 5th rib. No history of osteoporosis.",
+  "metadata": {
+    "source_file": "examples/2_synthetic_patient_rib_fracture.txt",
+    "character_count": 265,
+    "language": "en",
+    "timestamp": "2026-01-16T11:30:09.432223+00:00",
+    "api_method": "icd10"
+  }
+}

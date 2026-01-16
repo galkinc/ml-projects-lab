@@ -1,0 +1,10 @@
+{
+  "text": "For the last two weeks, I've been feeling constantly worried and on edge. I have trouble sleeping, often wake up with racing thoughts, and sometimes experience heart palpitations. I don't feel sad, but I'm easily irritable and avoid social gatherings. No panic attacks reported.",
+  "metadata": {
+    "source_file": "examples/3_synthetic_patient_anxiety_disorder.txt",
+    "character_count": 278,
+    "language": "en",
+    "timestamp": "2026-01-16T14:20:03.310356+00:00",
+    "api_method": "snomedct"
+  }
+}

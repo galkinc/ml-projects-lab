@@ -1,0 +1,642 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "Text": "fell off",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 2,
+      "EndOffset": 10,
+      "Attributes": [
+        {
+          "Category": "ANATOMY",
+          "Type": "DIRECTION",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "DIRECTION",
+          "Id": 3,
+          "BeginOffset": 46,
+          "EndOffset": 56,
+          "Text": "right side",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Right sided (qualifier value)",
+              "Code": "264180000",
+              "Score": 0.45261719822883606
+            },
+            {
+              "Description": "Right (qualifier value)",
+              "Code": "24028007",
+              "Score": 0.2061564028263092
+            },
+            {
+              "Description": "Structure of right side of abdomen (body structure)",
+              "Code": "415994006",
+              "Score": 0.04810217395424843
+            },
+            {
+              "Description": "Structure of right side of trunk (body structure)",
+              "Code": "39132006",
+              "Score": 0.0381992906332016
+            },
+            {
+              "Description": "Right direction (qualifier value)",
+              "Code": "272138001",
+              "Score": 0.035118985921144485
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.5296252369880676
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Fall from one level to another (event)",
+          "Code": "242408008",
+          "Score": 0.009413656778633595
+        },
+        {
+          "Description": "Fall (event)",
+          "Code": "1912002",
+          "Score": 0.009146668016910553
+        },
+        {
+          "Description": "Fall on concrete (event)",
+          "Code": "429621003",
+          "Score": 0.007621430326253176
+        },
+        {
+          "Description": "Fall on same level (event)",
+          "Code": "33036003",
+          "Score": 0.007356265094131231
+        },
+        {
+          "Description": "Fall from off-road land motor vehicle (event)",
+          "Code": "214733004",
+          "Score": 0.0068069640547037125
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 85,
+      "EndOffset": 89,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "QUALITY",
+          "Id": 4,
+          "BeginOffset": 69,
+          "EndOffset": 74,
+          "Text": "sharp",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Sharp pain (finding)",
+              "Code": "8708008",
+              "Score": 0.06867668032646179
+            },
+            {
+              "Description": "Sharp sensation quality (qualifier value)",
+              "Code": "410707003",
+              "Score": 0.03523161634802818
+            },
+            {
+              "Description": "Wound edge sharp (finding)",
+              "Code": "449750009",
+              "Score": 0.014287413097918034
+            },
+            {
+              "Description": "Sharpened thinking (finding)",
+              "Code": "247622009",
+              "Score": 0.009146632626652718
+            },
+            {
+              "Description": "Sharp impact (physical force)",
+              "Code": "1162998008",
+              "Score": 0.008964696899056435
+            }
+          ]
+        },
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.7172441482543945,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "QUALITY",
+          "Id": 5,
+          "BeginOffset": 76,
+          "EndOffset": 84,
+          "Text": "stabbing",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Stabbing pain (finding)",
+              "Code": "55145008",
+              "Score": 0.30755946040153503
+            },
+            {
+              "Description": "Stabbing sensation quality (qualifier value)",
+              "Code": "410706007",
+              "Score": 0.15181057155132294
+            },
+            {
+              "Description": "Stabbing self (finding)",
+              "Code": "284759005",
+              "Score": 0.06368427723646164
+            },
+            {
+              "Description": "Stringing (qualifier value)",
+              "Code": "263885002",
+              "Score": 0.04698527231812477
+            },
+            {
+              "Description": "Stab wound of chest (disorder)",
+              "Code": "283473009",
+              "Score": 0.04210187867283821
+            }
+          ]
+        },
+        {
+          "Category": "ANATOMY",
+          "Type": "DIRECTION",
+          "Score": 0.821601390838623,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "DIRECTION",
+          "Id": 7,
+          "BeginOffset": 96,
+          "EndOffset": 101,
+          "Text": "right",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Right (qualifier value)",
+              "Code": "24028007",
+              "Score": 0.7598426938056946
+            },
+            {
+              "Description": "Right sided (qualifier value)",
+              "Code": "264180000",
+              "Score": 0.003392568090930581
+            },
+            {
+              "Description": "Right anterior (qualifier value)",
+              "Code": "264176005",
+              "Score": 0.0010973754106089473
+            },
+            {
+              "Description": "Superior (qualifier value)",
+              "Code": "264217000",
+              "Score": 0.0010936016915366054
+            },
+            {
+              "Description": "Remote (qualifier value)",
+              "Code": "5686001",
+              "Score": 0.0006563603528775275
+            }
+          ]
+        },
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.8435389995574951,
+          "RelationshipScore": 0.8534350991249084,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 8,
+          "BeginOffset": 96,
+          "EndOffset": 107,
+          "Text": "right chest",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Structure of right half of chest wall (body structure)",
+              "Code": "771319006",
+              "Score": 0.03242705762386322
+            },
+            {
+              "Description": "Right thorax structure (body structure)",
+              "Code": "51872008",
+              "Score": 0.0254809632897377
+            },
+            {
+              "Description": "Thoracic structure (body structure)",
+              "Code": "51185008",
+              "Score": 0.015645191073417664
+            },
+            {
+              "Description": "Right (qualifier value)",
+              "Code": "24028007",
+              "Score": 0.010687382891774178
+            },
+            {
+              "Description": "Right breast structure (body structure)",
+              "Code": "73056007",
+              "Score": 0.009050370194017887
+            }
+          ]
+        },
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "QUALITY",
+          "Id": 9,
+          "BeginOffset": 113,
+          "EndOffset": 158,
+          "Text": "gets worse when I take a deep breath or cough",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Difficulty taking deep breaths (finding)",
+              "Code": "289100008",
+              "Score": 0.11183471232652664
+            },
+            {
+              "Description": "Breath smells unpleasant (finding)",
+              "Code": "79879001",
+              "Score": 0.06201452016830444
+            },
+            {
+              "Description": "Breathing painful (finding)",
+              "Code": "75483001",
+              "Score": 0.05865616723895073
+            },
+            {
+              "Description": "Deep breathing (finding)",
+              "Code": "289123006",
+              "Score": 0.05398578196763992
+            },
+            {
+              "Description": "Breath symptom (finding)",
+              "Code": "161956003",
+              "Score": 0.05378023162484169
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Right sided chest pain (finding)",
+          "Code": "285386001",
+          "Score": 0.23238907754421234
+        },
+        {
+          "Description": "Chest pain (finding)",
+          "Code": "29857009",
+          "Score": 0.22130008041858673
+        },
+        {
+          "Description": "Pain radiating to right side of chest (finding)",
+          "Code": "427252003",
+          "Score": 0.09341243654489517
+        },
+        {
+          "Description": "Chest wall pain (finding)",
+          "Code": "102588006",
+          "Score": 0.07056735455989838
+        },
+        {
+          "Description": "Pain (finding)",
+          "Code": "22253000",
+          "Score": 0.04676983132958412
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Text": "right chest",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.8435389995574951,
+      "BeginOffset": 96,
+      "EndOffset": 107,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Structure of right half of chest wall (body structure)",
+          "Code": "771319006",
+          "Score": 0.03242705762386322
+        },
+        {
+          "Description": "Right thorax structure (body structure)",
+          "Code": "51872008",
+          "Score": 0.0254809632897377
+        },
+        {
+          "Description": "Thoracic structure (body structure)",
+          "Code": "51185008",
+          "Score": 0.015645191073417664
+        },
+        {
+          "Description": "Right (qualifier value)",
+          "Code": "24028007",
+          "Score": 0.010687382891774178
+        },
+        {
+          "Description": "Right breast structure (body structure)",
+          "Code": "73056007",
+          "Score": 0.009050370194017887
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Text": "shortness of breath",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9201511740684509,
+      "BeginOffset": 172,
+      "EndOffset": 191,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.6248409748077393
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Dyspnea (finding)",
+          "Code": "267036007",
+          "Score": 0.37512150406837463
+        },
+        {
+          "Description": "Platypnea (finding)",
+          "Code": "30744009",
+          "Score": 0.017023026943206787
+        },
+        {
+          "Description": "Shallow breathing (finding)",
+          "Code": "386616007",
+          "Score": 0.014782850630581379
+        },
+        {
+          "Description": "Tachypnea (finding)",
+          "Code": "271823003",
+          "Score": 0.012841363437473774
+        },
+        {
+          "Description": "Apnea (finding)",
+          "Code": "1023001",
+          "Score": 0.010611061006784439
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": "tender to touch over",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 204,
+      "EndOffset": 224,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Tenderness (finding)",
+          "Code": "247348008",
+          "Score": 0.2273949235677719
+        },
+        {
+          "Description": "Rib tender (finding)",
+          "Code": "298740004",
+          "Score": 0.1536637246608734
+        },
+        {
+          "Description": "Thoracic spine - tender (finding)",
+          "Code": "298578004",
+          "Score": 0.14036662876605988
+        },
+        {
+          "Description": "Sternum tender (finding)",
+          "Code": "298729007",
+          "Score": 0.09156566113233566
+        },
+        {
+          "Description": "Tender point (finding)",
+          "Code": "417009006",
+          "Score": 0.07157979160547256
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "Text": "tender to touch over the 5th rib",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 204,
+      "EndOffset": 236,
+      "Attributes": [
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 13,
+          "BeginOffset": 229,
+          "EndOffset": 236,
+          "Text": "5th rib",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Bone structure of fifth rib (body structure)",
+              "Code": "15339008",
+              "Score": 0.13495440781116486
+            },
+            {
+              "Description": "Bone structure of fourth rib (body structure)",
+              "Code": "25523003",
+              "Score": 0.041076645255088806
+            },
+            {
+              "Description": "Head of fifth rib structure (body structure)",
+              "Code": "14871003",
+              "Score": 0.032733168452978134
+            },
+            {
+              "Description": "Structure of surface of fifth rib (body structure)",
+              "Code": "360937002",
+              "Score": 0.02902531996369362
+            },
+            {
+              "Description": "Structure of upper border of fifth rib (body structure)",
+              "Code": "367997003",
+              "Score": 0.0255558080971241
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Rib tender (finding)",
+          "Code": "298740004",
+          "Score": 0.1422714740037918
+        },
+        {
+          "Description": "Tenderness (finding)",
+          "Code": "247348008",
+          "Score": 0.11334743350744247
+        },
+        {
+          "Description": "Thoracic spine - tender (finding)",
+          "Code": "298578004",
+          "Score": 0.08959078043699265
+        },
+        {
+          "Description": "Sternum tender (finding)",
+          "Code": "298729007",
+          "Score": 0.0758509635925293
+        },
+        {
+          "Description": "Tender point (finding)",
+          "Code": "417009006",
+          "Score": 0.0470336377620697
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "Text": "5th rib",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 229,
+      "EndOffset": 236,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Bone structure of fifth rib (body structure)",
+          "Code": "15339008",
+          "Score": 0.13495440781116486
+        },
+        {
+          "Description": "Bone structure of fourth rib (body structure)",
+          "Code": "25523003",
+          "Score": 0.041076645255088806
+        },
+        {
+          "Description": "Head of fifth rib structure (body structure)",
+          "Code": "14871003",
+          "Score": 0.032733168452978134
+        },
+        {
+          "Description": "Structure of surface of fifth rib (body structure)",
+          "Code": "360937002",
+          "Score": 0.02902531996369362
+        },
+        {
+          "Description": "Structure of upper border of fifth rib (body structure)",
+          "Code": "367997003",
+          "Score": 0.0255558080971241
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "osteoporosis",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 252,
+      "EndOffset": 264,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.8530592322349548
+        },
+        {
+          "Name": "DIAGNOSIS",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Osteoporosis (disorder)",
+          "Code": "64859006",
+          "Score": 0.8442370891571045
+        },
+        {
+          "Description": "History of osteoporosis (situation)",
+          "Code": "473120007",
+          "Score": 0.38703131675720215
+        },
+        {
+          "Description": "Osteosclerosis (disorder)",
+          "Code": "49347007",
+          "Score": 0.08668490499258041
+        },
+        {
+          "Description": "Osteodystrophy (disorder)",
+          "Code": "12010005",
+          "Score": 0.06341526657342911
+        },
+        {
+          "Description": "Primary osteoporosis (disorder)",
+          "Code": "276661002",
+          "Score": 0.05892953649163246
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20220301",
+  "SNOMEDCTDetails": {
+    "Edition": "US",
+    "Language": "en",
+    "VersionDate": "20220301"
+  },
+  "Characters": {
+    "OriginalTextCharacters": 265
+  },
+  "ResponseMetadata": {
+    "RequestId": "bb0d509a-adbf-475d-8bca-72fdf74b92d0",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "bb0d509a-adbf-475d-8bca-72fdf74b92d0",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "11058",
+      "date": "Fri, 16 Jan 2026 14:19:55 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

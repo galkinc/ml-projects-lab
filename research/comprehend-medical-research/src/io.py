@@ -19,7 +19,8 @@ def save_artifacts(
     text: str,
     response: dict,
     experiment_dir: Path,
-    examples_root_path: str
+    examples_root_path: str,
+    api_method: str
 ):
     safe_name = sanitize_name(example_name)
     out_dir = experiment_dir / f"{index}_{safe_name}"
@@ -32,7 +33,7 @@ def save_artifacts(
             "character_count": len(text),
             "language": "en",
             "timestamp": datetime.now(timezone.utc).isoformat(),
-            "api_method": "DetectEntitiesV2"
+            "api_method": api_method
         }
     }
 

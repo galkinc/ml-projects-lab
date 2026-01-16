@@ -4,7 +4,7 @@
     "source_file": "examples/2_synthetic_patient_rib_fracture.txt",
     "character_count": 265,
     "language": "en",
-    "timestamp": "2026-01-16T11:29:57.892198+00:00",
-    "api_method": "entities"
+    "timestamp": "2026-01-16T11:30:18.816917+00:00",
+    "api_method": "rxnorm"
   }
 }

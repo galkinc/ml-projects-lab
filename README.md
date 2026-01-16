@@ -23,6 +23,16 @@ Focus:
 - FastAPI-based AI services
 - Infrastructure reproducibility
 
+### 🔬 Research & Experiments
+Applied research, prototypes, and comparative analysis of AI/ML services and techniques.
+
+-> [AWS Comprehend Medical Analysis](./research/comprehend-medical-research/README.md): The full analysis **[aws_comprehend_analysis.md](./research/comprehend-medical-research/aws_comprehend_analysis.md) 
+
+Covers:
+- In-depth analysis of AWS Comprehend Medical APIs (`DetectEntitiesV2`, `InferICD10CM`, etc.).
+- Use cases, limitations, and side-by-side output comparisons.
+- A reusable, CLI-based framework for running reproducible experiments.
+
 ## 🛠 Technical Stack
 
 - **Frameworks**: PyTorch, TensorFlow, Keras  

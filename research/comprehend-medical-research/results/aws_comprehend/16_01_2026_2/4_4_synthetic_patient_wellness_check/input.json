@@ -4,7 +4,7 @@
     "source_file": "examples/4_synthetic_patient_wellness_check.txt",
     "character_count": 285,
     "language": "en",
-    "timestamp": "2026-01-16T11:30:00.385141+00:00",
-    "api_method": "entities"
+    "timestamp": "2026-01-16T11:30:12.126399+00:00",
+    "api_method": "icd10"
   }
 }

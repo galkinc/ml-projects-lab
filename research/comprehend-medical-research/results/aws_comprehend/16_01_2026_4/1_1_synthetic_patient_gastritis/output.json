@@ -1,0 +1,687 @@
+{
+  "Entities": [
+    {
+      "Id": 3,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 46,
+      "EndOffset": 50,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "RelationshipType": "QUALITY",
+          "Id": 2,
+          "BeginOffset": 38,
+          "EndOffset": 45,
+          "Text": "burning",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Burning pain (finding)",
+              "Code": "36349006",
+              "Score": 0.22138158977031708
+            },
+            {
+              "Description": "Burning sensation (finding)",
+              "Code": "90673000",
+              "Score": 0.13068793714046478
+            },
+            {
+              "Description": "Burning sensation quality (qualifier value)",
+              "Code": "62404004",
+              "Score": 0.1116790696978569
+            },
+            {
+              "Description": "Burning epigastric pain (finding)",
+              "Code": "21005005",
+              "Score": 0.08227064460515976
+            },
+            {
+              "Description": "Burning sensation of mucous membrane (finding)",
+              "Code": "95360006",
+              "Score": 0.0662635937333107
+            }
+          ]
+        },
+        {
+          "Category": "ANATOMY",
+          "Type": "DIRECTION",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "RelationshipType": "DIRECTION",
+          "Id": 4,
+          "BeginOffset": 58,
+          "EndOffset": 68,
+          "Text": "upper part",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Upper (qualifier value)",
+              "Code": "261183002",
+              "Score": 0.37385350465774536
+            },
+            {
+              "Description": "Stomach part (body structure)",
+              "Code": "119212007",
+              "Score": 0.0448763445019722
+            },
+            {
+              "Description": "Entire upper body of stomach (body structure)",
+              "Code": "730490007",
+              "Score": 0.02001318708062172
+            },
+            {
+              "Description": "Structure of upper body of stomach (body structure)",
+              "Code": "361534007",
+              "Score": 0.018898656591773033
+            },
+            {
+              "Description": "Lower gastrointestinal tract part (body structure)",
+              "Code": "372198002",
+              "Score": 0.01883883960545063
+            }
+          ]
+        },
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7950295805931091,
+          "RelationshipScore": 0.8031880259513855,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 5,
+          "BeginOffset": 58,
+          "EndOffset": 82,
+          "Text": "upper part of my stomach",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Upper (qualifier value)",
+              "Code": "261183002",
+              "Score": 0.07147262990474701
+            },
+            {
+              "Description": "Structure of upper body of stomach (body structure)",
+              "Code": "361534007",
+              "Score": 0.04060548171401024
+            },
+            {
+              "Description": "Stomach part (body structure)",
+              "Code": "119212007",
+              "Score": 0.037641506642103195
+            },
+            {
+              "Description": "Entire upper body of stomach (body structure)",
+              "Code": "730490007",
+              "Score": 0.03695351630449295
+            },
+            {
+              "Description": "Upper gastrointestinal tract structure (body structure)",
+              "Code": "62834003",
+              "Score": 0.033258359879255295
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Burning pain (finding)",
+          "Code": "36349006",
+          "Score": 0.06665410101413727
+        },
+        {
+          "Description": "Upper abdominal pain (finding)",
+          "Code": "83132003",
+          "Score": 0.05549051612615585
+        },
+        {
+          "Description": "Pain radiating to upper abdomen (finding)",
+          "Code": "427075000",
+          "Score": 0.04739486426115036
+        },
+        {
+          "Description": "Stomach ache (finding)",
+          "Code": "271681002",
+          "Score": 0.047356124967336655
+        },
+        {
+          "Description": "Burning epigastric pain (finding)",
+          "Code": "21005005",
+          "Score": 0.03687255457043648
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Text": "upper part of my stomach",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.7950295805931091,
+      "BeginOffset": 58,
+      "EndOffset": 82,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Upper (qualifier value)",
+          "Code": "261183002",
+          "Score": 0.07147262990474701
+        },
+        {
+          "Description": "Structure of upper body of stomach (body structure)",
+          "Code": "361534007",
+          "Score": 0.04060548171401024
+        },
+        {
+          "Description": "Stomach part (body structure)",
+          "Code": "119212007",
+          "Score": 0.037641506642103195
+        },
+        {
+          "Description": "Entire upper body of stomach (body structure)",
+          "Code": "730490007",
+          "Score": 0.03695351630449295
+        },
+        {
+          "Description": "Upper gastrointestinal tract structure (body structure)",
+          "Code": "62834003",
+          "Score": 0.033258359879255295
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.90631103515625,
+      "BeginOffset": 88,
+      "EndOffset": 92,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "QUALITY",
+          "Id": 7,
+          "BeginOffset": 93,
+          "EndOffset": 116,
+          "Text": "gets worse after eating",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Pain provoked by eating (finding)",
+              "Code": "426277009",
+              "Score": 0.07446975260972977
+            },
+            {
+              "Description": "After food (qualifier value)",
+              "Code": "225758001",
+              "Score": 0.05772792920470238
+            },
+            {
+              "Description": "Difficulty eating (finding)",
+              "Code": "110292000",
+              "Score": 0.05560999736189842
+            },
+            {
+              "Description": "Dyspnea after eating (finding)",
+              "Code": "57769004",
+              "Score": 0.048248063772916794
+            },
+            {
+              "Description": "Eating problem (finding)",
+              "Code": "248124006",
+              "Score": 0.04481588676571846
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9405226111412048
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Stomach ache (finding)",
+          "Code": "271681002",
+          "Score": 0.08014517277479172
+        },
+        {
+          "Description": "Upper abdominal pain (finding)",
+          "Code": "83132003",
+          "Score": 0.06426173448562622
+        },
+        {
+          "Description": "Abdominal pain (finding)",
+          "Code": "21522001",
+          "Score": 0.04199109971523285
+        },
+        {
+          "Description": "Pain radiating to upper abdomen (finding)",
+          "Code": "427075000",
+          "Score": 0.03277353197336197
+        },
+        {
+          "Description": "Aphagia (finding)",
+          "Code": "60818005",
+          "Score": 0.028940832242369652
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Text": "nausea",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9201511740684509,
+      "BeginOffset": 149,
+      "EndOffset": 155,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "QUALITY",
+          "Id": 8,
+          "BeginOffset": 124,
+          "EndOffset": 145,
+          "Text": "sometimes accompanied",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Associated symptom (finding)",
+              "Code": "102483000",
+              "Score": 0.010620077140629292
+            },
+            {
+              "Description": "Interval (qualifier value)",
+              "Code": "385673002",
+              "Score": 0.008165109902620316
+            },
+            {
+              "Description": "Intermittent (qualifier value)",
+              "Code": "7087005",
+              "Score": 0.007249903399497271
+            },
+            {
+              "Description": "Related (finding)",
+              "Code": "262094002",
+              "Score": 0.006621562410145998
+            },
+            {
+              "Description": "Associated with (attribute)",
+              "Code": "47429007",
+              "Score": 0.006570396013557911
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Nausea (finding)",
+          "Code": "422587007",
+          "Score": 0.6256784796714783
+        },
+        {
+          "Description": "Nausea present (situation)",
+          "Code": "162057007",
+          "Score": 0.07379346340894699
+        },
+        {
+          "Description": "Increased nausea and vomiting (disorder)",
+          "Code": "73335002",
+          "Score": 0.07020218670368195
+        },
+        {
+          "Description": "Nausea and vomiting (disorder)",
+          "Code": "16932000",
+          "Score": 0.06596682220697403
+        },
+        {
+          "Description": "Nausea, vomiting and diarrhea (disorder)",
+          "Code": "2919008",
+          "Score": 0.0626620501279831
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Text": "bloated",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 164,
+      "EndOffset": 171,
+      "Attributes": [
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.6603351831436157,
+          "RelationshipScore": 0.6270833611488342,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 12,
+          "BeginOffset": 209,
+          "EndOffset": 224,
+          "Text": "epigastric area",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Epigastric region structure (body structure)",
+              "Code": "27947004",
+              "Score": 0.5739797353744507
+            },
+            {
+              "Description": "Entire epigastric region (body structure)",
+              "Code": "362693006",
+              "Score": 0.035681046545505524
+            },
+            {
+              "Description": "Skin structure of epigastric area (body structure)",
+              "Code": "30598005",
+              "Score": 0.024496911093592644
+            },
+            {
+              "Description": "Epigastric discomfort (finding)",
+              "Code": "119416008",
+              "Score": 0.01943046599626541
+            },
+            {
+              "Description": "Structure of epigastric lymph node (body structure)",
+              "Code": "60965003",
+              "Score": 0.015466202981770039
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Bloating symptom (finding)",
+          "Code": "248490000",
+          "Score": 0.20286665856838226
+        },
+        {
+          "Description": "Abdominal bloating (finding)",
+          "Code": "116289008",
+          "Score": 0.19024167954921722
+        },
+        {
+          "Description": "Abdominal distension symptom (finding)",
+          "Code": "162068007",
+          "Score": 0.03189805895090103
+        },
+        {
+          "Description": "Bloated face (finding)",
+          "Code": "248184009",
+          "Score": 0.03147471696138382
+        },
+        {
+          "Description": "Functional bloating (disorder)",
+          "Code": "722879009",
+          "Score": 0.020842604339122772
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": "uncomfortable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.877546489238739,
+      "BeginOffset": 176,
+      "EndOffset": 189,
+      "Attributes": [
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.6603351831436157,
+          "RelationshipScore": 0.7552722692489624,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 12,
+          "BeginOffset": 209,
+          "EndOffset": 224,
+          "Text": "epigastric area",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Epigastric region structure (body structure)",
+              "Code": "27947004",
+              "Score": 0.5739797353744507
+            },
+            {
+              "Description": "Entire epigastric region (body structure)",
+              "Code": "362693006",
+              "Score": 0.035681046545505524
+            },
+            {
+              "Description": "Skin structure of epigastric area (body structure)",
+              "Code": "30598005",
+              "Score": 0.024496911093592644
+            },
+            {
+              "Description": "Epigastric discomfort (finding)",
+              "Code": "119416008",
+              "Score": 0.01943046599626541
+            },
+            {
+              "Description": "Structure of epigastric lymph node (body structure)",
+              "Code": "60965003",
+              "Score": 0.015466202981770039
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9214484095573425
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Discomfort (finding)",
+          "Code": "247347003",
+          "Score": 0.5089740753173828
+        },
+        {
+          "Description": "Epigastric discomfort (finding)",
+          "Code": "119416008",
+          "Score": 0.2746468782424927
+        },
+        {
+          "Description": "Abdominal discomfort (finding)",
+          "Code": "43364001",
+          "Score": 0.1952282339334488
+        },
+        {
+          "Description": "Epigastric pain (finding)",
+          "Code": "79922009",
+          "Score": 0.04422200471162796
+        },
+        {
+          "Description": "Comfort alteration (finding)",
+          "Code": "130979001",
+          "Score": 0.03335391730070114
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "Text": "epigastric area",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 209,
+      "EndOffset": 224,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Epigastric region structure (body structure)",
+          "Code": "27947004",
+          "Score": 0.5739797353744507
+        },
+        {
+          "Description": "Entire epigastric region (body structure)",
+          "Code": "362693006",
+          "Score": 0.035681046545505524
+        },
+        {
+          "Description": "Skin structure of epigastric area (body structure)",
+          "Code": "30598005",
+          "Score": 0.024496911093592644
+        },
+        {
+          "Description": "Epigastric discomfort (finding)",
+          "Code": "119416008",
+          "Score": 0.01943046599626541
+        },
+        {
+          "Description": "Structure of epigastric lymph node (body structure)",
+          "Code": "60965003",
+          "Score": 0.015466202981770039
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "Text": "vomiting",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 238,
+      "EndOffset": 246,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.779019296169281
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Vomiting symptom (finding)",
+          "Code": "249497008",
+          "Score": 0.3257768750190735
+        },
+        {
+          "Description": "Vomiting (disorder)",
+          "Code": "422400008",
+          "Score": 0.19585950672626495
+        },
+        {
+          "Description": "No vomiting (situation)",
+          "Code": "162062008",
+          "Score": 0.053149737417697906
+        },
+        {
+          "Description": "Vomit appearance - normal (finding)",
+          "Code": "167827008",
+          "Score": 0.020399175584316254
+        },
+        {
+          "Description": "Finding of vomiting (finding)",
+          "Code": "300359004",
+          "Score": 0.019774509593844414
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "fever",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 250,
+      "EndOffset": 255,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9596198797225952
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Fever (finding)",
+          "Code": "386661006",
+          "Score": 0.045376863330602646
+        },
+        {
+          "Description": "Noesis (finding)",
+          "Code": "50532002",
+          "Score": 0.002709454856812954
+        },
+        {
+          "Description": "Postoperative fever (finding)",
+          "Code": "248450003",
+          "Score": 0.001695703947916627
+        },
+        {
+          "Description": "Postprocedural fever (finding)",
+          "Code": "130091000119103",
+          "Score": 0.001374634332023561
+        },
+        {
+          "Description": "Pyorrhea (finding)",
+          "Code": "271668009",
+          "Score": 0.0011434904299676418
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20220301",
+  "SNOMEDCTDetails": {
+    "Edition": "US",
+    "Language": "en",
+    "VersionDate": "20220301"
+  },
+  "Characters": {
+    "OriginalTextCharacters": 256
+  },
+  "ResponseMetadata": {
+    "RequestId": "b9df8964-74ae-4228-9abd-daf86d912daf",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "b9df8964-74ae-4228-9abd-daf86d912daf",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "11903",
+      "date": "Fri, 16 Jan 2026 14:19:50 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

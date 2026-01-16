@@ -4,7 +4,7 @@
     "source_file": "examples/3_synthetic_patient_anxiety_disorder.txt",
     "character_count": 278,
     "language": "en",
-    "timestamp": "2026-01-16T11:29:59.060216+00:00",
-    "api_method": "entities"
+    "timestamp": "2026-01-16T14:20:03.310356+00:00",
+    "api_method": "snomedct"
   }
 }

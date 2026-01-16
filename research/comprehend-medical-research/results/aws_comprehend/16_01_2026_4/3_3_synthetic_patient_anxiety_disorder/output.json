@@ -1,0 +1,616 @@
+{
+  "Entities": [
+    {
+      "Id": 3,
+      "Text": "worried",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.7613970637321472,
+      "BeginOffset": 53,
+      "EndOffset": 60,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "RelationshipType": "QUALITY",
+          "Id": 2,
+          "BeginOffset": 42,
+          "EndOffset": 52,
+          "Text": "constantly",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Intermittent (qualifier value)",
+              "Code": "7087005",
+              "Score": 0.023392215371131897
+            },
+            {
+              "Description": "Periodic (qualifier value)",
+              "Code": "81591007",
+              "Score": 0.01856428012251854
+            },
+            {
+              "Description": "Feeling hopeless (finding)",
+              "Code": "307077003",
+              "Score": 0.012542616575956345
+            },
+            {
+              "Description": "Persistent thoughts (finding)",
+              "Code": "247631009",
+              "Score": 0.009474680759012699
+            },
+            {
+              "Description": "Constantly crying (finding)",
+              "Code": "225460000",
+              "Score": 0.008820232935249805
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Worried (finding)",
+          "Code": "79015004",
+          "Score": 0.8869298100471497
+        },
+        {
+          "Description": "Worried well (finding)",
+          "Code": "81302005",
+          "Score": 0.47400251030921936
+        },
+        {
+          "Description": "Anxiety (finding)",
+          "Code": "48694002",
+          "Score": 0.30715665221214294
+        },
+        {
+          "Description": "Patient concerned (contextual qualifier) (qualifier value)",
+          "Code": "103307008",
+          "Score": 0.17684976756572723
+        },
+        {
+          "Description": "Terrified (finding)",
+          "Code": "225634009",
+          "Score": 0.175593301653862
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "Text": "on edge",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5971075296401978,
+      "BeginOffset": 65,
+      "EndOffset": 72,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6248409748077393
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Clouded consciousness (finding)",
+          "Code": "40917007",
+          "Score": 0.10403807461261749
+        },
+        {
+          "Description": "Acute confusion (finding)",
+          "Code": "130987000",
+          "Score": 0.06471210718154907
+        },
+        {
+          "Description": "Onset of confusion (finding)",
+          "Code": "225440008",
+          "Score": 0.05797972530126572
+        },
+        {
+          "Description": "Unsteadiness present (finding)",
+          "Code": "267084003",
+          "Score": 0.04579010605812073
+        },
+        {
+          "Description": "Delirious (finding)",
+          "Code": "419567006",
+          "Score": 0.04293769225478172
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Text": "trouble sleeping",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.877546489238739,
+      "BeginOffset": 81,
+      "EndOffset": 97,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9214484095573425
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Difficulty sleeping (finding)",
+          "Code": "301345002",
+          "Score": 0.7258460521697998
+        },
+        {
+          "Description": "Dyssomnia (disorder)",
+          "Code": "44186003",
+          "Score": 0.3965180814266205
+        },
+        {
+          "Description": "Sleep deprivation (finding)",
+          "Code": "130989002",
+          "Score": 0.2679465711116791
+        },
+        {
+          "Description": "Poor sleep pattern (finding)",
+          "Code": "314938000",
+          "Score": 0.2643398344516754
+        },
+        {
+          "Description": "Not getting enough sleep (disorder)",
+          "Code": "248256006",
+          "Score": 0.2565677762031555
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Text": "wake up with racing thoughts",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5971075296401978,
+      "BeginOffset": 105,
+      "EndOffset": 133,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.5296252369880676
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Racing thoughts (finding)",
+          "Code": "285303006",
+          "Score": 0.42859771847724915
+        },
+        {
+          "Description": "Slow flow of thought (finding)",
+          "Code": "247627003",
+          "Score": 0.03548455238342285
+        },
+        {
+          "Description": "Finding of speed of thought (finding)",
+          "Code": "365276007",
+          "Score": 0.034611575305461884
+        },
+        {
+          "Description": "Fast flow of thought (finding)",
+          "Code": "302760000",
+          "Score": 0.02878226712346077
+        },
+        {
+          "Description": "Speed of thought (observable entity)",
+          "Code": "247626007",
+          "Score": 0.026044880971312523
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Text": "heart",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.8435389995574951,
+      "BeginOffset": 160,
+      "EndOffset": 165,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Heart structure (body structure)",
+          "Code": "80891009",
+          "Score": 0.4545232355594635
+        },
+        {
+          "Description": "Structure of cardiac vein (body structure)",
+          "Code": "85439003",
+          "Score": 0.01079284306615591
+        },
+        {
+          "Description": "Structure of heart tissue (body structure)",
+          "Code": "386108004",
+          "Score": 0.009754243306815624
+        },
+        {
+          "Description": "Cardiac valve structure (body structure)",
+          "Code": "17401000",
+          "Score": 0.0069082072004675865
+        },
+        {
+          "Description": "Entire heart (body structure)",
+          "Code": "302509004",
+          "Score": 0.006489942315965891
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Text": "heart palpitations",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.8617406487464905,
+      "BeginOffset": 160,
+      "EndOffset": 178,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.6270833611488342,
+          "RelationshipType": "QUALITY",
+          "Id": 7,
+          "BeginOffset": 139,
+          "EndOffset": 148,
+          "Text": "sometimes",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Occasional (qualifier value)",
+              "Code": "84638005",
+              "Score": 0.05453723669052124
+            },
+            {
+              "Description": "Some of the time (qualifier value)",
+              "Code": "444901000124104",
+              "Score": 0.012869440950453281
+            },
+            {
+              "Description": "Never (qualifier value)",
+              "Code": "444841000124107",
+              "Score": 0.010039925575256348
+            },
+            {
+              "Description": "Most of the time (qualifier value)",
+              "Code": "444961000124103",
+              "Score": 0.009450403042137623
+            },
+            {
+              "Description": "Some (qualifier value)",
+              "Code": "27768009",
+              "Score": 0.00916203111410141
+            }
+          ]
+        },
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.8435389995574951,
+          "RelationshipScore": 0.8534350991249084,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 8,
+          "BeginOffset": 160,
+          "EndOffset": 165,
+          "Text": "heart",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Heart structure (body structure)",
+              "Code": "80891009",
+              "Score": 0.4545232355594635
+            },
+            {
+              "Description": "Structure of cardiac vein (body structure)",
+              "Code": "85439003",
+              "Score": 0.01079284306615591
+            },
+            {
+              "Description": "Structure of heart tissue (body structure)",
+              "Code": "386108004",
+              "Score": 0.009754243306815624
+            },
+            {
+              "Description": "Cardiac valve structure (body structure)",
+              "Code": "17401000",
+              "Score": 0.0069082072004675865
+            },
+            {
+              "Description": "Entire heart (body structure)",
+              "Code": "302509004",
+              "Score": 0.006489942315965891
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9013108015060425
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Palpitations (finding)",
+          "Code": "80313002",
+          "Score": 0.6840546727180481
+        },
+        {
+          "Description": "Palpitations - rapid (finding)",
+          "Code": "248648003",
+          "Score": 0.03436906635761261
+        },
+        {
+          "Description": "Intermittent palpitations (finding)",
+          "Code": "102590007",
+          "Score": 0.03007829748094082
+        },
+        {
+          "Description": "Palpitations with regular rhythm (finding)",
+          "Code": "428919002",
+          "Score": 0.01775023713707924
+        },
+        {
+          "Description": "History of palpitations (situation)",
+          "Code": "473122004",
+          "Score": 0.017085053026676178
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Text": "feel sad",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 188,
+      "EndOffset": 196,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.6248409748077393
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6768204569816589
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Feeling unhappy (finding)",
+          "Code": "420038007",
+          "Score": 0.17494207620620728
+        },
+        {
+          "Description": "Feeling bad (finding)",
+          "Code": "225013001",
+          "Score": 0.15517346560955048
+        },
+        {
+          "Description": "Feeling despair (finding)",
+          "Code": "17029006",
+          "Score": 0.07676324993371964
+        },
+        {
+          "Description": "Depressed mood (finding)",
+          "Code": "366979004",
+          "Score": 0.06979690492153168
+        },
+        {
+          "Description": "Sadism (finding)",
+          "Code": "765765000",
+          "Score": 0.06917338818311691
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": "easily irritable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.7172441482543945,
+      "BeginOffset": 206,
+      "EndOffset": 222,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.7299559712409973
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Feeling irritable (finding)",
+          "Code": "55929007",
+          "Score": 0.7050787210464478
+        },
+        {
+          "Description": "Easily upset (finding)",
+          "Code": "225653004",
+          "Score": 0.20527257025241852
+        },
+        {
+          "Description": "Irritability and anger (finding)",
+          "Code": "274646000",
+          "Score": 0.16008591651916504
+        },
+        {
+          "Description": "Hyperirritability (finding)",
+          "Code": "33624008",
+          "Score": 0.09149429947137833
+        },
+        {
+          "Description": "Muscle irritability (finding)",
+          "Code": "271697007",
+          "Score": 0.07305589318275452
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "irritable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 213,
+      "EndOffset": 222,
+      "Attributes": [
+        {
+          "Category": "MEDICAL_CONDITION",
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "QUALITY",
+          "Id": 13,
+          "BeginOffset": 206,
+          "EndOffset": 212,
+          "Text": "easily",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Easy (qualifier value)",
+              "Code": "36203004",
+              "Score": 0.06354816257953644
+            },
+            {
+              "Description": "Easily upset (finding)",
+              "Code": "225653004",
+              "Score": 0.030807198956608772
+            },
+            {
+              "Description": "Symptom trivial (finding)",
+              "Code": "162466003",
+              "Score": 0.026158729568123817
+            },
+            {
+              "Description": "Hard (qualifier value)",
+              "Code": "72505002",
+              "Score": 0.022428598254919052
+            },
+            {
+              "Description": "Cries easily (finding)",
+              "Code": "247771007",
+              "Score": 0.021397307515144348
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Feeling irritable (finding)",
+          "Code": "55929007",
+          "Score": 0.7990407347679138
+        },
+        {
+          "Description": "Irritability and anger (finding)",
+          "Code": "274646000",
+          "Score": 0.21985329687595367
+        },
+        {
+          "Description": "Easily upset (finding)",
+          "Code": "225653004",
+          "Score": 0.13216589391231537
+        },
+        {
+          "Description": "Feeling frustrated (finding)",
+          "Code": "224973000",
+          "Score": 0.09144420176744461
+        },
+        {
+          "Description": "Muscle irritability (finding)",
+          "Code": "271697007",
+          "Score": 0.09107911586761475
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "Text": "panic attacks",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.7950295805931091,
+      "BeginOffset": 255,
+      "EndOffset": 268,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.5296252369880676
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Panic attack (finding)",
+          "Code": "225624000",
+          "Score": 0.591037392616272
+        },
+        {
+          "Description": "Panic disorder (disorder)",
+          "Code": "371631005",
+          "Score": 0.19138848781585693
+        },
+        {
+          "Description": "Panic (finding)",
+          "Code": "79823003",
+          "Score": 0.14539480209350586
+        },
+        {
+          "Description": "Situational panic attack (finding)",
+          "Code": "231502005",
+          "Score": 0.05408249795436859
+        },
+        {
+          "Description": "Anxiety attack (finding)",
+          "Code": "300895004",
+          "Score": 0.033025503158569336
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20220301",
+  "SNOMEDCTDetails": {
+    "Edition": "US",
+    "Language": "en",
+    "VersionDate": "20220301"
+  },
+  "Characters": {
+    "OriginalTextCharacters": 278
+  },
+  "ResponseMetadata": {
+    "RequestId": "40f731e8-6b95-44ba-98da-b95067ca9c3c",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "40f731e8-6b95-44ba-98da-b95067ca9c3c",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "10128",
+      "date": "Fri, 16 Jan 2026 14:20:03 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

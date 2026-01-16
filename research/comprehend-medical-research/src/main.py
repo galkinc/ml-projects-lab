@@ -2,11 +2,13 @@ import logging
 from pathlib import Path
 from datetime import datetime, timezone
 import time
+from typing import List
+
+import typer
 
 from config import settings
-
 from .io import load_examples_dir, save_artifacts
-from .aws import create_comprehend_client, analyze_text
+from .aws import create_comprehend_client, call_comprehend_api, API_DISPATCHER
 
 logging.Formatter.converter = time.gmtime
 if not settings.boto3_logging:
@@ -34,7 +36,14 @@ def get_next_run_id(output_root: str, date_str: str) -> int:
             continue
     return max(run_numbers) + 1 if run_numbers else 1
 
-def run_experiment():
+def run_experiment(
+    api_method: str = typer.Option(
+        "entities",
+        "--api-method",
+        "-a",
+        help=f"The Comprehend Medical API to call. Supported: {list(API_DISPATCHER.keys())}"
+    )
+):
     if not Path(settings.examples_path).exists():
         error_msg = f"Examples directory not found. Path in the config: {settings.examples_path}"
         logging.error(error_msg)
@@ -68,8 +77,8 @@ def run_experiment():
                 text = text[:settings.aws_comp_limit]
 
             try:
-                response = analyze_text(client, text)
-                out_dir = save_artifacts(name, idx, text, response, experiment_dir, settings.examples_path)
+                response = call_comprehend_api(client, text, api_method)
+                out_dir = save_artifacts(name, idx, text, response, experiment_dir, settings.examples_path, api_method)
                 logging.info(f"Saved artifacts to: {out_dir}")
             except Exception as e:
                 logging.error(f"Failed on {name}: {e}")
@@ -78,3 +87,9 @@ def run_experiment():
 
     except Exception as e:
         logging.error(f"An unexpected error occurred in main: {e}")
+
+app = typer.Typer()
+app.command()(run_experiment)
+
+if __name__ == "__main__":
+    app()

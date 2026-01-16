@@ -9,4 +9,5 @@ dependencies = [
     "pydantic>=2.12.5",
     "pydantic-settings>=2.12.0",
     "python-dotenv>=1.2.1",
+    "typer>=0.21.1",
 ]

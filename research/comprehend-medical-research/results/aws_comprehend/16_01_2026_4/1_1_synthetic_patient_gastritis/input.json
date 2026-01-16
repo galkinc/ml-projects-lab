@@ -4,7 +4,7 @@
     "source_file": "examples/1_synthetic_patient_gastritis.txt",
     "character_count": 256,
     "language": "en",
-    "timestamp": "2026-01-16T11:29:56.886448+00:00",
-    "api_method": "entities"
+    "timestamp": "2026-01-16T14:19:51.059842+00:00",
+    "api_method": "snomedct"
   }
 }

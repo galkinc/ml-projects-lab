@@ -1,0 +1,263 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "BeginOffset": 24,
+      "EndOffset": 37,
+      "Score": 0.5971075296401978,
+      "Text": "physical exam",
+      "Category": "TEST_TREATMENT_PROCEDURE",
+      "Type": "TEST_NAME",
+      "Traits": []
+    },
+    {
+      "Id": 2,
+      "BeginOffset": 41,
+      "EndOffset": 63,
+      "Score": 0.6603351831436157,
+      "Text": "feel generally healthy",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6248409748077393
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "BeginOffset": 65,
+      "EndOffset": 73,
+      "Score": 0.7172441482543945,
+      "Text": "exercise",
+      "Category": "TEST_TREATMENT_PROCEDURE",
+      "Type": "TREATMENT_NAME",
+      "Traits": []
+    },
+    {
+      "Id": 5,
+      "BeginOffset": 94,
+      "EndOffset": 113,
+      "Score": 0.5330596566200256,
+      "Text": "eat a balanced diet",
+      "Category": "TEST_TREATMENT_PROCEDURE",
+      "Type": "TREATMENT_NAME",
+      "Traits": []
+    },
+    {
+      "Id": 6,
+      "BeginOffset": 118,
+      "EndOffset": 123,
+      "Score": 0.7172441482543945,
+      "Text": "chest",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Traits": []
+    },
+    {
+      "Id": 7,
+      "BeginOffset": 118,
+      "EndOffset": 128,
+      "Score": 0.9350614547729492,
+      "Text": "chest pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9214484095573425
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7172441482543945,
+          "RelationshipScore": 0.7552722692489624,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 6,
+          "BeginOffset": 118,
+          "EndOffset": 123,
+          "Text": "chest",
+          "Category": "ANATOMY",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "BeginOffset": 133,
+      "EndOffset": 142,
+      "Score": 0.9350614547729492,
+      "Text": "headaches",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.8787732124328613
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "BeginOffset": 147,
+      "EndOffset": 154,
+      "Score": 0.9350614547729492,
+      "Text": "fatigue",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9013108015060425
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "BeginOffset": 171,
+      "EndOffset": 183,
+      "Score": 0.8617406487464905,
+      "Text": "multivitamin",
+      "Category": "MEDICATION",
+      "Type": "GENERIC_NAME",
+      "Traits": [],
+      "Attributes": [
+        {
+          "Type": "FREQUENCY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "FREQUENCY",
+          "Id": 10,
+          "BeginOffset": 165,
+          "EndOffset": 170,
+          "Text": "daily",
+          "Category": "MEDICATION",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "BeginOffset": 199,
+      "EndOffset": 208,
+      "Score": 0.821601390838623,
+      "Text": "ibuprofen",
+      "Category": "MEDICATION",
+      "Type": "GENERIC_NAME",
+      "Traits": [],
+      "Attributes": [
+        {
+          "Type": "FREQUENCY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7814922332763672,
+          "RelationshipType": "FREQUENCY",
+          "Id": 12,
+          "BeginOffset": 188,
+          "EndOffset": 198,
+          "Text": "occasional",
+          "Category": "MEDICATION",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "BeginOffset": 213,
+      "EndOffset": 219,
+      "Score": 0.7613970637321472,
+      "Text": "muscle",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Traits": []
+    },
+    {
+      "Id": 15,
+      "BeginOffset": 213,
+      "EndOffset": 228,
+      "Score": 0.9201511740684509,
+      "Text": "muscle soreness",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 14,
+          "BeginOffset": 213,
+          "EndOffset": 219,
+          "Text": "muscle",
+          "Category": "ANATOMY",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 16,
+      "BeginOffset": 272,
+      "EndOffset": 284,
+      "Score": 0.9584784507751465,
+      "Text": "hypertension",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "PERTAINS_TO_FAMILY",
+          "Score": 0.779019296169281
+        },
+        {
+          "Name": "DIAGNOSIS",
+          "Score": 0.8530592322349548
+        }
+      ]
+    }
+  ],
+  "UnmappedAttributes": [
+    {
+      "Type": "MEDICATION",
+      "Attribute": {
+        "Type": "FREQUENCY",
+        "Score": 0.8435389995574951,
+        "Id": 4,
+        "BeginOffset": 74,
+        "EndOffset": 88,
+        "Text": "3 times a week",
+        "Category": "MEDICATION",
+        "Traits": []
+      }
+    }
+  ],
+  "ModelVersion": "3.0.0",
+  "ResponseMetadata": {
+    "RequestId": "a608cdd1-cd75-4776-a842-4d194eec18f5",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "a608cdd1-cd75-4776-a842-4d194eec18f5",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "3642",
+      "date": "Fri, 16 Jan 2026 10:18:38 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

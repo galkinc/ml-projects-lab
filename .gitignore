@@ -1,0 +1,29 @@
+# IDE & Environment Files
+.idea/
+.vscode/
+*.code-workspace
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+djangoenv/
+
+# Temporary Files
+.tmp
+.tmp/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+_ref/*
+_ref

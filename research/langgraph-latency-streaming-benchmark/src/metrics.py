@@ -1,5 +1,7 @@
+from typing import Dict, List
+
 import numpy as np
-from typing import List, Dict, Any
+
 
 class MetricsCalculator:
     @staticmethod
@@ -15,5 +17,5 @@ class MetricsCalculator:
             "mean": float(np.mean(latencies)),
             "min": float(np.min(latencies)),
             "max": float(np.max(latencies)),
-            "count": len(latencies)
+            "count": len(latencies),
         }

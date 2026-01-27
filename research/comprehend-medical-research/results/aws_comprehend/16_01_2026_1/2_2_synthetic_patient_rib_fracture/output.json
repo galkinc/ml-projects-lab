@@ -1,0 +1,281 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "BeginOffset": 2,
+      "EndOffset": 10,
+      "Score": 0.5330596566200256,
+      "Text": "fell off",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.5296252369880676
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "DIRECTION",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "DIRECTION",
+          "Id": 3,
+          "BeginOffset": 46,
+          "EndOffset": 56,
+          "Text": "right side",
+          "Category": "ANATOMY",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "BeginOffset": 19,
+      "EndOffset": 28,
+      "Score": 0.7172441482543945,
+      "Text": "yesterday",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Traits": [],
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5692254304885864,
+          "RelationshipType": "OVERLAP",
+          "Id": 1,
+          "BeginOffset": 2,
+          "EndOffset": 10,
+          "Text": "fell off",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.5296252369880676
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "BeginOffset": 85,
+      "EndOffset": 89,
+      "Score": 0.9584784507751465,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "QUALITY",
+          "Id": 4,
+          "BeginOffset": 69,
+          "EndOffset": 74,
+          "Text": "sharp",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": []
+        },
+        {
+          "Type": "QUALITY",
+          "Score": 0.7172441482543945,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "QUALITY",
+          "Id": 5,
+          "BeginOffset": 76,
+          "EndOffset": 84,
+          "Text": "stabbing",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": []
+        },
+        {
+          "Type": "DIRECTION",
+          "Score": 0.821601390838623,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "DIRECTION",
+          "Id": 7,
+          "BeginOffset": 96,
+          "EndOffset": 101,
+          "Text": "right",
+          "Category": "ANATOMY",
+          "Traits": []
+        },
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.8435389995574951,
+          "RelationshipScore": 0.8534350991249084,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 8,
+          "BeginOffset": 96,
+          "EndOffset": 107,
+          "Text": "right chest",
+          "Category": "ANATOMY",
+          "Traits": []
+        },
+        {
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "QUALITY",
+          "Id": 9,
+          "BeginOffset": 113,
+          "EndOffset": 158,
+          "Text": "gets worse when I take a deep breath or cough",
+          "Category": "MEDICAL_CONDITION",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "BeginOffset": 96,
+      "EndOffset": 107,
+      "Score": 0.8435389995574951,
+      "Text": "right chest",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Traits": []
+    },
+    {
+      "Id": 10,
+      "BeginOffset": 172,
+      "EndOffset": 191,
+      "Score": 0.9201511740684509,
+      "Text": "shortness of breath",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.6248409748077393
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "BeginOffset": 204,
+      "EndOffset": 224,
+      "Score": 0.5330596566200256,
+      "Text": "tender to touch over",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "BeginOffset": 204,
+      "EndOffset": 236,
+      "Score": 0.5330596566200256,
+      "Text": "tender to touch over the 5th rib",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 13,
+          "BeginOffset": 229,
+          "EndOffset": 236,
+          "Text": "5th rib",
+          "Category": "ANATOMY",
+          "Traits": []
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "BeginOffset": 229,
+      "EndOffset": 236,
+      "Score": 0.5330596566200256,
+      "Text": "5th rib",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Traits": []
+    },
+    {
+      "Id": 14,
+      "BeginOffset": 252,
+      "EndOffset": 264,
+      "Score": 0.9350614547729492,
+      "Text": "osteoporosis",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.8530592322349548
+        },
+        {
+          "Name": "DIAGNOSIS",
+          "Score": 0.8203471899032593
+        }
+      ]
+    }
+  ],
+  "UnmappedAttributes": [
+    {
+      "Type": "ANATOMY",
+      "Attribute": {
+        "Type": "DIRECTION",
+        "Score": 0.5971075296401978,
+        "Id": 3,
+        "BeginOffset": 46,
+        "EndOffset": 56,
+        "Text": "right side",
+        "Category": "ANATOMY",
+        "Traits": []
+      }
+    },
+    {
+      "Type": "ANATOMY",
+      "Attribute": {
+        "Type": "DIRECTION",
+        "Score": 0.821601390838623,
+        "Id": 7,
+        "BeginOffset": 96,
+        "EndOffset": 101,
+        "Text": "right",
+        "Category": "ANATOMY",
+        "Traits": []
+      }
+    }
+  ],
+  "ModelVersion": "3.0.0",
+  "ResponseMetadata": {
+    "RequestId": "f7bca37d-30f0-4bc1-813f-20f4b2242236",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "f7bca37d-30f0-4bc1-813f-20f4b2242236",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "4015",
+      "date": "Fri, 16 Jan 2026 11:29:57 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

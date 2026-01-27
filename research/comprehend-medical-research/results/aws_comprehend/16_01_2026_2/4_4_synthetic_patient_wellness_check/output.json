@@ -1,0 +1,312 @@
+{
+  "Entities": [
+    {
+      "Id": 2,
+      "Text": "feel generally healthy",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 41,
+      "EndOffset": 63,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6248409748077393
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Illness, unspecified",
+          "Code": "R69",
+          "Score": 0.09168821573257446
+        },
+        {
+          "Description": "Other general symptoms and signs",
+          "Code": "R68.89",
+          "Score": 0.08451931923627853
+        },
+        {
+          "Description": "Other specified personal risk factors, not elsewhere classified",
+          "Code": "Z91.89",
+          "Score": 0.062456682324409485
+        },
+        {
+          "Description": "Lack of physical exercise",
+          "Code": "Z72.3",
+          "Score": 0.0503738634288311
+        },
+        {
+          "Description": "Other specified health status",
+          "Code": "Z78.9",
+          "Score": 0.049878738820552826
+        }
+      ]
+    },
+    {
+      "Id": 7,
+      "Text": "chest pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 118,
+      "EndOffset": 128,
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7172441482543945,
+          "RelationshipScore": 0.7552722692489624,
+          "Id": 6,
+          "BeginOffset": 118,
+          "EndOffset": 123,
+          "Text": "chest",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9214484095573425
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Chest pain, unspecified",
+          "Code": "R07.9",
+          "Score": 0.3366606533527374
+        },
+        {
+          "Description": "Other chest pain",
+          "Code": "R07.89",
+          "Score": 0.0174326803535223
+        },
+        {
+          "Description": "Precordial pain",
+          "Code": "R07.2",
+          "Score": 0.01260727271437645
+        },
+        {
+          "Description": "Pleurodynia",
+          "Code": "R07.81",
+          "Score": 0.009703746996819973
+        },
+        {
+          "Description": "Chest pain on breathing",
+          "Code": "R07.1",
+          "Score": 0.007953359745442867
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Text": "headaches",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 133,
+      "EndOffset": 142,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.8787732124328613
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Headache, unspecified",
+          "Code": "R51.9",
+          "Score": 0.42836785316467285
+        },
+        {
+          "Description": "Headache",
+          "Code": "R51",
+          "Score": 0.41237300634384155
+        },
+        {
+          "Description": "Other specified headache syndromes",
+          "Code": "G44.8",
+          "Score": 0.07646343111991882
+        },
+        {
+          "Description": "Primary exertional headache",
+          "Code": "G44.84",
+          "Score": 0.07405068725347519
+        },
+        {
+          "Description": "Other headache syndrome",
+          "Code": "G44.89",
+          "Score": 0.06817431002855301
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Text": "fatigue",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 147,
+      "EndOffset": 154,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9013108015060425
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Other fatigue",
+          "Code": "R53.83",
+          "Score": 0.7352148294448853
+        },
+        {
+          "Description": "Chronic fatigue, unspecified",
+          "Code": "R53.82",
+          "Score": 0.1569368839263916
+        },
+        {
+          "Description": "Heat fatigue, transient",
+          "Code": "T67.6",
+          "Score": 0.03972926363348961
+        },
+        {
+          "Description": "Postviral fatigue syndrome",
+          "Code": "G93.31",
+          "Score": 0.03732181340456009
+        },
+        {
+          "Description": "Other general symptoms and signs",
+          "Code": "R68.89",
+          "Score": 0.027833685278892517
+        }
+      ]
+    },
+    {
+      "Id": 15,
+      "Text": "muscle soreness",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9201511740684509,
+      "BeginOffset": 213,
+      "EndOffset": 228,
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "Id": 14,
+          "BeginOffset": 213,
+          "EndOffset": 219,
+          "Text": "muscle",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Myalgia, unspecified site",
+          "Code": "M79.10",
+          "Score": 0.18051880598068237
+        },
+        {
+          "Description": "Disorder of muscle, unspecified",
+          "Code": "M62.9",
+          "Score": 0.13028758764266968
+        },
+        {
+          "Description": "Other primary disorders of muscles",
+          "Code": "G71.8",
+          "Score": 0.11771587282419205
+        },
+        {
+          "Description": "Myalgia, other site",
+          "Code": "M79.18",
+          "Score": 0.11226853728294373
+        },
+        {
+          "Description": "Primary disorder of muscle, unspecified",
+          "Code": "G71.9",
+          "Score": 0.10623806715011597
+        }
+      ]
+    },
+    {
+      "Id": 16,
+      "Text": "hypertension",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 272,
+      "EndOffset": 284,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "PERTAINS_TO_FAMILY",
+          "Score": 0.779019296169281
+        },
+        {
+          "Name": "DIAGNOSIS",
+          "Score": 0.8530592322349548
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Family history of ischemic heart disease and other diseases of the circulatory system",
+          "Code": "Z82.49",
+          "Score": 0.4850565791130066
+        },
+        {
+          "Description": "Essential (primary) hypertension",
+          "Code": "I10",
+          "Score": 0.4024682939052582
+        },
+        {
+          "Description": "Unspecified maternal hypertension, third trimester",
+          "Code": "O16.3",
+          "Score": 0.17194035649299622
+        },
+        {
+          "Description": "Unspecified maternal hypertension",
+          "Code": "O16",
+          "Score": 0.15661968290805817
+        },
+        {
+          "Description": "Unspecified maternal hypertension, unspecified trimester",
+          "Code": "O16.9",
+          "Score": 0.14475418627262115
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20251001",
+  "ResponseMetadata": {
+    "RequestId": "86a55e04-1b24-4c2e-bf6b-624aabee4ac9",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "86a55e04-1b24-4c2e-bf6b-624aabee4ac9",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "4731",
+      "date": "Fri, 16 Jan 2026 11:30:12 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

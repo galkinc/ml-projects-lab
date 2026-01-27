@@ -1,0 +1,10 @@
+{
+  "text": "I am here for my annual physical exam. I feel generally healthy, exercise 3 times a week, and eat a balanced diet. No chest pain, no headaches, no fatigue. I take a daily multivitamin and occasional ibuprofen for muscle soreness after workouts. Family history: mother has hypertension.",
+  "metadata": {
+    "source_file": "examples/4_synthetic_patient_wellness_check.txt",
+    "character_count": 285,
+    "language": "en",
+    "timestamp": "2026-01-16T14:20:05.929743+00:00",
+    "api_method": "snomedct"
+  }
+}

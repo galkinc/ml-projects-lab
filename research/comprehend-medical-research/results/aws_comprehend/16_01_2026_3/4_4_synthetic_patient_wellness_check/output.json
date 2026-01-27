@@ -1,0 +1,114 @@
+{
+  "Entities": [
+    {
+      "Id": 11,
+      "Text": "multivitamin",
+      "Category": "MEDICATION",
+      "Type": "GENERIC_NAME",
+      "Score": 0.8617406487464905,
+      "BeginOffset": 171,
+      "EndOffset": 183,
+      "Attributes": [
+        {
+          "Type": "FREQUENCY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "Id": 10,
+          "BeginOffset": 165,
+          "EndOffset": 170,
+          "Text": "daily",
+          "Traits": []
+        }
+      ],
+      "Traits": [],
+      "RxNormConcepts": [
+        {
+          "Description": "vitamin b complex",
+          "Code": "11251",
+          "Score": 0.06969865411520004
+        },
+        {
+          "Description": "vitamin k",
+          "Code": "11258",
+          "Score": 0.022079989314079285
+        },
+        {
+          "Description": "myricetin",
+          "Code": "1368374",
+          "Score": 0.02173217386007309
+        },
+        {
+          "Description": "polyethylene glycols",
+          "Code": "8516",
+          "Score": 0.02170971967279911
+        },
+        {
+          "Description": "mecobalamin",
+          "Code": "29421",
+          "Score": 0.020183958113193512
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "Text": "ibuprofen",
+      "Category": "MEDICATION",
+      "Type": "GENERIC_NAME",
+      "Score": 0.821601390838623,
+      "BeginOffset": 199,
+      "EndOffset": 208,
+      "Attributes": [
+        {
+          "Type": "FREQUENCY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7814922332763672,
+          "Id": 12,
+          "BeginOffset": 188,
+          "EndOffset": 198,
+          "Text": "occasional",
+          "Traits": []
+        }
+      ],
+      "Traits": [],
+      "RxNormConcepts": [
+        {
+          "Description": "ibuprofen",
+          "Code": "5640",
+          "Score": 0.9291089773178101
+        },
+        {
+          "Description": "ibuprohm",
+          "Code": "850404",
+          "Score": 0.28265851736068726
+        },
+        {
+          "Description": "suprofen",
+          "Code": "10255",
+          "Score": 0.2816544771194458
+        },
+        {
+          "Description": "alminoprofen",
+          "Code": "17387",
+          "Score": 0.2710617184638977
+        },
+        {
+          "Description": "indobufen",
+          "Code": "27518",
+          "Score": 0.2518675923347473
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20221107",
+  "ResponseMetadata": {
+    "RequestId": "9f946ce8-cb13-4ea2-b88d-fefff5c5d6c5",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "9f946ce8-cb13-4ea2-b88d-fefff5c5d6c5",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "1460",
+      "date": "Fri, 16 Jan 2026 11:30:21 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

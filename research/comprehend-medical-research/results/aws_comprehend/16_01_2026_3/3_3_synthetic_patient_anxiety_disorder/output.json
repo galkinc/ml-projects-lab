@@ -1,0 +1,15 @@
+{
+  "Entities": [],
+  "ModelVersion": "3.2.0.20221107",
+  "ResponseMetadata": {
+    "RequestId": "89b56bd7-c4e6-4ee5-ae49-6b4d6110f87f",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "89b56bd7-c4e6-4ee5-ae49-6b4d6110f87f",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "47",
+      "date": "Fri, 16 Jan 2026 11:30:19 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

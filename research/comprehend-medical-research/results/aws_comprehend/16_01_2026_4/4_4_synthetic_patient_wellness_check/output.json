@@ -1,0 +1,568 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "Text": "physical exam",
+      "Category": "TEST_TREATMENT_PROCEDURE",
+      "Type": "TEST_NAME",
+      "Score": 0.5971075296401978,
+      "BeginOffset": 24,
+      "EndOffset": 37,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Physical examination procedure (procedure)",
+          "Code": "5880005",
+          "Score": 0.594643235206604
+        },
+        {
+          "Description": "Physical exam section (record artifact)",
+          "Code": "425044008",
+          "Score": 0.18861280381679535
+        },
+        {
+          "Description": "Physical examination management (procedure)",
+          "Code": "410184003",
+          "Score": 0.17674431204795837
+        },
+        {
+          "Description": "Physical assessment (procedure)",
+          "Code": "81375008",
+          "Score": 0.12600930035114288
+        },
+        {
+          "Description": "Physical evaluation management (procedure)",
+          "Code": "410187005",
+          "Score": 0.11781536042690277
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Text": "feel generally healthy",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 41,
+      "EndOffset": 63,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6248409748077393
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "General health good (finding)",
+          "Code": "135815002",
+          "Score": 0.27358725666999817
+        },
+        {
+          "Description": "Well adult (finding)",
+          "Code": "102512003",
+          "Score": 0.18069550395011902
+        },
+        {
+          "Description": "Well in self (finding)",
+          "Code": "17326005",
+          "Score": 0.17649412155151367
+        },
+        {
+          "Description": "Well elder (finding)",
+          "Code": "102515001",
+          "Score": 0.15799511969089508
+        },
+        {
+          "Description": "Fit and well (finding)",
+          "Code": "102499006",
+          "Score": 0.1517256200313568
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "Text": "exercise",
+      "Category": "TEST_TREATMENT_PROCEDURE",
+      "Type": "TREATMENT_NAME",
+      "Score": 0.7172441482543945,
+      "BeginOffset": 65,
+      "EndOffset": 73,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Physical exercise (observable entity)",
+          "Code": "61686008",
+          "Score": 0.46958300471305847
+        },
+        {
+          "Description": "Exercises regularly (finding)",
+          "Code": "228448000",
+          "Score": 0.4653675854206085
+        },
+        {
+          "Description": "Exercise (observable entity)",
+          "Code": "256235009",
+          "Score": 0.4639783501625061
+        },
+        {
+          "Description": "Regular exercise (observable entity)",
+          "Code": "225925001",
+          "Score": 0.4371935725212097
+        },
+        {
+          "Description": "Exercises (regime/therapy)",
+          "Code": "226029000",
+          "Score": 0.4112568497657776
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Text": "eat a balanced diet",
+      "Category": "TEST_TREATMENT_PROCEDURE",
+      "Type": "TREATMENT_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 94,
+      "EndOffset": 113,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Balanced diet (finding)",
+          "Code": "226229006",
+          "Score": 0.6945357918739319
+        },
+        {
+          "Description": "Normal diet (finding)",
+          "Code": "36823005",
+          "Score": 0.24698713421821594
+        },
+        {
+          "Description": "Unbalanced diet (finding)",
+          "Code": "424890008",
+          "Score": 0.21854034066200256
+        },
+        {
+          "Description": "Diet for balance study (finding)",
+          "Code": "226215005",
+          "Score": 0.1990840584039688
+        },
+        {
+          "Description": "Clean diet (finding)",
+          "Code": "226220005",
+          "Score": 0.18558944761753082
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Text": "chest",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.7172441482543945,
+      "BeginOffset": 118,
+      "EndOffset": 123,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Thoracic structure (body structure)",
+          "Code": "51185008",
+          "Score": 0.11892805248498917
+        },
+        {
+          "Description": "Chest pain (finding)",
+          "Code": "29857009",
+          "Score": 0.0012114588171243668
+        },
+        {
+          "Description": "Chest wall structure (body structure)",
+          "Code": "78904004",
+          "Score": 0.0009283273830078542
+        },
+        {
+          "Description": "Entire chest and abdomen (body structure)",
+          "Code": "732164007",
+          "Score": 0.0008986194734461606
+        },
+        {
+          "Description": "Thoracic cavity structure (body structure)",
+          "Code": "43799004",
+          "Score": 0.0008536754176020622
+        }
+      ]
+    },
+    {
+      "Id": 7,
+      "Text": "chest pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 118,
+      "EndOffset": 128,
+      "Attributes": [
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7172441482543945,
+          "RelationshipScore": 0.7552722692489624,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 6,
+          "BeginOffset": 118,
+          "EndOffset": 123,
+          "Text": "chest",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Thoracic structure (body structure)",
+              "Code": "51185008",
+              "Score": 0.11892805248498917
+            },
+            {
+              "Description": "Chest pain (finding)",
+              "Code": "29857009",
+              "Score": 0.0012114588171243668
+            },
+            {
+              "Description": "Chest wall structure (body structure)",
+              "Code": "78904004",
+              "Score": 0.0009283273830078542
+            },
+            {
+              "Description": "Entire chest and abdomen (body structure)",
+              "Code": "732164007",
+              "Score": 0.0008986194734461606
+            },
+            {
+              "Description": "Thoracic cavity structure (body structure)",
+              "Code": "43799004",
+              "Score": 0.0008536754176020622
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9214484095573425
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Chest pain (finding)",
+          "Code": "29857009",
+          "Score": 0.5664767026901245
+        },
+        {
+          "Description": "Rib pain (finding)",
+          "Code": "297217002",
+          "Score": 0.008355636149644852
+        },
+        {
+          "Description": "Acute chest pain (finding)",
+          "Code": "102587001",
+          "Score": 0.006662310101091862
+        },
+        {
+          "Description": "Pain (finding)",
+          "Code": "22253000",
+          "Score": 0.0056907180696725845
+        },
+        {
+          "Description": "Chronic chest pain (finding)",
+          "Code": "434011000124101",
+          "Score": 0.00514646153897047
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Text": "headaches",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 133,
+      "EndOffset": 142,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.8787732124328613
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Headache (finding)",
+          "Code": "25064002",
+          "Score": 0.16607172787189484
+        },
+        {
+          "Description": "Pain in face (finding)",
+          "Code": "95668009",
+          "Score": 0.019888626411557198
+        },
+        {
+          "Description": "Face ache (finding)",
+          "Code": "274666009",
+          "Score": 0.010453280061483383
+        },
+        {
+          "Description": "Headache disorder (disorder)",
+          "Code": "230461009",
+          "Score": 0.0074990736320614815
+        },
+        {
+          "Description": "Pain in cheek (finding)",
+          "Code": "473008002",
+          "Score": 0.006945442408323288
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Text": "fatigue",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 147,
+      "EndOffset": 154,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9013108015060425
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Fatigue (finding)",
+          "Code": "84229001",
+          "Score": 0.6583720445632935
+        },
+        {
+          "Description": "No fatigue (situation)",
+          "Code": "1141720008",
+          "Score": 0.07292941212654114
+        },
+        {
+          "Description": "Muscle fatigue (finding)",
+          "Code": "80449002",
+          "Score": 0.06409928947687149
+        },
+        {
+          "Description": "Chronic fatigue syndrome (disorder)",
+          "Code": "52702003",
+          "Score": 0.04204745590686798
+        },
+        {
+          "Description": "Level of fatigue (observable entity)",
+          "Code": "440398005",
+          "Score": 0.03658575937151909
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "muscle",
+      "Category": "ANATOMY",
+      "Type": "SYSTEM_ORGAN_SITE",
+      "Score": 0.7613970637321472,
+      "BeginOffset": 213,
+      "EndOffset": 219,
+      "Attributes": [],
+      "Traits": [],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Skeletal and/or smooth muscle structure (body structure)",
+          "Code": "71616004",
+          "Score": 0.43307745456695557
+        },
+        {
+          "Description": "Skeletal muscle structure (body structure)",
+          "Code": "127954009",
+          "Score": 0.12176160514354706
+        },
+        {
+          "Description": "Entire skeletal and smooth muscle (body structure)",
+          "Code": "731986005",
+          "Score": 0.1009613499045372
+        },
+        {
+          "Description": "Structure of striated muscle and/or smooth muscle (body structure)",
+          "Code": "870434005",
+          "Score": 0.08430939167737961
+        },
+        {
+          "Description": "Supraspinatus muscle structure (body structure)",
+          "Code": "6423006",
+          "Score": 0.07580364495515823
+        }
+      ]
+    },
+    {
+      "Id": 15,
+      "Text": "muscle soreness",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9201511740684509,
+      "BeginOffset": 213,
+      "EndOffset": 228,
+      "Attributes": [
+        {
+          "Category": "ANATOMY",
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "RelationshipType": "SYSTEM_ORGAN_SITE",
+          "Id": 14,
+          "BeginOffset": 213,
+          "EndOffset": 219,
+          "Text": "muscle",
+          "Traits": [],
+          "SNOMEDCTConcepts": [
+            {
+              "Description": "Skeletal and/or smooth muscle structure (body structure)",
+              "Code": "71616004",
+              "Score": 0.43307745456695557
+            },
+            {
+              "Description": "Skeletal muscle structure (body structure)",
+              "Code": "127954009",
+              "Score": 0.12176160514354706
+            },
+            {
+              "Description": "Entire skeletal and smooth muscle (body structure)",
+              "Code": "731986005",
+              "Score": 0.1009613499045372
+            },
+            {
+              "Description": "Structure of striated muscle and/or smooth muscle (body structure)",
+              "Code": "870434005",
+              "Score": 0.08430939167737961
+            },
+            {
+              "Description": "Supraspinatus muscle structure (body structure)",
+              "Code": "6423006",
+              "Score": 0.07580364495515823
+            }
+          ]
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Muscle pain (finding)",
+          "Code": "68962001",
+          "Score": 0.2089572250843048
+        },
+        {
+          "Description": "Disorder of skeletal AND/OR smooth muscle (disorder)",
+          "Code": "129565002",
+          "Score": 0.15955166518688202
+        },
+        {
+          "Description": "Muscle strain (disorder)",
+          "Code": "48532005",
+          "Score": 0.15197716653347015
+        },
+        {
+          "Description": "Muscle tender point (finding)",
+          "Code": "298289005",
+          "Score": 0.11680690199136734
+        },
+        {
+          "Description": "Localized masticatory muscle soreness (finding)",
+          "Code": "699682009",
+          "Score": 0.1159149706363678
+        }
+      ]
+    },
+    {
+      "Id": 16,
+      "Text": "hypertension",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 272,
+      "EndOffset": 284,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "PERTAINS_TO_FAMILY",
+          "Score": 0.779019296169281
+        },
+        {
+          "Name": "DIAGNOSIS",
+          "Score": 0.8530592322349548
+        }
+      ],
+      "SNOMEDCTConcepts": [
+        {
+          "Description": "Family history: Hypertension (situation)",
+          "Code": "160357008",
+          "Score": 0.8462737202644348
+        },
+        {
+          "Description": "Hypertensive disorder, systemic arterial (disorder)",
+          "Code": "38341003",
+          "Score": 0.6288927793502808
+        },
+        {
+          "Description": "No family history: Hypertension (situation)",
+          "Code": "160273004",
+          "Score": 0.30915403366088867
+        },
+        {
+          "Description": "History of hypertension (situation)",
+          "Code": "161501007",
+          "Score": 0.30095499753952026
+        },
+        {
+          "Description": "Family history: Cardiovascular disease (situation)",
+          "Code": "266894000",
+          "Score": 0.17669546604156494
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20220301",
+  "SNOMEDCTDetails": {
+    "Edition": "US",
+    "Language": "en",
+    "VersionDate": "20220301"
+  },
+  "Characters": {
+    "OriginalTextCharacters": 285
+  },
+  "ResponseMetadata": {
+    "RequestId": "d8aafb5e-85bf-4e49-ae8e-8dbd4ebc06e0",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "d8aafb5e-85bf-4e49-ae8e-8dbd4ebc06e0",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "9699",
+      "date": "Fri, 16 Jan 2026 14:20:05 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

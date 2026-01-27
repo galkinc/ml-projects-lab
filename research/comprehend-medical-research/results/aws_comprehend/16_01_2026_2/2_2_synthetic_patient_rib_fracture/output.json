@@ -1,0 +1,383 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "Text": "fell off",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 2,
+      "EndOffset": 10,
+      "Attributes": [
+        {
+          "Type": "DIRECTION",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 3,
+          "BeginOffset": 46,
+          "EndOffset": 56,
+          "Text": "right side",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.5296252369880676
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Unspecified fall, initial encounter",
+          "Code": "W19.XXXA",
+          "Score": 0.1942991316318512
+        },
+        {
+          "Description": "Other fall from one level to another, initial encounter",
+          "Code": "W17.89XA",
+          "Score": 0.15146657824516296
+        },
+        {
+          "Description": "Other fall on same level, initial encounter",
+          "Code": "W18.39XA",
+          "Score": 0.12220940738916397
+        },
+        {
+          "Description": "Fall on same level, unspecified, initial encounter",
+          "Code": "W18.30XA",
+          "Score": 0.12213779985904694
+        },
+        {
+          "Description": "Other fall from one level to another",
+          "Code": "W17.89",
+          "Score": 0.10602093487977982
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Text": "yesterday",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Score": 0.7172441482543945,
+      "BeginOffset": 19,
+      "EndOffset": 28,
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5692254304885864,
+          "Id": 1,
+          "BeginOffset": 2,
+          "EndOffset": 10,
+          "Text": "fell off",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.5296252369880676
+            }
+          ]
+        }
+      ],
+      "Traits": [],
+      "ICD10CMConcepts": []
+    },
+    {
+      "Id": 6,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 85,
+      "EndOffset": 89,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.7223333120346069,
+          "Id": 4,
+          "BeginOffset": 69,
+          "EndOffset": 74,
+          "Text": "sharp",
+          "Traits": []
+        },
+        {
+          "Type": "QUALITY",
+          "Score": 0.7172441482543945,
+          "RelationshipScore": 0.7223333120346069,
+          "Id": 5,
+          "BeginOffset": 76,
+          "EndOffset": 84,
+          "Text": "stabbing",
+          "Traits": []
+        },
+        {
+          "Type": "DIRECTION",
+          "Score": 0.821601390838623,
+          "RelationshipScore": 0.7223333120346069,
+          "Id": 7,
+          "BeginOffset": 96,
+          "EndOffset": 101,
+          "Text": "right",
+          "Traits": []
+        },
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.8435389995574951,
+          "RelationshipScore": 0.8534350991249084,
+          "Id": 8,
+          "BeginOffset": 96,
+          "EndOffset": 107,
+          "Text": "right chest",
+          "Traits": []
+        },
+        {
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 9,
+          "BeginOffset": 113,
+          "EndOffset": 158,
+          "Text": "gets worse when I take a deep breath or cough",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Chest pain, unspecified",
+          "Code": "R07.9",
+          "Score": 0.38398775458335876
+        },
+        {
+          "Description": "Other chest pain",
+          "Code": "R07.89",
+          "Score": 0.2493758350610733
+        },
+        {
+          "Description": "Pleurodynia",
+          "Code": "R07.81",
+          "Score": 0.14261162281036377
+        },
+        {
+          "Description": "Precordial pain",
+          "Code": "R07.2",
+          "Score": 0.14065133035182953
+        },
+        {
+          "Description": "Chest pain on breathing",
+          "Code": "R07.1",
+          "Score": 0.058973971754312515
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Text": "shortness of breath",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9201511740684509,
+      "BeginOffset": 172,
+      "EndOffset": 191,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.6248409748077393
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Shortness of breath",
+          "Code": "R06.02",
+          "Score": 0.7700448632240295
+        },
+        {
+          "Description": "Other forms of dyspnea",
+          "Code": "R06.09",
+          "Score": 0.0876382365822792
+        },
+        {
+          "Description": "Dyspnea, unspecified",
+          "Code": "R06.00",
+          "Score": 0.0797901302576065
+        },
+        {
+          "Description": "Dyspnea",
+          "Code": "R06.0",
+          "Score": 0.04081016406416893
+        },
+        {
+          "Description": "Tachypnea, not elsewhere classified",
+          "Code": "R06.82",
+          "Score": 0.02040703035891056
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": "tender to touch over",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 204,
+      "EndOffset": 224,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Pleurodynia",
+          "Code": "R07.81",
+          "Score": 0.08066019415855408
+        },
+        {
+          "Description": "Precordial pain",
+          "Code": "R07.2",
+          "Score": 0.029869334772229195
+        },
+        {
+          "Description": "Intercostal pain",
+          "Code": "R07.82",
+          "Score": 0.020935839042067528
+        },
+        {
+          "Description": "Other chest pain",
+          "Code": "R07.89",
+          "Score": 0.02049713023006916
+        },
+        {
+          "Description": "Pain in thoracic spine",
+          "Code": "M54.6",
+          "Score": 0.018853863701224327
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "Text": "tender to touch over the 5th rib",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 204,
+      "EndOffset": 236,
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 13,
+          "BeginOffset": 229,
+          "EndOffset": 236,
+          "Text": "5th rib",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Pleurodynia",
+          "Code": "R07.81",
+          "Score": 0.1073296070098877
+        },
+        {
+          "Description": "Precordial pain",
+          "Code": "R07.2",
+          "Score": 0.03978489339351654
+        },
+        {
+          "Description": "Other chest pain",
+          "Code": "R07.89",
+          "Score": 0.02092028595507145
+        },
+        {
+          "Description": "Intercostal pain",
+          "Code": "R07.82",
+          "Score": 0.018037015572190285
+        },
+        {
+          "Description": "Acute post-thoracotomy pain",
+          "Code": "G89.12",
+          "Score": 0.016877401620149612
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "osteoporosis",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 252,
+      "EndOffset": 264,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.8530592322349548
+        },
+        {
+          "Name": "DIAGNOSIS",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Age-related osteoporosis without current pathological fracture",
+          "Code": "M81.0",
+          "Score": 0.5367454886436462
+        },
+        {
+          "Description": "Family history of osteoporosis",
+          "Code": "Z82.62",
+          "Score": 0.08055135607719421
+        },
+        {
+          "Description": "Osteoporosis without current pathological fracture",
+          "Code": "M81",
+          "Score": 0.08040372282266617
+        },
+        {
+          "Description": "Other osteoporosis without current pathological fracture",
+          "Code": "M81.8",
+          "Score": 0.0551874041557312
+        },
+        {
+          "Description": "Personal history of (healed) osteoporosis fracture",
+          "Code": "Z87.310",
+          "Score": 0.05405518040060997
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20251001",
+  "ResponseMetadata": {
+    "RequestId": "bee3c421-c36f-4047-be67-8510a4557e38",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "bee3c421-c36f-4047-be67-8510a4557e38",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "5799",
+      "date": "Fri, 16 Jan 2026 11:30:09 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

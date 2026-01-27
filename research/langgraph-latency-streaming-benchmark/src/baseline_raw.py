@@ -24,14 +24,22 @@ class RawBedrockBaseline:
     def __init__(self) -> None:
         self.session = aioboto3.Session()
         self.creds = settings.get_aws_credentials()
+        self._client = None
+
+    async def get_client(self):
+        if self._client is None:
+            self._client = await self.session.client("bedrock-runtime", **self.creds).__aenter__()
+        return self._client
+
+    async def close(self):
+        if self._client:
+            await self._client.__aexit__(None, None, None)
 
     async def call_bedrock_stream(self, message: str) -> dict:
         """Calls Bedrock converse_stream and measures raw latency."""
+
+        client = await self.get_client()
         start_time = time.perf_counter()
-        first_token_time = None
-        token_times = []
-        full_response = ""
-        usage_metadata = {}
 
         # Construct messages in AWS Bedrock format
         bedrock_messages = [{"role": "user", "content": [{"text": message}]}]
@@ -40,6 +48,12 @@ class RawBedrockBaseline:
             async with self.session.client(
                 "bedrock-runtime", **self.creds
             ) as bedrock_runtime:
+                # Start timing AFTER connection is established
+                first_token_time = None
+                token_times = []
+                full_response = ""
+                usage_metadata = {}
+
                 response = await bedrock_runtime.converse_stream(
                     modelId=settings.bedrock.model_id,
                     messages=bedrock_messages,

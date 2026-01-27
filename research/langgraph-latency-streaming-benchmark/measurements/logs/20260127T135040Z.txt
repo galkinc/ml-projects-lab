@@ -1,0 +1,78 @@
+uv run python main.py --mode all --limit 5 --concurrency 1 
+
+2026-01-27 16:50:00,374 UTC - INFO - Starting Benchmark CLI
+2026-01-27 16:50:00,374 UTC - INFO - Mode: all, Concurrency=1, Limit=5
+2026-01-27 16:50:00,374 UTC - INFO - --- Running LangGraph Mode ---
+2026-01-27 16:50:00,376 UTC - INFO - Loading prompts...
+2026-01-27 16:50:00,420 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-27 16:50:00,427 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-27 16:50:00,428 UTC - INFO - Limiting benchmark to first 5 prompts.
+2026-01-27 16:50:00,428 UTC - INFO - Total prompts to process: 5
+2026-01-27 16:50:00,428 UTC - INFO - Starting benchmark with concurrency=1...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:12<00:00,  2.51s/it]
+2026-01-27 16:50:12,998 UTC - INFO - Results saved to measurements\langgraph\langgraph_20260127T135012Z.csv
+2026-01-27 16:50:12,999 UTC - INFO - === Benchmark Summary ===
+2026-01-27 16:50:12,999 UTC - INFO - Avg TTFT: 715.96 ms
+2026-01-27 16:50:12,999 UTC - INFO - Avg E2E: 2511.52 ms
+2026-01-27 16:50:13,001 UTC - INFO - === Overall Latency Metrics (ms) ===
+2026-01-27 16:50:13,001 UTC - INFO - p50  : 2464.70
+2026-01-27 16:50:13,001 UTC - INFO - p90  : 2838.11
+2026-01-27 16:50:13,002 UTC - INFO - p95  : 2896.14
+2026-01-27 16:50:13,002 UTC - INFO - p99  : 2942.57
+2026-01-27 16:50:13,002 UTC - INFO - mean : 2511.52
+2026-01-27 16:50:13,002 UTC - INFO - min  : 2184.00
+2026-01-27 16:50:13,002 UTC - INFO - max  : 2954.18
+2026-01-27 16:50:13,002 UTC - INFO - count: 5.00
+2026-01-27 16:50:13,003 UTC - INFO - === Metrics by Complexity ===
+2026-01-27 16:50:13,019 UTC - INFO - 
+            count        mean         std        min        50%         95%          99%        max
+complexity
+Low           5.0  2511.52466  307.166054  2184.0013  2464.7008  2896.14434  2942.572468  2954.1795
+2026-01-27 16:50:13,023 UTC - INFO - JSONL logs saved to measurements\langgraph\langgraph_20260127T135012Z.jsonl
+2026-01-27 16:50:13,025 UTC - INFO - Markdown report saved to measurements\langgraph\langgraph_20260127T135012Z.md
+2026-01-27 16:50:13,027 UTC - INFO - --- Running RAW Baseline Mode ---
+2026-01-27 16:50:13,031 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-27 16:50:13,039 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-27 16:50:13,039 UTC - INFO - Starting RAW BASELINE benchmark. Samples: {len(all_prompts)}, Concurrency: {concurrency}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:14<00:00,  2.90s/it]
+2026-01-27 16:50:27,557 UTC - INFO - === Overall Latency Metrics (ms) ===
+2026-01-27 16:50:27,557 UTC - INFO - p50  : 2956.26
+2026-01-27 16:50:27,557 UTC - INFO - p90  : 3252.53
+2026-01-27 16:50:27,558 UTC - INFO - p95  : 3263.50
+2026-01-27 16:50:27,558 UTC - INFO - p99  : 3272.28
+2026-01-27 16:50:27,558 UTC - INFO - mean : 2876.63
+2026-01-27 16:50:27,558 UTC - INFO - min  : 1983.42
+2026-01-27 16:50:27,558 UTC - INFO - max  : 3274.47
+2026-01-27 16:50:27,559 UTC - INFO - count: 5.00
+2026-01-27 16:50:27,559 UTC - INFO - === Metrics by Complexity ===
+2026-01-27 16:50:27,572 UTC - INFO - 
+            count       mean         std        min        50%        95%         99%        max
+complexity
+Low           5.0  2876.6298  520.904676  1983.4246  2956.2554  3263.5023  3272.28006  3274.4745
+2026-01-27 16:50:27,574 UTC - INFO - JSONL logs saved to measurements\baseline\baseline_20260127T135027Z.jsonl
+2026-01-27 16:50:27,576 UTC - INFO - Markdown report saved to measurements\baseline\baseline_20260127T135027Z.md
+2026-01-27 16:50:27,576 UTC - INFO - RAW BASELINE finished. Results: measurements\baseline\baseline_20260127T135027Z.csv
+2026-01-27 16:50:27,578 UTC - INFO - --- Running LangChain AWS Mode (No Graph) ---
+2026-01-27 16:50:27,582 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-27 16:50:27,591 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-27 16:50:27,591 UTC - INFO - Starting LANGCHAIN-AWS benchmark. Samples: {len(all_prompts)}, Concurrency: {concurrency}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:12<00:00,  2.48s/it]
+2026-01-27 16:50:40,305 UTC - INFO - === Overall Latency Metrics (ms) ===
+2026-01-27 16:50:40,306 UTC - INFO - p50  : 2921.94
+2026-01-27 16:50:40,306 UTC - INFO - p90  : 3033.62
+2026-01-27 16:50:40,306 UTC - INFO - p95  : 3045.87
+2026-01-27 16:50:40,306 UTC - INFO - p99  : 3055.67
+2026-01-27 16:50:40,307 UTC - INFO - mean : 2481.67
+2026-01-27 16:50:40,307 UTC - INFO - min  : 1630.84
+2026-01-27 16:50:40,307 UTC - INFO - max  : 3058.12
+2026-01-27 16:50:40,307 UTC - INFO - count: 5.00
+2026-01-27 16:50:40,308 UTC - INFO - === Metrics by Complexity ===
+2026-01-27 16:50:40,321 UTC - INFO - 
+            count        mean         std       min        50%         95%          99%        max
+complexity
+Low           5.0  2481.66666  703.451561  1630.838  2921.9423  3045.86786  3055.667892  3058.1179
+2026-01-27 16:50:40,322 UTC - INFO - JSONL logs saved to measurements\langchain_aws\langchain_aws_20260127T135040Z.jsonl
+2026-01-27 16:50:40,324 UTC - INFO - Markdown report saved to measurements\langchain_aws\langchain_aws_20260127T135040Z.md
+2026-01-27 16:50:40,324 UTC - INFO - LANGCHAIN-AWS finished. Results: measurements\langchain_aws\langchain_aws_20260127T135040Z.csv
+2026-01-27 16:50:40,337 UTC - INFO - --- Generating Global Comparison Report ---
+2026-01-27 16:50:40,353 UTC - INFO - Comparison report saved to measurements\comparison\comparison_20260127T135040Z_comparison.md

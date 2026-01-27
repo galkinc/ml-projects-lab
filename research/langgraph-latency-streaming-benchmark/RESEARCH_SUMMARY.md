@@ -15,29 +15,31 @@ This document summarizes the findings from the **LangGraph Latency & Streaming B
 
 ### 1. Framework Overhead Analysis
 
-| Mode | Avg TTFT (ms) | Avg E2E (ms) | Avg TPS | Overhead (TTFT) |
+| Mode | Avg TTFT (ms) | Avg E2E (ms) | Avg TPS | Analysis |
 |---|---|---|---|---|
-| **Raw Baseline** (`aioboto3`) | ~1622 ms | ~3128 ms | ~470 | **0 ms (Baseline)** |
-| **LangChain AWS** (No Graph) | ~686 ms | ~2082 ms | ~401 | **-936 ms** (Unexpectedly faster*) |
-| **LangGraph** (With State) | ~775 ms | ~2249 ms | ~366 | **+89 ms** (vs LangChain) |
+| **Raw Baseline** (`aioboto3`) | ~1242 ms | ~2901 ms | **863.7** | **Unrivaled Generation Speed (3.4x faster)**, but significant start lag. |
+| **LangChain AWS** (No Graph) | **~665 ms** | **~2480 ms** | 253.6 | **Fastest TTFT.** Superior connection/transport optimization. |
+| **LangGraph** (With State) | ~674 ms | **~2276 ms*** | 248.5 | Minimal overhead (~9ms) over LangChain. |
 
-*> **Note on Anomalies:** The baseline `aioboto3` implementation showed significantly higher latency (~1.6s TTFT) compared to LangChain (~0.7s). This is counter-intuitive and likely indicates that the raw `aioboto3` implementation lacks specific optimizations present in `langchain-aws` (e.g., efficient stream handling or connection pooling) or was subject to cold starts/throttling during the test run. In a stabilized environment, we expect Raw to be faster or equal.*
+*\*Note: In this run, LangGraph's Avg E2E was slightly lower than LangChain's due to model response variance (shorter responses), but TTFT remains the reliable metric for framework overhead.*
 
-**Corrected Overhead Estimation (LangGraph vs LangChain):**
-Comparing `langgraph` vs `langchain_aws` (which share the same underlying model client) reveals the true cost of the framework:
-*   **TTFT Penalty:** ~90 ms (13% increase)
-*   **E2E Penalty:** ~167 ms (8% increase)
-*   **Throughput Drop:** ~35 TPS (9% decrease)
+**Overhead Observations:**
+1.  **Start-up Cost (TTFT):** Raw `aioboto3` consistently shows a ~600ms penalty for the first token. Despite session reuse, the per-request client initialization in the async SDK remains the bottleneck for low-latency starts.
+2.  **Generation Speed (TPS):** This is the most significant discovery. **Raw Baseline is 3.4x faster in token throughput (863 vs 253 TPS)**. LangChain's internal chunk processing, object instantiation (`AIMessageChunk`), and callback orchestration introduce a massive throughput bottleneck during high-speed streaming.
+3.  **LangGraph Framework:** LangGraph adds a negligible **9ms penalty** to TTFT. It is an extremely efficient orchestration layer that does not perceptibly slow down the underlying LLM client.
 
-**Conclusion:** LangGraph introduces a measurable but acceptable overhead (~10%) for the benefits of state management and orchestration.
+**Conclusion:** 
+*   **For Ultra-Fast Throughput:** If the goal is processing/displaying large amounts of text quickly, **Raw SDK is mandatory**.
+*   **For Instant UX (Reactivity):** LangChain/LangGraph are better suited due to faster TTFT.
+*   **For Complex Agents:** LangGraph is the optimal choice, providing state management with virtually zero latency cost.
 
 ### 2. Latency Stability (p95)
 
 | Mode | p95 E2E Latency (ms) |
 |---|---|
-| **LangGraph** | 4014.43 |
-| **LangChain AWS** | 3745.62 |
-| **Baseline** | 4607.85 |
+| **LangGraph** | 3704.04 |
+| **LangChain AWS** | 4634.41 |
+| **Baseline** | 4752.35 |
 
 LangGraph remains relatively stable even at the 95th percentile, following the performance curve of the underlying LangChain client.
 

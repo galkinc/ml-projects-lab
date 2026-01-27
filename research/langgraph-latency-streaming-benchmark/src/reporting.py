@@ -57,17 +57,21 @@ class ReportGenerator:
                 f.write("# Benchmark Comparison Report\n\n")
 
                 f.write("## Global Metrics Comparison\n\n")
-                f.write("| Mode | Avg TTFT (ms) | Avg E2E (ms) | Avg TPS | Samples |\n")
-                f.write("|---|---|---|---|---|\n")
+                f.write(
+                    "| Mode | Avg TTFT (ms) | Avg E2E (ms) | "
+                    "p95 E2E | Avg TPS | Samples |\n"
+                )
+                f.write("|---|---|---|---|---|---|\n")
 
                 for mode, df in df_map.items():
                     if not df.empty:
                         ttft = df["ttft_ms"].mean()
                         e2e = df["e2e_latency_ms"].mean()
+                        p95_e2e = df["e2e_latency_ms"].quantile(0.95)
                         tps = df.get("tps", pd.Series([0])).mean()
                         f.write(
                             f"| {mode} | {ttft:.2f} | "
-                            f"{e2e:.2f} | {tps:.2f} | {len(df)} |\n"
+                            f"{e2e:.2f} | {p95_e2e:.2f} | {tps:.2f} | {len(df)} |\n"
                         )
 
                 f.write("\n\n## Per-Prompt TTFT Comparison (ms)\n\n")
@@ -78,7 +82,7 @@ class ReportGenerator:
                 unique_ids = list(dict.fromkeys(all_ids))
 
                 f.write("| Prompt ID | " + " | ".join(df_map.keys()) + " |\n")
-                f.write("|---|" + "|---" * len(df_map) + "|\n")
+                f.write("|---|" + "---| " * len(df_map) + "\n")
 
                 for pid in unique_ids:
                     row = f"| {pid} | "
@@ -110,6 +114,10 @@ class ReportGenerator:
                 if not df.empty and "e2e_latency_ms" in df.columns:
                     ttft_avg = df["ttft_ms"].mean() if "ttft_ms" in df.columns else 0
                     e2e_avg = df["e2e_latency_ms"].mean()
+                    tps_avg = df["tps"].mean() if "tps" in df.columns else 0
+                    itl_avg = (
+                        df["avg_itl_ms"].mean() if "avg_itl_ms" in df.columns else 0
+                    )
                     count = len(df)
 
                     f.write("## Summary Metrics\n")
@@ -117,6 +125,8 @@ class ReportGenerator:
                     f.write(f"| Total Samples | {count} |\n")
                     f.write(f"| Avg TTFT | {ttft_avg:.2f} ms |\n")
                     f.write(f"| Avg E2E Latency | {e2e_avg:.2f} ms |\n")
+                    f.write(f"| Avg TPS | {tps_avg:.2f} tokens/s |\n")
+                    f.write(f"| Avg ITL | {itl_avg:.2f} ms/token |\n")
                     f.write("\n")
 
                 # 2. Detailed Samples

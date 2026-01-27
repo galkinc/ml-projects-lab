@@ -140,7 +140,21 @@ async def run_langchain_aws_benchmark(
                 return res
 
             except Exception as e:
-                return {"prompt_id": sample.prompt_id, "error": str(e)}
+                return {
+                    "prompt_id": sample.prompt_id,
+                    "category": sample.category,
+                    "complexity": sample.complexity,
+                    "prompt": sample.prompt,
+                    "response": "",
+                    "ttft_ms": None,
+                    "e2e_latency_ms": None,
+                    "avg_itl_ms": None,
+                    "tps": 0,
+                    "input_tokens": 0,
+                    "output_tokens": 0,
+                    "chunk_count": 0,
+                    "error": str(e),
+                }
 
     # Execution
     tasks = [process_sample(p) for p in all_prompts]

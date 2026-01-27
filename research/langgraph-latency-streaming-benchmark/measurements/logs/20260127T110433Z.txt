@@ -1,0 +1,84 @@
+uv run python main.py --mode all --limit 80 --concurrency 4
+
+2026-01-27 14:01:58,698 UTC - INFO - Starting Benchmark CLI
+2026-01-27 14:01:58,699 UTC - INFO - Mode: all, Concurrency=4, Limit=80
+2026-01-27 14:01:58,699 UTC - INFO - --- Running LangGraph Mode ---
+2026-01-27 14:01:58,700 UTC - INFO - Loading prompts...
+2026-01-27 14:01:58,744 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-27 14:01:58,752 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-27 14:01:58,752 UTC - INFO - Limiting benchmark to first 80 prompts.
+2026-01-27 14:01:58,752 UTC - INFO - Total prompts to process: 80
+2026-01-27 14:01:58,752 UTC - INFO - Starting benchmark with concurrency=4...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [00:46<00:00,  1.73it/s]
+2026-01-27 14:02:44,959 UTC - INFO - Results saved to measurements\langgraph\langgraph_20260127T110244Z.csv
+2026-01-27 14:02:44,959 UTC - INFO - === Benchmark Summary ===
+2026-01-27 14:02:44,960 UTC - INFO - Avg TTFT: 775.95 ms
+2026-01-27 14:02:44,960 UTC - INFO - Avg E2E: 2249.72 ms
+2026-01-27 14:02:44,962 UTC - INFO - === Overall Latency Metrics (ms) ===
+2026-01-27 14:02:44,962 UTC - INFO - p50  : 2059.15
+2026-01-27 14:02:44,962 UTC - INFO - p90  : 3658.47
+2026-01-27 14:02:44,962 UTC - INFO - p95  : 4014.43
+2026-01-27 14:02:44,962 UTC - INFO - p99  : 4692.09
+2026-01-27 14:02:44,963 UTC - INFO - mean : 2249.72
+2026-01-27 14:02:44,963 UTC - INFO - min  : 711.37
+2026-01-27 14:02:44,963 UTC - INFO - max  : 4775.62
+2026-01-27 14:02:44,963 UTC - INFO - count: 80.00
+2026-01-27 14:02:44,964 UTC - INFO - === Metrics by Complexity ===
+2026-01-27 14:02:44,988 UTC - INFO - 
+            count         mean          std        min        50%         95%          99%        max
+complexity
+High         34.0  2009.733682   761.615210   926.4690  1865.7580  3037.74134  3448.320319  3642.6130
+Low          13.0  3160.319708   898.366347  1525.7438  3220.0461  4372.75682  4610.461124  4669.8872
+Medium       33.0  2138.245864  1070.256651   711.3713  1746.9579  4014.68434  4604.694460  4775.6191
+2026-01-27 14:02:44,998 UTC - INFO - JSONL logs saved to measurements\langgraph\langgraph_20260127T110244Z.jsonl
+2026-01-27 14:02:45,004 UTC - INFO - Markdown report saved to measurements\langgraph\langgraph_20260127T110244Z.md
+2026-01-27 14:02:45,008 UTC - INFO - --- Running RAW Baseline Mode ---
+2026-01-27 14:02:45,013 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-27 14:02:45,022 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-27 14:02:45,023 UTC - INFO - Starting RAW BASELINE benchmark. Samples: {len(all_prompts)}, Concurrency: {concurrency}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [01:05<00:00,  1.22it/s]
+2026-01-27 14:03:50,620 UTC - INFO - === Overall Latency Metrics (ms) ===
+2026-01-27 14:03:50,620 UTC - INFO - p50  : 3026.03
+2026-01-27 14:03:50,620 UTC - INFO - p90  : 4390.59
+2026-01-27 14:03:50,621 UTC - INFO - p95  : 4607.85
+2026-01-27 14:03:50,621 UTC - INFO - p99  : 5097.83
+2026-01-27 14:03:50,621 UTC - INFO - mean : 3128.66
+2026-01-27 14:03:50,621 UTC - INFO - min  : 1401.42
+2026-01-27 14:03:50,622 UTC - INFO - max  : 5633.90
+2026-01-27 14:03:50,622 UTC - INFO - count: 80.00
+2026-01-27 14:03:50,622 UTC - INFO - === Metrics by Complexity ===
+2026-01-27 14:03:50,638 UTC - INFO - 
+            count         mean         std        min        50%          95%          99%        max
+complexity
+High         34.0  2957.309435  930.848182  1401.4174  2897.2606  4658.645425  4901.479184  4955.3369
+Low          13.0  3770.213092  897.605204  2013.1872  3818.4052  5012.680480  5509.655296  5633.8990
+Medium       33.0  3052.465258  886.633067  1648.7045  2982.1533  4333.961940  4657.717980  4784.7543
+2026-01-27 14:03:50,644 UTC - INFO - JSONL logs saved to measurements\baseline\baseline_20260127T110350Z.jsonl
+2026-01-27 14:03:50,648 UTC - INFO - Markdown report saved to measurements\baseline\baseline_20260127T110350Z.md
+2026-01-27 14:03:50,648 UTC - INFO - RAW BASELINE finished. Results: measurements\baseline\baseline_20260127T110350Z.csv
+2026-01-27 14:03:50,650 UTC - INFO - --- Running LangChain AWS Mode (No Graph) ---
+2026-01-27 14:03:50,656 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-27 14:03:50,663 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-27 14:03:50,664 UTC - INFO - Starting LANGCHAIN-AWS benchmark. Samples: {len(all_prompts)}, Concurrency: {concurrency}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [00:42<00:00,  1.86it/s]
+2026-01-27 14:04:33,882 UTC - INFO - === Overall Latency Metrics (ms) ===
+2026-01-27 14:04:33,883 UTC - INFO - p50  : 2047.19
+2026-01-27 14:04:33,883 UTC - INFO - p90  : 3225.91
+2026-01-27 14:04:33,883 UTC - INFO - p95  : 3745.62
+2026-01-27 14:04:33,883 UTC - INFO - p99  : 4380.34
+2026-01-27 14:04:33,884 UTC - INFO - mean : 2082.83
+2026-01-27 14:04:33,884 UTC - INFO - min  : 631.12
+2026-01-27 14:04:33,884 UTC - INFO - max  : 4636.71
+2026-01-27 14:04:33,884 UTC - INFO - count: 80.00
+2026-01-27 14:04:33,884 UTC - INFO - === Metrics by Complexity ===
+2026-01-27 14:04:33,900 UTC - INFO - 
+            count         mean         std        min        50%         95%          99%        max
+complexity
+High         34.0  1764.325594  700.086974   631.1175  1601.0103  2754.15428  2853.393739  2866.7527
+Low          13.0  2992.705731  827.740459  1448.4120  2764.6783  4204.52368  4290.657136  4312.1905
+Medium       33.0  2052.556985  966.353458   681.1968  1814.1990  3772.49894  4374.912756  4636.7149
+2026-01-27 14:04:33,905 UTC - INFO - JSONL logs saved to measurements\langchain_aws\langchain_aws_20260127T110433Z.jsonl
+2026-01-27 14:04:33,909 UTC - INFO - Markdown report saved to measurements\langchain_aws\langchain_aws_20260127T110433Z.md
+2026-01-27 14:04:33,909 UTC - INFO - LANGCHAIN-AWS finished. Results: measurements\langchain_aws\langchain_aws_20260127T110433Z.csv
+2026-01-27 14:04:33,918 UTC - INFO - --- Generating Global Comparison Report ---
+2026-01-27 14:04:34,032 UTC - INFO - Comparison report saved to measurements\comparison\comparison_20260127T110433Z_comparison.md

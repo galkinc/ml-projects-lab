@@ -1,0 +1,428 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "Text": "past three days",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Score": 0.7172441482543945,
+      "BeginOffset": 8,
+      "EndOffset": 23,
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.9584784507751465,
+          "RelationshipScore": 0.6795811653137207,
+          "Id": 3,
+          "BeginOffset": 46,
+          "EndOffset": 50,
+          "Text": "pain",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.9817302823066711
+            }
+          ]
+        }
+      ],
+      "Traits": [],
+      "ICD10CMConcepts": []
+    },
+    {
+      "Id": 3,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 46,
+      "EndOffset": 50,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "Id": 2,
+          "BeginOffset": 38,
+          "EndOffset": 45,
+          "Text": "burning",
+          "Traits": []
+        },
+        {
+          "Type": "DIRECTION",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "Id": 4,
+          "BeginOffset": 58,
+          "EndOffset": 68,
+          "Text": "upper part",
+          "Traits": []
+        },
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.7950295805931091,
+          "RelationshipScore": 0.8031880259513855,
+          "Id": 5,
+          "BeginOffset": 58,
+          "EndOffset": 82,
+          "Text": "upper part of my stomach",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Upper abdominal pain, unspecified",
+          "Code": "R10.10",
+          "Score": 0.12562453746795654
+        },
+        {
+          "Description": "Unspecified abdominal pain",
+          "Code": "R10.9",
+          "Score": 0.06808324158191681
+        },
+        {
+          "Description": "Right upper quadrant pain",
+          "Code": "R10.11",
+          "Score": 0.05233198031783104
+        },
+        {
+          "Description": "Gas pain",
+          "Code": "R14.1",
+          "Score": 0.03888487070798874
+        },
+        {
+          "Description": "Pain localized to upper abdomen",
+          "Code": "R10.1",
+          "Score": 0.03866605460643768
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Text": "pain",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.90631103515625,
+      "BeginOffset": 88,
+      "EndOffset": 92,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 7,
+          "BeginOffset": 93,
+          "EndOffset": 116,
+          "Text": "gets worse after eating",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9405226111412048
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Upper abdominal pain, unspecified",
+          "Code": "R10.10",
+          "Score": 0.23801153898239136
+        },
+        {
+          "Description": "Unspecified abdominal pain",
+          "Code": "R10.9",
+          "Score": 0.1883111447095871
+        },
+        {
+          "Description": "Right upper quadrant pain",
+          "Code": "R10.11",
+          "Score": 0.13062727451324463
+        },
+        {
+          "Description": "Pain localized to upper abdomen",
+          "Code": "R10.1",
+          "Score": 0.11986616253852844
+        },
+        {
+          "Description": "Left upper quadrant pain",
+          "Code": "R10.12",
+          "Score": 0.1016329675912857
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Text": "nausea",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9201511740684509,
+      "BeginOffset": 149,
+      "EndOffset": 155,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 8,
+          "BeginOffset": 124,
+          "EndOffset": 145,
+          "Text": "sometimes accompanied",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Nausea",
+          "Code": "R11.0",
+          "Score": 0.5140182375907898
+        },
+        {
+          "Description": "Nausea with vomiting, unspecified",
+          "Code": "R11.2",
+          "Score": 0.25762060284614563
+        },
+        {
+          "Description": "Unspecified abdominal pain",
+          "Code": "R10.9",
+          "Score": 0.03676649555563927
+        },
+        {
+          "Description": "Vomiting, unspecified",
+          "Code": "R11.10",
+          "Score": 0.030726205557584763
+        },
+        {
+          "Description": "Epigastric pain",
+          "Code": "R10.13",
+          "Score": 0.030560992658138275
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Text": "bloated",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5330596566200256,
+      "BeginOffset": 164,
+      "EndOffset": 171,
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.6603351831436157,
+          "RelationshipScore": 0.6270833611488342,
+          "Id": 12,
+          "BeginOffset": 209,
+          "EndOffset": 224,
+          "Text": "epigastric area",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.47435709834098816
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Abdominal distension (gaseous)",
+          "Code": "R14.0",
+          "Score": 0.14739836752414703
+        },
+        {
+          "Description": "Epigastric pain",
+          "Code": "R10.13",
+          "Score": 0.01778712123632431
+        },
+        {
+          "Description": "Flatulence",
+          "Code": "R14.3",
+          "Score": 0.011598672717809677
+        },
+        {
+          "Description": "Other specified symptoms and signs involving the digestive system and abdomen",
+          "Code": "R19.8",
+          "Score": 0.011007438413798809
+        },
+        {
+          "Description": "Functional dyspepsia",
+          "Code": "K30",
+          "Score": 0.008848492056131363
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": "uncomfortable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.877546489238739,
+      "BeginOffset": 176,
+      "EndOffset": 189,
+      "Attributes": [
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.6603351831436157,
+          "RelationshipScore": 0.7552722692489624,
+          "Id": 12,
+          "BeginOffset": 209,
+          "EndOffset": 224,
+          "Text": "epigastric area",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9214484095573425
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Epigastric pain",
+          "Code": "R10.13",
+          "Score": 0.2761724591255188
+        },
+        {
+          "Description": "Unspecified abdominal pain",
+          "Code": "R10.9",
+          "Score": 0.08937447518110275
+        },
+        {
+          "Description": "Generalized abdominal pain",
+          "Code": "R10.84",
+          "Score": 0.05723296478390694
+        },
+        {
+          "Description": "Periumbilical pain",
+          "Code": "R10.33",
+          "Score": 0.05162762850522995
+        },
+        {
+          "Description": "Epigastric abdominal tenderness",
+          "Code": "R10.816",
+          "Score": 0.05110308527946472
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "Text": "vomiting",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 238,
+      "EndOffset": 246,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.779019296169281
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Vomiting, unspecified",
+          "Code": "R11.10",
+          "Score": 0.5309709310531616
+        },
+        {
+          "Description": "Nausea with vomiting, unspecified",
+          "Code": "R11.2",
+          "Score": 0.06746552884578705
+        },
+        {
+          "Description": "Vomiting",
+          "Code": "R11.1",
+          "Score": 0.06086235120892525
+        },
+        {
+          "Description": "Vomiting without nausea",
+          "Code": "R11.11",
+          "Score": 0.03936932981014252
+        },
+        {
+          "Description": "Hematemesis",
+          "Code": "K92.0",
+          "Score": 0.0358390174806118
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "fever",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9584784507751465,
+      "BeginOffset": 250,
+      "EndOffset": 255,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.9596198797225952
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9817302823066711
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Fever, unspecified",
+          "Code": "R50.9",
+          "Score": 0.22100503742694855
+        },
+        {
+          "Description": "Postprocedural fever",
+          "Code": "R50.82",
+          "Score": 0.014675785787403584
+        },
+        {
+          "Description": "Cough",
+          "Code": "R05",
+          "Score": 0.007905436679720879
+        },
+        {
+          "Description": "Vomiting, unspecified",
+          "Code": "R11.10",
+          "Score": 0.007885505445301533
+        },
+        {
+          "Description": "Pyrexia of unknown origin following delivery",
+          "Code": "O86.4",
+          "Score": 0.00620231730863452
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20251001",
+  "ResponseMetadata": {
+    "RequestId": "90d36756-8743-485a-9875-b112f31eea10",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "90d36756-8743-485a-9875-b112f31eea10",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "6313",
+      "date": "Fri, 16 Jan 2026 11:30:08 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

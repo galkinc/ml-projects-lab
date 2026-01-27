@@ -1,0 +1,510 @@
+{
+  "Entities": [
+    {
+      "Id": 1,
+      "Text": "last two weeks",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 8,
+      "EndOffset": 22,
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.7613970637321472,
+          "RelationshipScore": 0.6270833611488342,
+          "Id": 3,
+          "BeginOffset": 53,
+          "EndOffset": 60,
+          "Text": "worried",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.8203471899032593
+            }
+          ]
+        }
+      ],
+      "Traits": [],
+      "ICD10CMConcepts": []
+    },
+    {
+      "Id": 1,
+      "Text": "last two weeks",
+      "Category": "TIME_EXPRESSION",
+      "Type": "TIME_TO_DX_NAME",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 8,
+      "EndOffset": 22,
+      "Attributes": [
+        {
+          "Type": "DX_NAME",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 4,
+          "BeginOffset": 65,
+          "EndOffset": 72,
+          "Text": "on edge",
+          "Traits": [
+            {
+              "Name": "SYMPTOM",
+              "Score": 0.6248409748077393
+            }
+          ]
+        }
+      ],
+      "Traits": [],
+      "ICD10CMConcepts": []
+    },
+    {
+      "Id": 3,
+      "Text": "worried",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.7613970637321472,
+      "BeginOffset": 53,
+      "EndOffset": 60,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.5692254304885864,
+          "Id": 2,
+          "BeginOffset": 42,
+          "EndOffset": 52,
+          "Text": "constantly",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Worries",
+          "Code": "R45.82",
+          "Score": 0.46102434396743774
+        },
+        {
+          "Description": "Anxiety disorder, unspecified",
+          "Code": "F41.9",
+          "Score": 0.13181756436824799
+        },
+        {
+          "Description": "Nervousness",
+          "Code": "R45.0",
+          "Score": 0.1109296903014183
+        },
+        {
+          "Description": "Other symptoms and signs involving emotional state",
+          "Code": "R45.89",
+          "Score": 0.09315495938062668
+        },
+        {
+          "Description": "Undue concern and preoccupation with stressful events",
+          "Code": "R46.6",
+          "Score": 0.07692426443099976
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "Text": "on edge",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5971075296401978,
+      "BeginOffset": 65,
+      "EndOffset": 72,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6248409748077393
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Disorientation, unspecified",
+          "Code": "R41.0",
+          "Score": 0.05126611143350601
+        },
+        {
+          "Description": "Undue concern and preoccupation with stressful events",
+          "Code": "R46.6",
+          "Score": 0.03632112964987755
+        },
+        {
+          "Description": "Other symptoms and signs involving emotional state",
+          "Code": "R45.89",
+          "Score": 0.022420067340135574
+        },
+        {
+          "Description": "Nervousness",
+          "Code": "R45.0",
+          "Score": 0.018198320642113686
+        },
+        {
+          "Description": "Altered mental status, unspecified",
+          "Code": "R41.82",
+          "Score": 0.017637455835938454
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Text": "trouble sleeping",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.877546489238739,
+      "BeginOffset": 81,
+      "EndOffset": 97,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9214484095573425
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Insomnia, unspecified",
+          "Code": "G47.00",
+          "Score": 0.38867148756980896
+        },
+        {
+          "Description": "Sleep disorder, unspecified",
+          "Code": "G47.9",
+          "Score": 0.2858864665031433
+        },
+        {
+          "Description": "Sleep deprivation",
+          "Code": "Z72.820",
+          "Score": 0.25586116313934326
+        },
+        {
+          "Description": "Hypersomnia, unspecified",
+          "Code": "G47.10",
+          "Score": 0.20009079575538635
+        },
+        {
+          "Description": "Parasomnia, unspecified",
+          "Code": "G47.50",
+          "Score": 0.14860957860946655
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Text": "wake up with racing thoughts",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.5971075296401978,
+      "BeginOffset": 105,
+      "EndOffset": 133,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.5296252369880676
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Other symptoms and signs involving cognitive functions and awareness",
+          "Code": "R41.89",
+          "Score": 0.023151686415076256
+        },
+        {
+          "Description": "Mixed obsessional thoughts and acts",
+          "Code": "F42.2",
+          "Score": 0.009599065408110619
+        },
+        {
+          "Description": "Other manic episodes",
+          "Code": "F30.8",
+          "Score": 0.00946834497153759
+        },
+        {
+          "Description": "Confusional arousals",
+          "Code": "G47.51",
+          "Score": 0.00912425760179758
+        },
+        {
+          "Description": "Manic episode",
+          "Code": "F30",
+          "Score": 0.008748886175453663
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Text": "heart palpitations",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.8617406487464905,
+      "BeginOffset": 160,
+      "EndOffset": 178,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5971075296401978,
+          "RelationshipScore": 0.6270833611488342,
+          "Id": 7,
+          "BeginOffset": 139,
+          "EndOffset": 148,
+          "Text": "sometimes",
+          "Traits": []
+        },
+        {
+          "Type": "SYSTEM_ORGAN_SITE",
+          "Score": 0.8435389995574951,
+          "RelationshipScore": 0.8534350991249084,
+          "Id": 8,
+          "BeginOffset": 160,
+          "EndOffset": 165,
+          "Text": "heart",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9013108015060425
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Palpitations",
+          "Code": "R00.2",
+          "Score": 0.6723913550376892
+        },
+        {
+          "Description": "Tachycardia, unspecified",
+          "Code": "R00.0",
+          "Score": 0.013066847808659077
+        },
+        {
+          "Description": "Unspecified abnormalities of heart beat",
+          "Code": "R00.9",
+          "Score": 0.011979732662439346
+        },
+        {
+          "Description": "Cardiac arrhythmia, unspecified",
+          "Code": "I49.9",
+          "Score": 0.009696343913674355
+        },
+        {
+          "Description": "Other specified cardiac arrhythmias",
+          "Code": "I49.8",
+          "Score": 0.00714942766353488
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Text": "feel sad",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.6603351831436157,
+      "BeginOffset": 188,
+      "EndOffset": 196,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.6248409748077393
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.6768204569816589
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Unhappiness",
+          "Code": "R45.2",
+          "Score": 0.2930850684642792
+        },
+        {
+          "Description": "Other symptoms and signs involving emotional state",
+          "Code": "R45.89",
+          "Score": 0.17447839677333832
+        },
+        {
+          "Description": "Depression, unspecified",
+          "Code": "F32.A",
+          "Score": 0.11856797337532043
+        },
+        {
+          "Description": "Demoralization and apathy",
+          "Code": "R45.3",
+          "Score": 0.09003797173500061
+        },
+        {
+          "Description": "Worries",
+          "Code": "R45.82",
+          "Score": 0.08970598131418228
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": "easily irritable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.7172441482543945,
+      "BeginOffset": 206,
+      "EndOffset": 222,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.7299559712409973
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Irritability and anger",
+          "Code": "R45.4",
+          "Score": 0.5351620316505432
+        },
+        {
+          "Description": "Unhappiness",
+          "Code": "R45.2",
+          "Score": 0.045620229095220566
+        },
+        {
+          "Description": "Hostility",
+          "Code": "R45.5",
+          "Score": 0.04461188241839409
+        },
+        {
+          "Description": "Emotional lability",
+          "Code": "R45.86",
+          "Score": 0.04289742559194565
+        },
+        {
+          "Description": "Other specified disorders of adult personality and behavior",
+          "Code": "F68.8",
+          "Score": 0.038052402436733246
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "Text": "panic attacks",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.7950295805931091,
+      "BeginOffset": 255,
+      "EndOffset": 268,
+      "Attributes": [],
+      "Traits": [
+        {
+          "Name": "NEGATION",
+          "Score": 0.5296252369880676
+        },
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.8203471899032593
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Panic disorder [episodic paroxysmal anxiety]",
+          "Code": "F41.0",
+          "Score": 0.41221126914024353
+        },
+        {
+          "Description": "Nervousness",
+          "Code": "R45.0",
+          "Score": 0.0168539360165596
+        },
+        {
+          "Description": "Obsessive-compulsive disorder, unspecified",
+          "Code": "F42.9",
+          "Score": 0.015263349749147892
+        },
+        {
+          "Description": "Agoraphobia with panic disorder",
+          "Code": "F40.01",
+          "Score": 0.015263236127793789
+        },
+        {
+          "Description": "Manic episode, unspecified",
+          "Code": "F30.9",
+          "Score": 0.014082682318985462
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Text": "irritable",
+      "Category": "MEDICAL_CONDITION",
+      "Type": "DX_NAME",
+      "Score": 0.9350614547729492,
+      "BeginOffset": 213,
+      "EndOffset": 222,
+      "Attributes": [
+        {
+          "Type": "QUALITY",
+          "Score": 0.5330596566200256,
+          "RelationshipScore": 0.5068173408508301,
+          "Id": 13,
+          "BeginOffset": 206,
+          "EndOffset": 212,
+          "Text": "easily",
+          "Traits": []
+        }
+      ],
+      "Traits": [
+        {
+          "Name": "SYMPTOM",
+          "Score": 0.9596198797225952
+        }
+      ],
+      "ICD10CMConcepts": [
+        {
+          "Description": "Irritability and anger",
+          "Code": "R45.4",
+          "Score": 0.6325355768203735
+        },
+        {
+          "Description": "Hostility",
+          "Code": "R45.5",
+          "Score": 0.047087181359529495
+        },
+        {
+          "Description": "Irritable bowel syndrome, unspecified",
+          "Code": "K58.9",
+          "Score": 0.04462423920631409
+        },
+        {
+          "Description": "Unhappiness",
+          "Code": "R45.2",
+          "Score": 0.04402732104063034
+        },
+        {
+          "Description": "Irritable bowel syndrome",
+          "Code": "K58",
+          "Score": 0.03297717124223709
+        }
+      ]
+    }
+  ],
+  "ModelVersion": "3.2.0.20251001",
+  "ResponseMetadata": {
+    "RequestId": "1f02b77a-6357-4cdb-a5e6-3dbaa46e8f1e",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "1f02b77a-6357-4cdb-a5e6-3dbaa46e8f1e",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "7693",
+      "date": "Fri, 16 Jan 2026 11:30:10 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

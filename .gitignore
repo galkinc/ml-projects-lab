@@ -24,3 +24,8 @@ __pycache__/
 
 # Notebook checkpoints
 .ipynb_checkpoints
+
+_ref/*
+_ref
+
+.ruff_cache

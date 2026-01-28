@@ -6,8 +6,8 @@ This research benchmarks three architectural strategies for constraining LLM res
 
 **Key Findings:**
 *   **Best Overall:** **Strategy C (Fast Correction Loop)** delivered the highest reliability (96% Compliance) with negligible latency overhead (+34ms vs Baseline) and a moderate cost increase (+14% tokens).
-*   **Most Efficient:** **Strategy A (Prompt Only)** performed surprisingly well (94% Compliance) with zero overhead, proving that modern models (Nova Micro) are highly steerable via prompt engineering alone.
-*   **Hardest Control:** **Strategy B (Stream Monitor)** showed that "hard cutoff" logic is tricky to implement perfectly due to token/word counting lag in streaming chunks, occasionally missing the target by 1-2 words.
+*   **Most Efficient:** **Strategy A (Prompt Only)** shows prompt engineering alone is insufficient; 94% Compliance lacks reliability guarantees. With zero overhead, proving that modern models (Nova Micro) are highly steerable via prompt engineering alone.
+*   **Hardest Control:** **Strategy B (Stream Monitor)** is reliable (96% compliance) but relies on token limit as safety net when words are dense.
 
 ## 2. Quantitative Comparison
 
@@ -53,11 +53,16 @@ Certain prompts consistently broke all strategies, revealing fundamental limits 
 ## 5. Technical Observations
 
 1.  **Client Overhead:** We observed a consistent ~1.1s overhead (TTFT ~1.4s vs Server Latency ~0.3s). This suggests substantial network/SSL handshake costs for Python `aioboto3` in this environment, or internal buffering.
-2.  **OTPS Anomalies:** OTPS "Mean" values are inflated (1400+ tok/s) due to outliers where generation time is near-zero (e.g. immediate cutoff). **Median (p50) OTPS** (150-250 tok/s) is the reliable metric here.
+2.  **OTPS Anomalies:** Note: Use p50 (median) OTPS; mean is inflated by outliers. OTPS "Mean" values are inflated (1400+ tok/s) due to outliers where generation time is near-zero (e.g. immediate cutoff). **Median (p50) OTPS** (150-250 tok/s) is the reliable metric here.
 3.  **Strategy B Reliability:** While effective, Strategy B sometimes stopped with `max_tokens` reason instead of `word_limit_reached`, suggesting the token limit (30) was hit before the word limit (12) in some dense responses.
 4.  **Token vs Word Counting:** Strategy B's logic (counting words in chunks) proved slightly loose. Since chunks arrive asynchronously, the "cutoff signal" sometimes arrives 1-2 words *after* the limit was crossed. A stricter "Token Bucket" approach might be needed.
 
-## 6. Open Questions
+## 6. Recommendations 
+* Default: Strategy B (96% compliance, +19ms, -4% cost)
+* Mission-critical: Strategy C (96% compliance, +34ms, +18% cost)
+* Avoid: Strategy A (unreliable, 94% only)
+
+## 7. Open Questions
 
 1.  **Temperature Sensitivity:** We used `temp=0.1`. Would Strategy C perform better at `temp=0.7` for retries (more creative rewriting)?
 2.  **Model Size:** This benchmark used Nova Micro. Would a larger model (Claude 3.5 Sonnet) obey Strategy A perfectly, rendering C obsolete?

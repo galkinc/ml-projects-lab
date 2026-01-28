@@ -1,0 +1,73 @@
+uv run --active python main.py --limit 50 --concurrency 3
+2026-01-29 00:18:25,277 UTC - INFO - 
+>>> Running Strategy A in comparison mode <<<
+2026-01-29 00:18:25,288 UTC - INFO - BedrockClientManager initialized
+2026-01-29 00:18:25,335 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-29 00:18:25,343 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-29 00:18:25,343 UTC - INFO - --- Starting Strategy A ---
+2026-01-29 00:18:25,343 UTC - INFO - Prompts: 50, Concurrency: 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:31<00:00,  1.57it/s]
+2026-01-29 00:18:57,150 UTC - INFO - === E2E Latency (ms) ===
+2026-01-29 00:18:57,150 UTC - INFO -   Mean: 1733.04 | p50: 1821.00 | p95: 2353.96
+2026-01-29 00:18:57,151 UTC - INFO - === TTFT (ms) ===
+2026-01-29 00:18:57,151 UTC - INFO -   Mean: 1548.85 | p50: 1598.92 | p95: 1899.02
+2026-01-29 00:18:57,152 UTC - INFO - === OTPS (tokens/s) ===
+2026-01-29 00:18:57,153 UTC - INFO -   Mean: 1404.68 | p50: 190.51 | p95: 4465.98
+2026-01-29 00:18:57,153 UTC - INFO - === Compliance Rate: 94.0% ===
+2026-01-29 00:18:57,154 UTC - INFO - === Avg Word Delta: +2.1 ===
+2026-01-29 00:18:57,161 UTC - INFO - JSONL logs saved to measurements\strategy_a\strategy_a_20260128T211857Z.jsonl
+2026-01-29 00:18:57,167 UTC - INFO - Markdown report saved to measurements\strategy_a\strategy_a_20260128T211857Z.md
+2026-01-29 00:18:57,167 UTC - INFO - Strategy A finished. Report: measurements\strategy_a\strategy_a_20260128T211857Z.csv
+2026-01-29 00:18:57,167 UTC - INFO - BedrockClientManager shutting down
+2026-01-29 00:18:57,425 UTC - INFO - 
+>>> Running Strategy B in comparison mode <<<
+2026-01-29 00:18:57,448 UTC - INFO - BedrockClientManager initialized
+2026-01-29 00:18:57,451 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-29 00:18:57,458 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-29 00:18:57,459 UTC - INFO - --- Starting Strategy B ---
+2026-01-29 00:18:57,459 UTC - INFO - Prompts: 50, Concurrency: 3
+  0%|                                                                                                                                                                                                   | 0/50 [00:00<?, ?it/s]2026-01-29 00:18:59,534 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 6 chunks.
+  2%|███▋                                                                                                                                                                                       | 1/50 [00:02<02:02,  2.50s/it]2026-01-29 00:19:00,371 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 8 chunks.
+ 32%|███████████████████████████████████████████████████████████▌                                                                                                                              | 16/50 [00:11<00:22,  1.51it/s]2026-01-29 00:19:09,217 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=16 from 15 chunks.
+ 40%|██████████████████████████████████████████████████████████████████████████▍                                                                                                               | 20/50 [00:14<00:20,  1.50it/s]2026-01-29 00:19:12,455 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=18 from 7 chunks.
+ 44%|█████████████████████████████████████████████████████████████████████████████████▊                                                                                                        | 22/50 [00:15<00:16,  1.67it/s]2026-01-29 00:19:12,871 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 10 chunks.
+2026-01-29 00:19:13,285 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 50%|█████████████████████████████████████████████████████████████████████████████████████████████                                                                                             | 25/50 [00:17<00:15,  1.66it/s]2026-01-29 00:19:14,754 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 11 chunks.
+ 62%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                                      | 31/50 [00:21<00:11,  1.65it/s]2026-01-29 00:19:18,536 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 14 chunks.
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:31<00:00,  1.58it/s]
+2026-01-29 00:19:29,105 UTC - INFO - === E2E Latency (ms) ===
+2026-01-29 00:19:29,105 UTC - INFO -   Mean: 1752.28 | p50: 1834.51 | p95: 2050.14
+2026-01-29 00:19:29,107 UTC - INFO - === TTFT (ms) ===
+2026-01-29 00:19:29,107 UTC - INFO -   Mean: 1562.89 | p50: 1689.50 | p95: 1890.08
+2026-01-29 00:19:29,108 UTC - INFO - === OTPS (tokens/s) ===
+2026-01-29 00:19:29,108 UTC - INFO -   Mean: 1407.99 | p50: 155.13 | p95: 4520.29
+2026-01-29 00:19:29,109 UTC - INFO - === Compliance Rate: 96.0% ===
+2026-01-29 00:19:29,110 UTC - INFO - === Avg Word Delta: +2.0 ===
+2026-01-29 00:19:29,259 UTC - INFO - JSONL logs saved to measurements\strategy_b\strategy_b_20260128T211929Z.jsonl
+2026-01-29 00:19:29,267 UTC - INFO - Markdown report saved to measurements\strategy_b\strategy_b_20260128T211929Z.md
+2026-01-29 00:19:29,268 UTC - INFO - Strategy B finished. Report: measurements\strategy_b\strategy_b_20260128T211929Z.csv
+2026-01-29 00:19:29,268 UTC - INFO - BedrockClientManager shutting down
+2026-01-29 00:19:29,519 UTC - INFO - 
+>>> Running Strategy C in comparison mode <<<
+2026-01-29 00:19:29,544 UTC - INFO - BedrockClientManager initialized
+2026-01-29 00:19:29,548 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-29 00:19:29,555 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-29 00:19:29,555 UTC - INFO - --- Starting Strategy C ---
+2026-01-29 00:19:29,556 UTC - INFO - Prompts: 50, Concurrency: 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:32<00:00,  1.55it/s] 
+2026-01-29 00:20:01,738 UTC - INFO - === E2E Latency (ms) ===
+2026-01-29 00:20:01,739 UTC - INFO -   Mean: 1766.52 | p50: 1799.04 | p95: 2348.22
+2026-01-29 00:20:01,740 UTC - INFO - === TTFT (ms) ===
+2026-01-29 00:20:01,740 UTC - INFO -   Mean: 1621.19 | p50: 1631.30 | p95: 2282.80
+2026-01-29 00:20:01,741 UTC - INFO - === OTPS (tokens/s) ===
+2026-01-29 00:20:01,741 UTC - INFO -   Mean: 1396.24 | p50: 269.17 | p95: 4455.08
+2026-01-29 00:20:01,742 UTC - INFO - === Compliance Rate: 96.0% ===
+2026-01-29 00:20:01,742 UTC - INFO - === Avg Word Delta: +1.8 ===
+2026-01-29 00:20:01,891 UTC - INFO - JSONL logs saved to measurements\strategy_c\strategy_c_20260128T212001Z.jsonl
+2026-01-29 00:20:01,896 UTC - INFO - Markdown report saved to measurements\strategy_c\strategy_c_20260128T212001Z.md
+2026-01-29 00:20:01,896 UTC - INFO - Strategy C finished. Report: measurements\strategy_c\strategy_c_20260128T212001Z.csv
+2026-01-29 00:20:01,897 UTC - INFO - BedrockClientManager shutting down
+2026-01-29 00:20:02,149 UTC - INFO - 
+>>> Generating Comparison Report <<<
+2026-01-29 00:20:02,560 UTC - INFO - Comparison report saved to measurements\comparison_20260128T212002Z_comparison.md

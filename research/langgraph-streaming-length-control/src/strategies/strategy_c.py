@@ -100,7 +100,9 @@ class StrategyCFastCorrection:
         """Generate with retry loop until compliant."""
         start_time = time.perf_counter()
         max_tokens = settings.bedrock.max_tokens
-        max_attempts = settings.bedrock.max_attempts
+        compliance_regeneration_attempts = (
+            settings.bedrock.compliance_regeneration_attempts
+        )
 
         attempt = 1
         all_attempts = []
@@ -109,7 +111,7 @@ class StrategyCFastCorrection:
 
         try:
             async with bedrock_manager.get_client() as client:
-                while attempt <= max_attempts:
+                while attempt <= compliance_regeneration_attempts:
                     response_text, attempt_meta = await self._generate_once(
                         client, current_messages, attempt=attempt, max_tokens=max_tokens
                     )
@@ -123,7 +125,7 @@ class StrategyCFastCorrection:
                         f"Compliant: {is_compliant}"
                     )
 
-                    if is_compliant or attempt >= max_attempts:
+                    if is_compliant or attempt >= compliance_regeneration_attempts:
                         break
 
                     # Prepare retry
@@ -177,7 +179,7 @@ class StrategyCFastCorrection:
             "total_cost_input_tokens": total_input,
             "total_cost_output_tokens": total_output,
             "num_attempts": len(all_attempts),
-            "first_attempt_compliant": len(all_attempts) == 1
+            "first_attempt_compliant": len(all_attempts) == 1,
         }
 
         result = calculate_metrics(

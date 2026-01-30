@@ -5,6 +5,8 @@ from typing import Dict, List, NamedTuple
 import numpy as np
 import pandas as pd
 
+from config import settings
+
 logger = logging.getLogger(__name__)
 
 
@@ -30,19 +32,24 @@ class DataLoader:
 
     def _categorize_complexity(self, text: str, category: str) -> str:
         """
-        Categorize prompt complexity based on category and length.
-
-        Low: Writing category, length < 50 tokens (approx words * 1.3)
-        Medium: Roleplay, Reasoning or length 50-100 tokens
-        High: Math, Coding, multi-turn (simulated by length > 100)
+        Categorize prompt complexity based on category and length using config.
         """
-        # Simple estimation: 1 word approx 1.3 tokens.
-        # Better would be to use a tokenizer, but this is sufficient for categorization
-        approx_tokens = len(text.split()) * 1.3
+        # Simple estimation based on config factor
+        approx_tokens = (
+            len(text.split()) * settings.data_loader.tokens_per_word_estimate
+        )
 
-        if approx_tokens > 100 or category in ["math", "coding"]:
+        # Check explicit category mappings first (High priority)
+        if category in settings.data_loader.complexity_categories_map.get("High", []):
             return "High"
-        elif 50 <= approx_tokens <= 100 or category in ["roleplay", "reasoning"]:
+        if category in settings.data_loader.complexity_categories_map.get("Medium", []):
+            return "Medium"
+
+        # Fallback to length-based thresholds
+        thresholds = settings.data_loader.complexity_thresholds
+        if approx_tokens > thresholds.get("Medium", 100):
+            return "High"
+        elif approx_tokens >= thresholds.get("Low", 50):
             return "Medium"
         else:
             return "Low"

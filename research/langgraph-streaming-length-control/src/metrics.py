@@ -6,7 +6,8 @@ from config import settings
 from src.types import GenerationResult, LatencyPercentiles, RawStreamData
 
 logger = logging.getLogger(__name__)
-STALL_THRESHOLD_MS = 300.0  # Threshold to consider a pause as a "stall" (freeze)
+STALL_THRESHOLD_MS = settings.metrics.stall_threshold_ms
+MAX_TOKENS_LIMIT = settings.bedrock.max_tokens
 
 
 class MetricsCalculator:
@@ -24,16 +25,26 @@ class MetricsCalculator:
                 "max": 0.0,
                 "count": 0,
             }
-        return {
-            "p50": float(np.percentile(latencies, 50)),
-            "p90": float(np.percentile(latencies, 90)),
-            "p95": float(np.percentile(latencies, 95)),
-            "p99": float(np.percentile(latencies, 99)),
+
+        # Calculate standard stats
+        stats: LatencyPercentiles = {
             "mean": float(np.mean(latencies)),
             "min": float(np.min(latencies)),
             "max": float(np.max(latencies)),
             "count": len(latencies),
+            "p50": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,  # defaults
         }
+
+        # Calculate requested percentiles
+        for p in settings.metrics.latency_percentile_targets:
+            key = f"p{p}"
+            if key in stats:  # Only update known keys in TypedDict
+                stats[key] = float(np.percentile(latencies, p))  # type: ignore
+
+        return stats
 
 
 def _normalize_stop_reason(stop_reason: str | None) -> str | None:
@@ -62,8 +73,8 @@ def _normalize_stop_reason(stop_reason: str | None) -> str | None:
 def calculate_metrics(
     data: RawStreamData,
     strategy_name: str,
-    max_tokens_limit: int = 30,
-    stall_threshold_ms: float = 300.0,
+    max_tokens_limit: int = MAX_TOKENS_LIMIT,
+    stall_threshold_ms: float = STALL_THRESHOLD_MS,
 ) -> GenerationResult:
     """
     Centralized metric calculation logic.
@@ -78,6 +89,7 @@ def calculate_metrics(
     response = data["full_response"]
     raw_stop_reason = data["stop_reason"]
     stop_reason = _normalize_stop_reason(raw_stop_reason)
+    has_token_mismatch = False  # Validate token consistency
 
     # 1. Latency Calculations
     ttft_ms = (first_token_time - start_time) * 1000 if first_token_time else None
@@ -97,12 +109,18 @@ def calculate_metrics(
     if output_tokens == 0 and len(token_times) > 0:
         logger.warning(
             f"Token consistency error: {len(token_times)} chunks but 0 output tokens"
+            f"Prompt ID: {data.get('prompt_id', 'unknown')}. "
+            f"This may indicate AWS API inconsistency."
         )
+        has_token_mismatch = True
     elif len(token_times) > 0 and abs(len(token_times) - output_tokens) > 2:
         logger.debug(
             f"Token consistency: {len(token_times)} "
             f"chunks vs {output_tokens} output tokens"
+            f"Deviation: {abs(len(token_times) - output_tokens)}. "
+            f"Falling back to AWS reported token count."
         )
+        has_token_mismatch = True
 
     # Check if we truly hit the limit
     hit_token_limit = (output_tokens >= max_tokens_limit) and (
@@ -209,4 +227,5 @@ def calculate_metrics(
         "total_cost_input_tokens": data.get("total_cost_input_tokens", input_tokens),
         "total_cost_output_tokens": data.get("total_cost_output_tokens", output_tokens),
         "num_attempts": data.get("num_attempts", 1),
+        "has_token_mismatch": has_token_mismatch,
     }

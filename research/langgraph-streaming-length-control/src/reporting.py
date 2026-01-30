@@ -5,9 +5,13 @@ from typing import Any, Dict, List
 import numpy as np
 import pandas as pd
 
+from config import settings
 from src.metrics import MetricsCalculator
 
 logger = logging.getLogger(__name__)
+
+
+TOP_N_SAMPLES_TO_SHOW = settings.reporting.top_n_samples_to_show
 
 
 class ReportGenerator:
@@ -327,8 +331,8 @@ class ReportGenerator:
                     f.write("\n")
 
                 # Detailed Samples
-                f.write("## Detailed Samples (Top 20)\n")
-                samples_to_show = df.head(20)
+                f.write(f"## Detailed Samples (Top {TOP_N_SAMPLES_TO_SHOW})\n")
+                samples_to_show = df.head(TOP_N_SAMPLES_TO_SHOW)
 
                 for idx, row in samples_to_show.iterrows():
                     response_text = str(row.get("response", ""))

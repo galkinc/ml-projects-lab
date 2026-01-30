@@ -1,4 +1,4 @@
-from typing import Any, NotRequired, TypedDict
+from typing import Any, NotRequired, Protocol, TypedDict
 
 
 class LatencyPercentiles(TypedDict):
@@ -24,7 +24,6 @@ class RawStreamData(TypedDict):
     stop_reason: str | None
     full_response: str
     prompt: str
-
     # Optional fields for multi-turn strategies
     total_cost_input_tokens: NotRequired[int]
     total_cost_output_tokens: NotRequired[int]
@@ -75,3 +74,11 @@ class GenerationResult(TypedDict):
     # Extended metrics
     word_count_delta: int
     first_attempt_compliant: bool | None
+    has_token_mismatch: bool
+
+
+# Protocol for Strategy Pattern
+class LengthControlStrategy(Protocol):
+    async def generate(self, prompt: str) -> GenerationResult:
+        """Generate a response based on the prompt."""
+        ...

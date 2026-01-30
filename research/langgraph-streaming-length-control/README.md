@@ -50,9 +50,11 @@ We will compare three specific implementations suitable for streaming.
     *   **Node 1 (Generate):** Streams result using `aioboto3`.
     *   **Node 2 (Evaluate):** Python function checks word count.
     *   **Edge:** If `length > 12` AND `attempt < 2`: Route to Retry. Else: END.
-    *   *Crucial Detail:* Since we are optimizing for speed, we use raw clients inside nodes, bypassing `langchain-aws`.
 *   **Pros:** High quality/compliance.
-*   **Cons:** High Latency Penalty (User waits for 2 generations if the first fails). *Note: For streaming, this implies we might buffer the first attempt or the user sees the correction happening.* **Decision:** We will measure this as a "Buffered" approach to see the cost of guaranteed quality.
+*   **Cons:** **UX Trade-off:** Requires buffering entire response for validation. 
+    *   *Option 1 (Optimistic Streaming):* User sees text generate, then it disappears/rewrites if validation fails (bad UX).
+    *   *Option 2 (Buffered):* User waits for full generation + validation. **Destroys TTFT.**
+    *   *Our Implementation:* We measure TTFT of the *first* attempt (Optimistic), but acknowledge the UX risk.
 
 ## 4. Architecture Changes
 

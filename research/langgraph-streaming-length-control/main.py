@@ -1,9 +1,10 @@
 import argparse
 import asyncio
+import gc
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 import pandas as pd
 from tqdm.asyncio import tqdm
@@ -18,6 +19,7 @@ from src.reporting import ReportGenerator
 from src.strategies.strategy_a import StrategyABaseline
 from src.strategies.strategy_b import StrategyBStreamMonitor
 from src.strategies.strategy_c import StrategyCFastCorrection
+from src.types import LengthControlStrategy
 from src.utils import get_report_path
 
 
@@ -64,17 +66,20 @@ def setup_logging() -> None:
 
 
 async def run_strategy(
-    strategy_key: str, strategy_impl: object, args: argparse.Namespace
+    strategy_key: str, strategy_impl: LengthControlStrategy, args: argparse.Namespace
 ) -> pd.DataFrame:
     logger = logging.getLogger(__name__)
 
     # 1. Init AWS Client (Singleton)
-    creds = settings.get_aws_credentials()
     bedrock_manager.initialize(
-        region_name=creds.get("region_name"),
-        aws_access_key_id=creds.get("aws_access_key_id"),
-        aws_secret_access_key=creds.get("aws_secret_access_key"),
-        max_pool_connections=max(args.concurrency * 2, 50),
+        region_name=settings.aws_region,
+        aws_access_key_id=settings.aws_access_key_id,
+        aws_secret_access_key=settings.aws_secret_access_key,
+        max_pool_connections=settings.infra.default_min_pool_connnections,
+        connect_timeout=settings.infra.connect_timeout,
+        read_timeout=settings.infra.read_timeout,
+        max_attempts=settings.infra.max_attempts,
+        pool_scaling_factor=settings.infra.pool_scaling_factor,
         benchmark_workers=args.concurrency,
     )
 
@@ -94,10 +99,15 @@ async def run_strategy(
     # 3. Execution Loop
     sem = asyncio.Semaphore(args.concurrency)
 
-    async def process_sample(sample: PromptSample) -> Dict[str, Any]:
+    async def process_sample(sample: PromptSample) -> dict[str, Any]:
         async with sem:
             try:
-                result = await strategy_impl.generate(sample.prompt)
+                # Protect against hanging requests with global timeout
+                result = await asyncio.wait_for(
+                    strategy_impl.generate(sample.prompt),
+                    timeout=settings.infra.global_timeout,
+                )
+
                 # Merge sample info with result
                 return {
                     "prompt_id": sample.prompt_id,
@@ -106,11 +116,32 @@ async def run_strategy(
                     "prompt": sample.prompt,
                     **result,
                 }
-            except Exception as e:
-                logger.error(f"Sample {sample.prompt_id} failed: {e}")
+            except asyncio.TimeoutError:
+                logger.error(
+                    f"Sample {sample.prompt_id} timed out after {settings.infra.global_timeout}s"
+                )
                 return {
                     "prompt_id": sample.prompt_id,
+                    "error": "TimeoutError",
+                    "strategy": f"strategy_{strategy_key}",
+                }
+            except Exception as e:
+                logger.error(
+                    f"Sample {sample.prompt_id} ({sample.category}/{sample.complexity}) failed. "
+                    f"Error type: {type(e).__name__}. Message: {e}",
+                    exc_info=True,  # ← Полный stack trace
+                    extra={
+                        "prompt_id": sample.prompt_id,
+                        "strategy": strategy_key,
+                        "category": sample.category,
+                    },
+                )
+                return {
+                    "prompt_id": sample.prompt_id,
+                    "category": sample.category,
+                    "complexity": sample.complexity,
                     "error": str(e),
+                    "error_type": type(e).__name__,
                     "strategy": f"strategy_{strategy_key}",
                 }
 
@@ -137,11 +168,15 @@ async def run_strategy(
         return df
 
     finally:
-        await bedrock_manager.close()
+        await bedrock_manager.close(
+            grace_period_sec=settings.infra.shutdown_grace_period_sec
+        )
+        # Force cleanup to prevent "Unclosed connection" warnings from aiobotocore
+        gc.collect()
 
 
 async def run_all_strategies(
-    args: argparse.Namespace, strategy_map: Dict[str, Any]
+    args: argparse.Namespace, strategy_map: dict[str, LengthControlStrategy]
 ) -> None:
     results_map = {}
 

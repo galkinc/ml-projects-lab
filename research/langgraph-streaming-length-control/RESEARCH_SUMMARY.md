@@ -30,7 +30,7 @@ This research benchmarks three architectural strategies for constraining LLM res
 
 Is the Agentic Loop (Strategy C) worth it?
 
-*   **Latency Cost:** Only **+53ms** (+3%) compared to Baseline. This is surprisingly low because the retry only triggers in a minority of cases.
+*   **Latency Cost:** **+53ms** (+3%) compared to Baseline.
 *   **Financial Cost:** **+17%** more output tokens. This is the price of generation retries.
 *   **Quality Gain:** **+10%** absolute compliance gain over Baseline (77% -> 88%).
 

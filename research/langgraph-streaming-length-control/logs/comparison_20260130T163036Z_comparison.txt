@@ -1,0 +1,94 @@
+uv run --active python main.py --limit 80 --concurrency 3
+2026-01-30 19:28:01,640 UTC - INFO - 
+>>> Running Strategy A in comparison mode <<<
+2026-01-30 19:28:01,652 UTC - INFO - BedrockClientManager initialized
+2026-01-30 19:28:01,701 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-30 19:28:01,708 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-30 19:28:01,708 UTC - INFO - --- Starting Strategy A ---
+2026-01-30 19:28:01,709 UTC - INFO - Prompts: 80, Concurrency: 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [00:50<00:00,  1.57it/s]
+2026-01-30 19:28:52,619 UTC - INFO - === E2E Latency (ms) ===
+2026-01-30 19:28:52,619 UTC - INFO -   Mean: 1743.79 | p50: 1825.72 | p95: 2060.27
+2026-01-30 19:28:52,620 UTC - INFO - === TTFT (ms) ===
+2026-01-30 19:28:52,620 UTC - INFO -   Mean: 1569.56 | p50: 1698.37 | p95: 1884.04
+2026-01-30 19:28:52,621 UTC - INFO - === OTPS (tokens/s) ===
+2026-01-30 19:28:52,621 UTC - INFO -   Mean: 1519.83 | p50: 205.17 | p95: 5750.96
+2026-01-30 19:28:52,622 UTC - INFO - === Compliance Rate: 77.5% ===
+2026-01-30 19:28:52,622 UTC - INFO - === Avg Word Delta: -0.1 ===
+2026-01-30 19:28:52,632 UTC - INFO - JSONL logs saved to measurements\strategy_a\strategy_a_20260130T162852Z.jsonl
+2026-01-30 19:28:52,646 UTC - INFO - Markdown report saved to measurements\strategy_a\strategy_a_20260130T162852Z.md
+2026-01-30 19:28:52,646 UTC - INFO - Strategy A finished. Report: measurements\strategy_a\strategy_a_20260130T162852Z.csv
+2026-01-30 19:28:52,646 UTC - INFO - BedrockClientManager shutting down
+2026-01-30 19:28:53,312 UTC - INFO - 
+>>> Running Strategy B in comparison mode <<<
+2026-01-30 19:28:53,323 UTC - INFO - BedrockClientManager initialized
+2026-01-30 19:28:53,327 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-30 19:28:53,334 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-30 19:28:53,334 UTC - INFO - --- Starting Strategy B ---
+2026-01-30 19:28:53,334 UTC - INFO - Prompts: 80, Concurrency: 3
+  9%|████████████████▎                                                                                                                                                                          | 7/80 [00:06<00:51,  1.42it/s]2026-01-30 19:28:59,566 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 7 chunks.
+ 15%|███████████████████████████▉                                                                                                                                                              | 12/80 [00:08<00:37,  1.82it/s]2026-01-30 19:29:02,980 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 8 chunks.
+ 16%|██████████████████████████████▏                                                                                                                                                           | 13/80 [00:10<00:46,  1.43it/s]2026-01-30 19:29:03,401 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 9 chunks.
+2026-01-30 19:29:03,825 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 18%|████████████████████████████████▌                                                                                                                                                         | 14/80 [00:10<00:48,  1.36it/s]2026-01-30 19:29:04,900 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=16 from 8 chunks.
+ 20%|█████████████████████████████████████▏                                                                                                                                                    | 16/80 [00:11<00:41,  1.54it/s]2026-01-30 19:29:05,740 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 29%|█████████████████████████████████████████████████████▍                                                                                                                                    | 23/80 [00:16<00:38,  1.48it/s]2026-01-30 19:29:10,697 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 9 chunks.
+ 31%|██████████████████████████████████████████████████████████▏                                                                                                                               | 25/80 [00:17<00:34,  1.61it/s]2026-01-30 19:29:11,117 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=16 from 6 chunks.
+ 32%|████████████████████████████████████████████████████████████▍                                                                                                                             | 26/80 [00:18<00:36,  1.50it/s]2026-01-30 19:29:12,513 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 9 chunks.
+ 35%|█████████████████████████████████████████████████████████████████                                                                                                                         | 28/80 [00:19<00:31,  1.67it/s]2026-01-30 19:29:13,361 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 36%|███████████████████████████████████████████████████████████████████▍                                                                                                                      | 29/80 [00:20<00:33,  1.53it/s]2026-01-30 19:29:14,368 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 9 chunks.
+ 39%|████████████████████████████████████████████████████████████████████████                                                                                                                  | 31/80 [00:21<00:29,  1.68it/s]2026-01-30 19:29:15,229 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 42%|███████████████████████████████████████████████████████████████████████████████                                                                                                           | 34/80 [00:23<00:27,  1.67it/s]2026-01-30 19:29:16,667 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=17 from 17 chunks.
+ 46%|██████████████████████████████████████████████████████████████████████████████████████                                                                                                    | 37/80 [00:25<00:25,  1.70it/s]2026-01-30 19:29:18,477 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=16 from 16 chunks.
+2026-01-30 19:29:18,478 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 6 chunks.
+ 50%|█████████████████████████████████████████████████████████████████████████████████████████████                                                                                             | 40/80 [00:26<00:23,  1.71it/s]2026-01-30 19:29:20,307 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 14 chunks.
+ 54%|███████████████████████████████████████████████████████████████████████████████████████████████████▉                                                                                      | 43/80 [00:28<00:21,  1.68it/s]2026-01-30 19:29:22,185 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=18 from 10 chunks.
+ 55%|██████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                                                   | 44/80 [00:29<00:23,  1.55it/s]2026-01-30 19:29:23,687 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 6 chunks.
+ 57%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                                               | 46/80 [00:30<00:20,  1.64it/s]2026-01-30 19:29:24,115 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 8 chunks.
+2026-01-30 19:29:24,539 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 61%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                                        | 49/80 [00:32<00:18,  1.67it/s]2026-01-30 19:29:25,964 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 5 chunks.
+ 78%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                         | 62/80 [00:41<00:11,  1.51it/s]2026-01-30 19:29:35,112 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=18 from 8 chunks.
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                     | 64/80 [00:42<00:09,  1.62it/s]2026-01-30 19:29:35,957 UTC - ERROR - Unclosed connection
+client_connection: Connection<ConnectionKey(host='bedrock-runtime.us-east-1.amazonaws.com', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+ 99%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋  | 79/80 [00:51<00:00,  2.12it/s]2026-01-30 19:29:44,515 UTC - INFO - Stream cutoff at word_limit. Estimated tokens=15 from 10 chunks.
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [00:51<00:00,  1.56it/s]
+2026-01-30 19:29:44,528 UTC - INFO - === E2E Latency (ms) ===
+2026-01-30 19:29:44,529 UTC - INFO -   Mean: 1763.42 | p50: 1853.75 | p95: 2364.92
+2026-01-30 19:29:44,530 UTC - INFO - === TTFT (ms) ===
+2026-01-30 19:29:44,530 UTC - INFO -   Mean: 1553.52 | p50: 1497.15 | p95: 1894.76
+2026-01-30 19:29:44,531 UTC - INFO - === OTPS (tokens/s) ===
+2026-01-30 19:29:44,532 UTC - INFO -   Mean: 1154.88 | p50: 169.18 | p95: 4602.32
+2026-01-30 19:29:44,532 UTC - INFO - === Compliance Rate: 87.5% ===
+2026-01-30 19:29:44,532 UTC - INFO - === Avg Word Delta: -0.2 ===
+2026-01-30 19:29:44,542 UTC - INFO - JSONL logs saved to measurements\strategy_b\strategy_b_20260130T162944Z.jsonl
+2026-01-30 19:29:44,554 UTC - INFO - Markdown report saved to measurements\strategy_b\strategy_b_20260130T162944Z.md
+2026-01-30 19:29:44,554 UTC - INFO - Strategy B finished. Report: measurements\strategy_b\strategy_b_20260130T162944Z.csv
+2026-01-30 19:29:44,555 UTC - INFO - BedrockClientManager shutting down
+2026-01-30 19:29:45,213 UTC - INFO - 
+>>> Running Strategy C in comparison mode <<<
+2026-01-30 19:29:45,224 UTC - INFO - BedrockClientManager initialized
+2026-01-30 19:29:45,228 UTC - INFO - Loaded 80 prompts from data\mtbench_prompts.parquet
+2026-01-30 19:29:45,237 UTC - INFO - Categorization results: Low=13, Medium={len(samples['Medium'])}, High={len(samples['High'])}
+2026-01-30 19:29:45,237 UTC - INFO - --- Starting Strategy C ---
+2026-01-30 19:29:45,237 UTC - INFO - Prompts: 80, Concurrency: 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [00:50<00:00,  1.59it/s] 
+2026-01-30 19:30:35,656 UTC - INFO - === E2E Latency (ms) ===
+2026-01-30 19:30:35,656 UTC - INFO -   Mean: 1796.12 | p50: 1811.73 | p95: 2379.95
+2026-01-30 19:30:35,657 UTC - INFO - === TTFT (ms) ===
+2026-01-30 19:30:35,658 UTC - INFO -   Mean: 1653.73 | p50: 1692.06 | p95: 2326.60
+2026-01-30 19:30:35,658 UTC - INFO - === OTPS (tokens/s) ===
+2026-01-30 19:30:35,659 UTC - INFO -   Mean: 1372.61 | p50: 210.46 | p95: 5735.32
+2026-01-30 19:30:35,659 UTC - INFO - === Compliance Rate: 87.5% ===
+2026-01-30 19:30:35,660 UTC - INFO - === Avg Word Delta: +0.1 ===
+2026-01-30 19:30:35,665 UTC - INFO - JSONL logs saved to measurements\strategy_c\strategy_c_20260130T163035Z.jsonl
+2026-01-30 19:30:35,681 UTC - INFO - Markdown report saved to measurements\strategy_c\strategy_c_20260130T163035Z.md
+2026-01-30 19:30:35,681 UTC - INFO - Strategy C finished. Report: measurements\strategy_c\strategy_c_20260130T163035Z.csv
+2026-01-30 19:30:35,681 UTC - INFO - BedrockClientManager shutting down
+2026-01-30 19:30:36,363 UTC - INFO - 
+>>> Generating Comparison Report <<<
+2026-01-30 19:30:37,053 UTC - INFO - Comparison report saved to measurements\comparison_20260130T163036Z_comparison.md
